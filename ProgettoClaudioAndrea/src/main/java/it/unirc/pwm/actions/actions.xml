@@ -1,0 +1,20 @@
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 6.0//EN" "https://struts.apache.org/dtds/struts-6.0.dtd">
+
+
+<struts>
+
+	<package name="actions" namespace="/actions"
+		extends="struts-default">
+
+		<action name="RegistraNuovoCliente"
+			class="it.unirc.pwm.actions.RegistraNuovoCliente">
+			<result name="success">/loginCliente.jsp</result>
+			<result name="error">/registraNuovoCliente.jsp</result>
+			<result name="input">/registraNuovoCliente.jsp</result>
+		</action>
+
+
+	</package>
+
+
+</struts>
