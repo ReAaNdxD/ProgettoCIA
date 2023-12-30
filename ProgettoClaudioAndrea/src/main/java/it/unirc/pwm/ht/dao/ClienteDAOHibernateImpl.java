@@ -18,6 +18,7 @@ import it.unirc.db.ecommerce.views.Customer;
 import it.unirc.pwm.ht.Carrello;
 import it.unirc.pwm.ht.Cliente;
 import it.unirc.pwm.ht.Ordine;
+import jakarta.persistence.PersistenceException;
 
 public class ClienteDAOHibernateImpl implements ClienteDAO {
 	static private Logger logger = LogManager.getLogger("Logger");
@@ -36,6 +37,7 @@ public class ClienteDAOHibernateImpl implements ClienteDAO {
 			res = true;
 		} catch (HibernateException e) {
 			transaction.rollback();
+			return false;
 		} finally {
 			if (session != null) // spesso omesso
 				session.close();
@@ -172,7 +174,7 @@ public class ClienteDAOHibernateImpl implements ClienteDAO {
 			System.out.println(email);
 //			List<Studente> l=session.createQuery("from Studente where nome=?1",Studente.class).setParameter(1, "Mario").list();
 //			Studente s=session.createQuery("from Studente",Studente.class).setMaxResults(1).uniqueResult(); 
-			Cliente c=session.createQuery("FROM Account WHERE email =?1",Cliente.class).setMaxResults(1).uniqueResult(); 
+			Cliente c=session.createQuery("FROM Account WHERE email =?1",Cliente.class).getSingleResult(); 
 //			List<Cliente> c = session.createQuery("FROM Account WHERE email =?1",Cliente.class).setParameter(1, email).list();
 //			q.setParameter(1, email);
 //			c = q.getSingleResult();
@@ -183,7 +185,7 @@ public class ClienteDAOHibernateImpl implements ClienteDAO {
 			transaction.commit();
 			}catch (Exception e) {
 				transaction.rollback();
-				return true;
+//				
 //				e.getStackTrace();
 			} 
 			finally {
