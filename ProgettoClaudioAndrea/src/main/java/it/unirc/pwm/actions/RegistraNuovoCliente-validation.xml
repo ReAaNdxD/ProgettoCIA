@@ -14,6 +14,11 @@
 		</field-validator>
 	</field>
 	
+	<validator type="expression">
+		<param name="expression">cliente.password == ripetiPassword</param>
+		<message>Le password non coincidono</message>
+	</validator>
+	
 	<field name="cliente.nome">
 		<field-validator type="requiredstring">
 			<message>nome è richiesto.</message>

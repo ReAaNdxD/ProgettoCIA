@@ -10,6 +10,8 @@ public class RegistraNuovoCliente extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
 	private Cliente cliente;
+	String password;
+	String ripetiPassword;
 
 	public Cliente getCliente() {
 		return cliente;
@@ -21,23 +23,10 @@ public class RegistraNuovoCliente extends ActionSupport {
 
 	public String execute() {
 		ClienteDAO cDAO = ClienteDAOFactory.getDAO();
-		if (cDAO.checkEmail(this.cliente.getEmail())) {
-			System.out.println("ce email nel db");
-			addFieldError("cliente.email", "email già esistente");
-			return INPUT;
-//			if (cDAO.salva(cliente))
-//				return SUCCESS;
-//			else {
-//				System.out.println("Non ho salvato");
-//				addActionError("Non sono riuscito a salvarlo");
-//				return ERROR; 
-//			}
-		}
 		if (cDAO.salva(cliente))
 			return SUCCESS;
 		else {
-			System.out.println("Non ho salvato");
-			addActionError("Non sono riuscito a salvarlo");
+			addActionError("Esiste già un cliente con la stessa Email");
 			return ERROR;
 		}
 	}

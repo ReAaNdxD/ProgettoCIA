@@ -16,7 +16,7 @@
 	    	<s:textfield name="cliente.cognome" label="Cognome"/>
 	    	<s:textfield name="cliente.email" label="Email"/>
 	    	<s:password name="cliente.password" label="Password"/>
-	    	<s:password label="Riscrivi Password"/>
+	    	<s:password name="ripetiPassword" label="Riscrivi Password"/>
 	    	<s:submit />
 		</s:form>
 	    <hr>

@@ -8,17 +8,12 @@ import org.apache.logging.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.query.Query;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import it.unirc.pwm.ecommerce.util.HibernateUtil;
 
 import it.unirc.db.ecommerce.views.Customer;
+import it.unirc.pwm.ecommerce.util.HibernateUtil;
 import it.unirc.pwm.ht.Carrello;
 import it.unirc.pwm.ht.Cliente;
 import it.unirc.pwm.ht.Ordine;
-import jakarta.persistence.PersistenceException;
 
 public class ClienteDAOHibernateImpl implements ClienteDAO {
 	static private Logger logger = LogManager.getLogger("Logger");
@@ -166,31 +161,6 @@ public class ClienteDAOHibernateImpl implements ClienteDAO {
 
 	@Override
 	public boolean checkEmail(String email) {
-		Session session = HibernateUtil.getSessionFactory().openSession();
-		Transaction transaction = null;
-//		Cliente c = new Cliente();
-		try {
-			transaction = session.beginTransaction();
-			System.out.println(email);
-//			List<Studente> l=session.createQuery("from Studente where nome=?1",Studente.class).setParameter(1, "Mario").list();
-//			Studente s=session.createQuery("from Studente",Studente.class).setMaxResults(1).uniqueResult(); 
-			Cliente c=session.createQuery("FROM Account WHERE email =?1",Cliente.class).getSingleResult(); 
-//			List<Cliente> c = session.createQuery("FROM Account WHERE email =?1",Cliente.class).setParameter(1, email).list();
-//			q.setParameter(1, email);
-//			c = q.getSingleResult();
-			logger.info(c);
-			System.out.println(c);
-			if(c!= null)
-				return true;
-			transaction.commit();
-			}catch (Exception e) {
-				transaction.rollback();
-//				
-//				e.getStackTrace();
-			} 
-			finally {
-					session.close();
-			}
 			return false;
 	}
 
