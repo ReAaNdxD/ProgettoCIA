@@ -1,18 +1,23 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <%@page import="it.unirc.db.ecommerce.views.GridProduct"%>
 <%@page import="it.unirc.pwm.ht.Cliente"%>
+<%@page import="it.unirc.pwm.ht.dao.ClienteDAO"%>
+<%@page import="it.unirc.pwm.ht.dao.ClienteDAOFactory"%>
 <%@page import="it.unirc.db.ecommerce.views.ViewProduct"%>
 <%@page import="it.unirc.pwm.ht.dao.ArticoloDAO"%>
+<%@page import="it.unirc.pwm.ht.dao.ArticoloDAOFactory"%>
 <%@page import="it.unirc.db.ecommerce.views.Compone"%>
 <%@page import="java.util.Vector"%>
+<%@page import="java.util.List"%>
 <%@page import="it.unirc.pwm.ht.Carrello"%>
 <%@page import="it.unirc.pwm.ht.dao.CarrelloDAO"%>
-<%@page import="it.unirc.db.ecommerce.beans.join.ArticoloComponeCarrelloDAO"%>
+<%-- <%@page import="it.unirc.db.ecommerce.beans.join.ArticoloComponeCarrelloDAO"%><!--  --> --%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@page import="it.unirc.pwm.ht.dao.CategoriaDAO"%>
+<%@page import="it.unirc.pwm.ht.dao.CategoriaDAOFactory"%>
 <%@page import="it.unirc.pwm.ht.Categoria"%>
-<%@page import="it.unirc.pwm.ht.dao.ClienteDAO"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,9 +37,9 @@
 			return;
 		}
 		int id = (int) session.getAttribute("idCliente");
-		ClienteDAO cDAO = new ClienteDAO();
+		ClienteDAO cDAO = ClienteDAOFactory.getDAO();;
 		Cliente c = cDAO.get(new Cliente(id));
-	%>
+	%> 
 	
 	
 	<%@include file="/WEB-INF/preload.jsp" %>
@@ -99,28 +104,21 @@
 													venditore = (Venditore) session.getAttribute("Venditore");
 												}
 											%> --%>
-											<label class="font-weight-bold">Nome</label> <input
-												name="name" type="text" placeholder=""
+											<label class="font-weight-bold">Nome</label> 
+											<s:property value="cliente.nome"/>
+											<input name="name" type="text" placeholder=""
 												value="<%=c.getNome()%>" readonly="readonly">
 										</div>
 									</div>
 									<div class=" col-12">
 										<div class="form-group">
-											<label class="font-weight-bold">Cognome</label> <input
+											<label class="font-weight-bold">Cognome</label>	<s:property value="cliente.cognome"/> <input
 												name="subject" type="text" placeholder=""
 												value="<%=c.getCognome()%>" readonly="readonly">
 										</div>
 									</div>
-									<div class="col-12">
 										<div class="form-group">
-											<label class="font-weight-bold">Data di nascita</label> <input
-												name="email" type="date" placeholder=""
-												value="<%=c.getDataNascita()%>" readonly="readonly">
-										</div>
-									</div>
-									<div class="col-12">
-										<div class="form-group">
-											<label class="font-weight-bold">Email</label> <input
+											<label class="font-weight-bold">Email</label> 	<s:property value="cliente.email"/><input
 												name="email" type="email" placeholder=""
 												value="<%=c.getEmail()%>" readonly="readonly">
 										</div>

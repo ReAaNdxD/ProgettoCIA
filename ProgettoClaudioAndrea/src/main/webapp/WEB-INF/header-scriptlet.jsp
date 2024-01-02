@@ -1,13 +1,13 @@
 <%
-		CategoriaDAO categoriaDAO = new CategoriaDAO();
-	    ArticoloDAO articoloDAO = new ArticoloDAO();
+		CategoriaDAO categoriaDAO = CategoriaDAOFactory.getDAO();;
+	    ArticoloDAO articoloDAO = ArticoloDAOFactory.getDAO();
 	//  ArticoloComponeCarrelloDAO componeDAO = new ArticoloComponeCarrelloDAO();
 	//  CarrelloDAO carrelloDAO = new CarrelloDAO();
 // 	    Cliente cliente = new Cliente(2);
 		Cliente cliente=null;
 	    if(session.getAttribute("idCliente")!=null)
 	    	cliente = new Cliente((int) session.getAttribute("idCliente"));// == null
-	    Vector<ViewProduct> articoliCarrello=null;
+	    List<ViewProduct> articoliCarrello=null;
 	    if(cliente!=null){
 	    	articoliCarrello = articoloDAO.getAllArticoliCliente(cliente);
 	    }

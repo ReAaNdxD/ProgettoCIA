@@ -26,6 +26,10 @@ public class Cliente implements java.io.Serializable {
 
 	public Cliente() {
 	}
+	public Cliente(int idCliente) {
+		super();
+		this.idCliente = idCliente;
+	}
 
 	public Cliente(String email, String password, String nome, String cognome) {
 		this.email = email;

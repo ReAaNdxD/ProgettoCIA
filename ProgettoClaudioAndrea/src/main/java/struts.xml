@@ -11,16 +11,19 @@
 		<action name="Index">
 			<result>/loginCliente.jsp</result>
 		</action>
-		
+
 		<action name="Login">
-		<result name="success">/WEB-INF/privato/ilMioAccount.jsp</result>
+			<result name="success">/WEB-INF/privato/ilMioAccount.jsp</result>
+		</action>
+		<action name="Account">
+			<result>/WEB-INF/privato/ilMioAccount.jsp</result>
 		</action>
 
 		<action name="NuovoCliente">
 			<result>/registraNuovoCliente.jsp</result>
 		</action>
 
-		
+
 
 	</package>
 
