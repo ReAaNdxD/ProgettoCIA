@@ -14,7 +14,7 @@
 	</field>
 	
 	<validator type="expression">
-		<param name="expression">cliente.password == ripetiPassword</param>
+		<param name="expression">cliente.password != ripetiPassword</param>
 		<message key="validation.error.passequals">Password e Ripeti Password devono coincidere</message>
 	</validator>
 	
