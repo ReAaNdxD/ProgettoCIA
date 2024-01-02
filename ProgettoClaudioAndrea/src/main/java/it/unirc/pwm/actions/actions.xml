@@ -8,7 +8,7 @@
 
 		<action name="RegistraNuovoCliente"
 			class="it.unirc.pwm.actions.RegistraNuovoCliente">
-			<result name="success">/loginCliente.jsp</result>
+			<result name="success">/WEB-INF/privato/ilMioAccount.jsp</result>
 			<result name="error">/registraNuovoCliente.jsp</result>
 			<result name="input">/registraNuovoCliente.jsp</result>
 		</action>

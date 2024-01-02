@@ -8,26 +8,24 @@
 		</field-validator>
 		<field-validator type="stringlength">
 			<param name="minLength">6</param>
-			<param name="maxLength">10</param>
-			<message>La password deve essere compresa tra 6 e 10 caratteri.
+			<message>La password deve essere più lunga di 6 caratteri.
 			</message>
 		</field-validator>
 	</field>
 	
 	<validator type="expression">
 		<param name="expression">cliente.password == ripetiPassword</param>
-		<message>Le password non coincidono</message>
+		<message key="validation.error.passequals">Password e Ripeti Password devono coincidere</message>
 	</validator>
 	
 	<field name="cliente.nome">
 		<field-validator type="requiredstring">
-			<message>nome è richiesto.</message>
+			<message>Il nome è richiesto.</message>
 		</field-validator>
-		<field-validator type="stringlength">
-			<param name="minLength">5</param>
-			<param name="maxLength">8</param>
-			<message>L'nome ${cliente.nome} non è valido, deve essere
-				compreso tra ${minLength} e ${maxLength} caratteri. </message>
+	</field>
+	<field name="cliente.cognome">
+		<field-validator type="requiredstring">
+			<message>Il cognome è richiesto.</message>
 		</field-validator>
 	</field>
 
@@ -40,8 +38,8 @@
 		</field-validator>
 	</field>
 
-	<validator type="expression">
+<!-- 	<validator type="expression">
 		<param name="expression">cliente.nome != cliente.password</param>
 		<message>nome e password devono essere differenti.</message>
-	</validator>
+	</validator> -->
 </validators>
