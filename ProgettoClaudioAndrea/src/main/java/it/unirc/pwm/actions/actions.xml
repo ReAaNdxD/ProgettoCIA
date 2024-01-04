@@ -13,7 +13,9 @@
 			<result name="input">/registraNuovoCliente.jsp</result>
 		</action>
 
-
+        <action name="VisualizzaAccount">
+        <result>/WEB-INF/privato/ilMioAccount.jsp</result>
+        </action>
 	</package>
 
 

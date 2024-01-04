@@ -1,4 +1,4 @@
-<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <%@page import="it.unirc.db.ecommerce.views.GridProduct"%>
 <%@page import="it.unirc.pwm.ht.Cliente"%>
 <%@page import="it.unirc.pwm.ht.dao.ClienteDAO"%>
@@ -13,7 +13,7 @@
 <%@page import="it.unirc.pwm.ht.dao.CarrelloDAO"%>
 <%-- <%@page import="it.unirc.db.ecommerce.beans.join.ArticoloComponeCarrelloDAO"%><!--  --> --%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+	pageEncoding="utf-8"%>
 <%@page import="it.unirc.pwm.ht.dao.CategoriaDAO"%>
 <%@page import="it.unirc.pwm.ht.dao.CategoriaDAOFactory"%>
 <%@page import="it.unirc.pwm.ht.Categoria"%>
@@ -23,14 +23,14 @@
 <head>
 <meta charset="utf-8">
 <title>Il mio account</title>
-<%@include file="/WEB-INF/head.jsp" %>
+<%@include file="/WEB-INF/head.jsp"%>
 <link rel="stylesheet" href="/css/AggiungiCartaCredito.css">
 </head>
 <body class="js">
 
 	<!-- Product Style -->
 
-	<%
+	<%-- <%
 		if (session.getAttribute("idCliente") == null) {
 			System.out.println("Sono qui");
 			response.sendRedirect("/SigninCliente");
@@ -39,12 +39,12 @@
 		int id = (int) session.getAttribute("idCliente");
 		ClienteDAO cDAO = ClienteDAOFactory.getDAO();;
 		Cliente c = cDAO.get(new Cliente(id));
-	%> 
-	
-	
-	<%@include file="/WEB-INF/preload.jsp" %>
+	%>  --%>
+
+
+	<%@include file="/WEB-INF/preload.jsp"%>
 	<%@ include file="/WEB-INF/header-scriptlet.jsp"%>
-	<%@include file="/WEB-INF/header.jsp" %>
+	<%@include file="/WEB-INF/header.jsp"%>
 
 	<section class="product-area shop-sidebar shop section">
 		<div class="container">
@@ -55,16 +55,14 @@
 						<div class="single-widget category account">
 							<h3 class="title">My account</h3>
 							<ul class="categor-list">
-								<li><a href="/privato/cliente/RichiediModificaCliente">Modifica
+								<li><a href="/actions/privato/RichiediModificaCliente">Modifica
 										Account</a></li>
 								<li><a
 									href="/privato/cliente/indirizzospedizione/VisualizzaIndirizziSpedizione">Visualizza
 										i tuoi indirizzi</a></li>
-								<li><a
-									href="/privato/cliente/cartacredito/VisualizzaCarteCredito">Visualizza
-										le tue carte di credito</a></li>
 								<li><a href="/GoToPrime">Prime</a></li>
-								<li><a href="/privato/cliente/ordine/VisualizzaOrdini">Visualizza i tuoi ordini</a></li>
+								<li><a href="/privato/cliente/ordine/VisualizzaOrdini">Visualizza
+										i tuoi ordini</a></li>
 								<li><a href="/Logout">Logout</a></li>
 							</ul>
 						</div>
@@ -91,7 +89,7 @@
                 </svg>
 								</h3>
 							</div>
-							<form class="form" method="post" action="mail/mail.php">
+							<s:form class="form" method="post">
 								<div class="row">
 									<div class="col-12">
 										<div class="form-group">
@@ -104,70 +102,77 @@
 													venditore = (Venditore) session.getAttribute("Venditore");
 												}
 											%> --%>
-											<label class="font-weight-bold">Nome</label> 
-											<s:property value="cliente.nome"/>
-											<input name="name" type="text" placeholder=""
-												value="<%=c.getNome()%>" readonly="readonly">
+											<label class="font-weight-bold">Nome</label>
+											<s:property value="cliente.nome" />
+											<%-- <input name="name" type="text" placeholder=""
+												value="<%=c.getNome()%>" readonly="readonly"> --%>
 										</div>
 									</div>
 									<div class=" col-12">
 										<div class="form-group">
-											<label class="font-weight-bold">Cognome</label>	<s:property value="cliente.cognome"/> <input
+											<label class="font-weight-bold">Cognome</label>
+											<s:property value="cliente.cognome" />
+											<%-- <input
 												name="subject" type="text" placeholder=""
-												value="<%=c.getCognome()%>" readonly="readonly">
+												value="<%=c.getCognome()%>" readonly="readonly"> --%>
 										</div>
 									</div>
+									<div class="col-12">
 										<div class="form-group">
-											<label class="font-weight-bold">Email</label> 	<s:property value="cliente.email"/><input
+											<label class="font-weight-bold">Email</label>
+											<s:property value="cliente.email" />
+											<%-- <input
 												name="email" type="email" placeholder=""
-												value="<%=c.getEmail()%>" readonly="readonly">
+												value="<%=c.getEmail()%>" readonly="readonly"> --%>
 										</div>
 									</div>
 								</div>
-							</form>
+							</s:form>
+
+
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-	
-	
-		<%@ include file="/WEB-INF/footer.jsp" %>
 
-<!-- Jquery -->
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/jquery-migrate-3.0.0.js"></script>
-    <script src="/js/jquery-ui.min.js"></script>
-    <!-- Popper JS -->
-    <script src="/js/popper.min.js"></script>
-    <!-- Bootstrap JS -->
-    <script src="/js/bootstrap.min.js"></script>
-    <!-- Color JS -->
-    <script src="/js/colors.js"></script>
-    <!-- Slicknav JS -->
-    <script src="/js/slicknav.min.js"></script>
-    <!-- Owl Carousel JS -->
-    <script src="/js/owl-carousel.js"></script>
-    <!-- Magnific Popup JS -->
-    <script src="/js/magnific-popup.js"></script>
-    <!-- Waypoints JS -->
-    <script src="/js/waypoints.min.js"></script>
-    <!-- Countdown JS -->
-    <script src="/js/finalcountdown.min.js"></script>
-    <!-- Nice Select JS -->
-    <script src="/js/nicesellect.js"></script>
-    <!-- Flex Slider JS -->
-    <script src="/js/flex-slider.js"></script>
-    <!-- ScrollUp JS -->
-    <script src="/js/scrollup.js"></script>
-    <!-- Onepage Nav JS -->
-    <script src="/js/onepage-nav.min.js"></script>
-    <!-- Easing JS -->
-    <script src="/js/easing.js"></script>
-    <!-- Active JS -->
-    <script src="/js/active.js"></script>
-    <script src="/js/myscript.js"></script>
+
+	<%@ include file="/WEB-INF/footer.jsp"%>
+
+	<!-- Jquery -->
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/jquery-migrate-3.0.0.js"></script>
+	<script src="/js/jquery-ui.min.js"></script>
+	<!-- Popper JS -->
+	<script src="/js/popper.min.js"></script>
+	<!-- Bootstrap JS -->
+	<script src="/js/bootstrap.min.js"></script>
+	<!-- Color JS -->
+	<script src="/js/colors.js"></script>
+	<!-- Slicknav JS -->
+	<script src="/js/slicknav.min.js"></script>
+	<!-- Owl Carousel JS -->
+	<script src="/js/owl-carousel.js"></script>
+	<!-- Magnific Popup JS -->
+	<script src="/js/magnific-popup.js"></script>
+	<!-- Waypoints JS -->
+	<script src="/js/waypoints.min.js"></script>
+	<!-- Countdown JS -->
+	<script src="/js/finalcountdown.min.js"></script>
+	<!-- Nice Select JS -->
+	<script src="/js/nicesellect.js"></script>
+	<!-- Flex Slider JS -->
+	<script src="/js/flex-slider.js"></script>
+	<!-- ScrollUp JS -->
+	<script src="/js/scrollup.js"></script>
+	<!-- Onepage Nav JS -->
+	<script src="/js/onepage-nav.min.js"></script>
+	<!-- Easing JS -->
+	<script src="/js/easing.js"></script>
+	<!-- Active JS -->
+	<script src="/js/active.js"></script>
+	<script src="/js/myscript.js"></script>
 
 
 </body>

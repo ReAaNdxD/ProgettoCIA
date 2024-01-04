@@ -12,7 +12,7 @@
 			<result>/loginCliente.jsp</result>
 		</action>
 
-		<action name="Login">
+		<action name="LoginProva">
 			<result name="success">/WEB-INF/privato/ilMioAccount.jsp</result>
 		</action>
 		<action name="Account">
@@ -29,4 +29,5 @@
 
 
 	<include file="it/unirc/pwm/actions/actions.xml" />
+	<include file="it/unirc/pwm/actions/privato/privato.xml" />
 </struts>

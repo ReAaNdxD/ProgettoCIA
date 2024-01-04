@@ -14,9 +14,11 @@ import it.unirc.pwm.ecommerce.util.HibernateUtil;
 import it.unirc.pwm.ht.Carrello;
 import it.unirc.pwm.ht.Cliente;
 import it.unirc.pwm.ht.Ordine;
+import jakarta.persistence.PersistenceException;
 
 public class ClienteDAOHibernateImpl implements ClienteDAO {
 	static private Logger logger = LogManager.getLogger("Logger");
+
 	protected ClienteDAOHibernateImpl() {
 	}
 
@@ -33,7 +35,11 @@ public class ClienteDAOHibernateImpl implements ClienteDAO {
 		} catch (HibernateException e) {
 			transaction.rollback();
 			return false;
-		} finally {
+		} catch(PersistenceException pe) {
+			transaction.rollback();
+			return false;
+		}
+		finally {
 			if (session != null) // spesso omesso
 				session.close();
 		}
@@ -158,10 +164,9 @@ public class ClienteDAOHibernateImpl implements ClienteDAO {
 		return null;
 	}
 
-
 	@Override
 	public boolean checkEmail(String email) {
-			return false;
+		return false;
 	}
 
 	@Override
