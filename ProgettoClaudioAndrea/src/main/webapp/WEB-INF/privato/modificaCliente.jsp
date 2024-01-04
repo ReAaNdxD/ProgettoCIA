@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags"%>
 
 <%@page import="java.util.Enumeration"%>
 <%@page import="java.util.HashMap"%>
@@ -162,8 +163,8 @@
 						<%
 							}
 						%>
-						<form id="form" class="form" method="post"
-							action="ModificaCliente" onsubmit="return valida()">
+						<s:form id="form" class="form" method="post"
+							action="/actions/privato/ModificaCliente" onsubmit="return valida()">
 							<div class="row">
 								<div class="col-lg-6 col-12">
 									<div class="form-group">
@@ -183,14 +184,6 @@
 										<input onkeypress="return alphaOnly(event)" id="cognome"
 											placeholder="Cognome" type="text" name="cognome"
 											value=<%=c.getCognome()%>><small></small>
-									</div>
-								</div>
-								<div class="col-lg-6 col-12">
-									<div class="form-group">
-										<label for="dataNascita" class="font-weight-bold">Data
-											Di Nascita</label> <input id="dataNascita"
-											placeholder="Data Di Nascita" type="date" name="dataNascita"
-											value=<%=c.getDataNascita()%>> <small></small>
 									</div>
 								</div>
 								<div class="col-lg-6 col-12">
@@ -228,7 +221,7 @@
 									</div>
 								</div>
 							</div>
-						</form>
+						</s:form>
 					</div>
 				</div>
 			</div>
