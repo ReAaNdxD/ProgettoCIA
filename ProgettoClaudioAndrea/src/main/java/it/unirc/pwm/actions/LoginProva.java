@@ -1,16 +1,34 @@
 package it.unirc.pwm.actions;
 
+import java.util.Map;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 import it.unirc.pwm.ht.Cliente;
+import it.unirc.pwm.ht.dao.ClienteDAOHibernateImpl;
+import org.apache.struts2.action.SessionAware;
 
-public class LoginProva extends ActionSupport {
+
+public class LoginProva extends ActionSupport implements SessionAware {
 
     private static final long serialVersionUID = 1L;
     private Cliente cliente;
+    private ClienteDAOHibernateImpl cDAO;
+    private Map<String, Object> session;
 
+    
+    @Override
+    public void withSession(Map<String, Object> session) {
+		this.session = session;
+	}
+    
+    
     public String execute() {
-        if ("email".equals(cliente.getEmail()) && "password".equals(cliente.getPassword())) {
+    	if (session.containsKey("UtenteLoggato")) {
+            return SUCCESS;
+        }
+        if (cDAO.login(cliente.getEmail(), cliente.getPassword()) != null) {
+        	session.put("UtenteLoggato", cliente.getEmail());
             return SUCCESS;
         } else {
             addActionError("Credenziali non valide");

@@ -3,8 +3,8 @@ package it.unirc.pwm.ht.dao;
 import java.sql.Date;
 import java.util.List;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+//import org.apache.logging.log4j.LogManager;
+//import org.apache.logging.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -17,7 +17,7 @@ import it.unirc.pwm.ht.Ordine;
 import jakarta.persistence.PersistenceException;
 
 public class ClienteDAOHibernateImpl implements ClienteDAO {
-	static private Logger logger = LogManager.getLogger("Logger");
+//	static private Logger logger = LogManager.getLogger("Logger");
 
 	protected ClienteDAOHibernateImpl() {
 	}
@@ -182,16 +182,16 @@ public class ClienteDAOHibernateImpl implements ClienteDAO {
 	}
 
 	@Override
-	public Integer login(String email, String password) {
+	public Cliente login(String email, String password) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = null;
-		Integer result = null;
+		Cliente result = null;
 
 		try {
 			transaction = session.beginTransaction();
 
 			String queryHQL = "select idCliente from cliente where email =? and password=?";
-			result = session.createQuery(queryHQL, Integer.class).setParameter("email", email)
+			result = session.createQuery(queryHQL, Cliente.class).setParameter("email", email)
 					.setParameter("password", password).getSingleResult();
 
 			transaction.commit();

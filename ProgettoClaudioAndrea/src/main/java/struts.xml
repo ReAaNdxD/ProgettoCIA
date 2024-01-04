@@ -14,6 +14,8 @@
 
 		<action name="LoginProva">
 			<result name="success">/WEB-INF/privato/ilMioAccount.jsp</result>
+			<result name="error">/loginCliente.jsp</result>
+			
 		</action>
 		<action name="Account">
 			<result>/WEB-INF/privato/ilMioAccount.jsp</result>
