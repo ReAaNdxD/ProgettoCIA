@@ -2,7 +2,6 @@ package it.unirc.pwm.ht.dao;
 
 
 import java.util.List;
-import java.util.Vector;
 
 import it.unirc.pwm.ht.Categoria;
 

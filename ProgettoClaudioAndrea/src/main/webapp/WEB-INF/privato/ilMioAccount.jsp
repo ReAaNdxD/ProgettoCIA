@@ -89,10 +89,9 @@
                 </svg>
 								</h3>
 							</div>
-							<s:form class="form" method="post">
-								<div class="row">
-									<div class="col-12">
-										<div class="form-group">
+							<% Cliente c = (Cliente) session.getAttribute("cliente");
+							if (c != null){
+							%>
 											<%-- <%
 												Venditore venditore = new Venditore();
 												VenditoreDAO venditoreDAO = new VenditoreDAO();
@@ -102,16 +101,21 @@
 													venditore = (Venditore) session.getAttribute("Venditore");
 												}
 											%> --%>
+											<s:form class="form" method="post">
+								<div class="row">
+									<div class="col-12">
+										<div class="form-group">
 											<label class="font-weight-bold">Nome</label>
 											<s:property value="cliente.nome" />
-											<%-- <input name="name" type="text" placeholder=""
-												value="<%=c.getNome()%>" readonly="readonly"> --%>
-										</div>
+											</div>
 									</div>
 									<div class=" col-12">
 										<div class="form-group">
 											<label class="font-weight-bold">Cognome</label>
 											<s:property value="cliente.cognome" />
+											<%-- <input name="name" type="text" placeholder=""
+												value="<%=c.getNome()%>" readonly="readonly"> --%>
+										
 											<%-- <input
 												name="subject" type="text" placeholder=""
 												value="<%=c.getCognome()%>" readonly="readonly"> --%>
@@ -128,6 +132,9 @@
 									</div>
 								</div>
 							</s:form>
+							<%
+							}
+							%>
 
 
 						</div>

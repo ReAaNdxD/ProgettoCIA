@@ -27,8 +27,10 @@ public class Login extends ActionSupport implements SessionAware {
     	if (session.containsKey("cliente")) {
             return SUCCESS;
         }
-        if (cDAO.login(cliente.getEmail(), cliente.getPassword()) != null) {
-        	session.put("cliente", cDAO.login(cliente.getEmail(), cliente.getPassword()));
+    	Cliente c = cDAO.login(cliente.getEmail(), cliente.getPassword());
+        if (c != null) {
+        	session.put("cliente", c);
+        	this.cliente = c;
             return SUCCESS;
         } else {
             addActionError("Credenziali non valide");
