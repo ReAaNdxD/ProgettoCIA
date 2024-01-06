@@ -1,87 +1,49 @@
 package it.unirc.pwm.actions;
 
-import java.io.IOException;
+import java.util.Map;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import com.opensymphony.xwork2.ActionSupport;
 
-import it.unirc.db.ecommerce.beans.ClienteDAO;
+import it.unirc.pwm.ht.Cliente;
+import it.unirc.pwm.ht.dao.ClienteDAOHibernateImpl;
+import org.apache.struts2.action.SessionAware;
 
-/**
- * Servlet implementation class Login
- */
-@WebServlet("/Login")
-public class Login extends HttpServlet {
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public Login() {
-		super();
-		// TODO Auto-generated constructor stub
+public class Login extends ActionSupport implements SessionAware {
+
+    private static final long serialVersionUID = 1L;
+    private Cliente cliente;
+    private ClienteDAOHibernateImpl cDAO;
+    private Map<String, Object> session;
+
+    
+    @Override
+    public void withSession(Map<String, Object> session) {
+		this.session = session;
 	}
+    
+    
+    public String execute() {
+    	if (session.containsKey("cliente")) {
+            return SUCCESS;
+        }
+        if (cDAO.login(cliente.getEmail(), cliente.getPassword()) != null) {
+        	session.put("cliente", cDAO.login(cliente.getEmail(), cliente.getPassword()));
+            return SUCCESS;
+        } else {
+            addActionError("Credenziali non valide");
+            return ERROR;
+        }
+    }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		String email = request.getParameter("email");
-		String password = request.getParameter("password");
+    public void validate() {
+        if (cliente.getEmail() == null) {
+            addFieldError("email", "Il campo email è obbligatorio");
+        }
 
-		if (email.replaceAll("\\s", "") == "" || !email.replaceAll("\\s", "").matches(
-				"^(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$")) {
-			// E' vuota o non � un email valida
-			request.setAttribute("email", true);
-			request.getRequestDispatcher("/login.jsp").forward(request, response);
-			System.out.println("email");
-			return;
-		}
-		if (password.replaceAll("\\s", "") == "") {
-			// E' vuota o la password non � valida
-			request.setAttribute("password", true);
-			request.getRequestDispatcher("/login.jsp").forward(request, response);
-			System.out.println("passw");
-			return;
-		}
-
-		ClienteDAO cDAO = new ClienteDAO();
-		Integer idCliente = cDAO.login(email, password);
-		if (idCliente == null) {
-			// Non c'� nessun account che corrisponda all'email e alla password inserita
-			request.setAttribute("login", false);
-			request.getRequestDispatcher("/login.jsp").forward(request, response);
-			System.out.println("login");
-			return;
-		}
-		// LOGIN RIUSCITO => lo metto dentro la sessione
-		HttpSession session = request.getSession();
-		session.setAttribute("idCliente", idCliente);
-		System.out.println(request.getParameter("checkbox1"));
-		if (request.getParameter("checkbox1") != null) {
-			// Significa che ha selezionato la checkbox
-			// I cookie non sono altro che oggetti in java
-			Cookie cookie = new Cookie("emailDAGCliente", email);
-			// Noi attraverso i cookie possiamo memorizzare solo stringhe
-			// Ricordati dobbiamo stabilire la scadenza di questo cookie:
-			cookie.setMaxAge(60 * 60 * 24);
-			cookie.setHttpOnly(true);// cosi facendo i javascript non potranno utilizzarlo
-			// Devo passare il cookie al browser web
-			response.addCookie(cookie);
-		}
-		response.sendRedirect("/");
-//		if(vDAO.login(venditore)) {
-//			HttpSession session = request.getSession();
-//			session.setAttribute("autenticato", true);
-//			
-//			response.sendRedirect("/privato/studente/VisualizzaStudenti");
-//		}else {
-	}
+        if (cliente.getPassword() == null) {
+            addFieldError("password", "Il campo Password è obbligatorio");
+        }
+    }
 }
+

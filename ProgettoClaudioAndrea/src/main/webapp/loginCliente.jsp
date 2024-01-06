@@ -9,7 +9,7 @@
 	<body>
 	    <hr>
 		<h4>Login</h4> 	
-		<s:form action="LoginProva">
+		<s:form action="actions/Login">
 	    	<s:textfield name="cliente.email" label="email"/>
 	    	<s:password name="cliente.password" label="Password"/>
 	    	<s:submit/>

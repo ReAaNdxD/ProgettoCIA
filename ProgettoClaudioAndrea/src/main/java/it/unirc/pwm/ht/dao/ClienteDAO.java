@@ -27,5 +27,5 @@ public interface ClienteDAO {
 	public boolean checkEmail(String email);
 	public boolean checkEmailForUpdate(String email, int id);
 	public Date disdiciPrime(Date dataInizio);
-	public Integer login(String email, String password);
+	public Cliente login(String email, String password);
 }
