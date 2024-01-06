@@ -30,32 +30,28 @@ public class Login extends ActionSupport implements SessionAware {
 	}
 
 	public String execute() {
-//    	if (session.containsKey("cliente")) {
-//    		System.out.println("sono qui");
-//            return SUCCESS;
-//        }
-		ClienteDAO cDAO = ClienteDAOFactory.getDAO();
-		Cliente c = cDAO.login(cliente.getEmail(), cliente.getPassword());
-		System.out.println(c);
-		if (c != null) {
-			this.cliente = c;
-			session.put("cliente", this.cliente);
-			System.out.println(c);
-			System.out.println(cliente);
-			return SUCCESS;
-		} else {
-			addActionError("Credenziali non valide");
+//		ClienteDAO cDAO = ClienteDAOFactory.getDAO();
+//		Cliente c = cDAO.login(cliente.getEmail(), cliente.getPassword());
+//		System.out.println(c);
+//		if (c != null) {
+//			this.cliente = c;
+//			session.put("cliente", this.cliente);
+//			System.out.println(c);
+//			System.out.println(cliente);
+//			return SUCCESS;
+//		} else {
+//			addActionError("Credenziali non valide");
 			return ERROR;
-		}
+//		}
 	}
 
 	public void validate() {
 		if (cliente.getEmail() == null) {
-			addFieldError("email", "Il campo email è obbligatorio");
+			addFieldError("cliente.email", "Il campo email è obbligatorio");
 		}
 
 		if (cliente.getPassword() == null) {
-			addFieldError("password", "Il campo Password è obbligatorio");
+			addFieldError("cliente.password", "Il campo Password è obbligatorio");
 		}
 	}
 
