@@ -10,7 +10,7 @@ public class RegistraNuovoCliente extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
 	private Cliente cliente;
-	private String ripetiPassword;
+//	private String ripetiPassword;
 
 	public Cliente getCliente() {
 		return cliente;
