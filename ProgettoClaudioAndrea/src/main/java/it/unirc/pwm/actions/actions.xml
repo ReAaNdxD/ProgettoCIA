@@ -13,12 +13,11 @@
 			<result name="input">/registraNuovoCliente.jsp</result>
 		</action>
 		
-		 <action name="Login">
-			<result name="success">/WEB-INF/privato/ilMioAccount.jsp</result>
-			<result name="error">/loginCliente.jsp</result>
-		</action> 
+		<action name="LoginCliente" class="it.unirc.pwm.actions.LoginCliente" >
+		<result name="error">/loginCliente.jsp</result>
+		<result name="input">/loginCliente.jsp</result>
+		</action>
 
-        
 	</package>
 
 
