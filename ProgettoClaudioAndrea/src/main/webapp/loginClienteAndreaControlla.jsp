@@ -4,6 +4,17 @@
 
 <head>
     <title>Login</title>
+    <%@include file="/WEB-INF/head.jsp" %>
+    <style>
+        .form-inline .form-group {
+            display: flex;
+            align-items: center;
+        }
+
+        .form-inline .form-group label {
+            margin-right: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -17,25 +28,17 @@
                                 <h3 style="color: #f7941d; font-size: 30px;">Accedi</h3>
                             </div>
 
-                            <s:form action="actions/LoginCliente">
-                                <div class="row">
-                                    <div class=" col-12">
-                                        <div class="form-group">
-                                            <label for="email" class="font-weight-bold" style="font-size: 20px;">Email</label>
-                                            <s:textfield name="cliente.email" placeholder="Email" />
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <label for="password" class="font-weight-bold" style="font-size: 20px;">Password</label>
-                                            <s:password name="cliente.password" placeholder="Password" />
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-group button" style="text-align: center">
-                                            <s:submit value="Login" cssClass="btn" style="width: 100%;" />
-                                        </div>
-                                    </div>
+                            <s:form action="actions/LoginCliente" cssClass="form-inline">
+                                <div class="form-group mb-3">
+                                    <s:label for="email" class="font-weight-bold" style="font-size: 20px;">Email</s:label>
+                                    <s:textfield name="cliente.email" placeholder="Email" cssClass="form-control" />
+                                </div>
+                                <div class="form-group mb-3">
+                                    <s:label for="password" class="font-weight-bold" style="font-size: 20px;">Password</s:label>
+                                    <s:password name="cliente.password" placeholder="Password" cssClass="form-control" />
+                                </div>
+                                <div class="form-group mb-3">
+                                    <s:submit value="Login" cssClass="btn" />
                                 </div>
                             </s:form>
 
@@ -91,7 +94,5 @@
 	<script src="/js/easing.js"></script>
 	<!-- Active JS -->
 	<script src="/js/active.js"></script>
-
 </body>
-
 </html>
