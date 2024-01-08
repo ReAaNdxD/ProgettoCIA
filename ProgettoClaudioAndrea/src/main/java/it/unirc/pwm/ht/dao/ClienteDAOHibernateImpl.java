@@ -106,7 +106,7 @@ public class ClienteDAOHibernateImpl implements ClienteDAO {
 		try {
 			transaction = session.beginTransaction();
 
-			String queryHQL = "from cliente";
+			String queryHQL = "from Cliente";
 			result = session.createQuery(queryHQL, Cliente.class).list();
 
 			transaction.commit();
@@ -186,24 +186,20 @@ public class ClienteDAOHibernateImpl implements ClienteDAO {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = null;
 		Cliente result = null;
-
 		try {
 			transaction = session.beginTransaction();
-
-			String queryHQL = "select idCliente from cliente where email =? and password=?";
-			result = session.createQuery(queryHQL, Cliente.class).setParameter("email", email)
-					.setParameter("password", password).getSingleResult();
-
+			String queryHQL = "from Cliente where email =?1 and password=?2";
+			result = session.createQuery(queryHQL, Cliente.class).setParameter(1, email)
+					.setParameter(2, password).getSingleResult();
 			transaction.commit();
-		} catch (HibernateException e) {
-			transaction.rollback();
-			result = null;
-		} catch (Exception e) {
-			result = null;
+//		} catch (HibernateException e) {
+//			transaction.rollback();
+//			result = null;
+//		} catch (Exception e) {
+//			result = null;
 		} finally {
 			session.close();
 		}
-
 		return result;
 	}
 

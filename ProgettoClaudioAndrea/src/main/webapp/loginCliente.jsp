@@ -3,61 +3,72 @@
 <html>
 
 <head>
-    <title>Login</title>
-    <%@include file="/WEB-INF/head.jsp" %>
-    <style>
-        .form-inline .form-group {
-            display: flex;
-            align-items: center;
-        }
+<title>Login</title>
+<%@include file="/WEB-INF/head.jsp"%>
+<style>
+.form-inline .form-group {
+	display: flex;
+	align-items: center;
+}
 
-        .form-inline .form-group label {
-            margin-right: 10px;
-        }
-    </style>
+.form-inline .form-group label {
+	margin-right: 10px;
+}
+</style>
 </head>
 
 <body>
-    <section id="contact-us" class="contact-us section">
-        <div class="container" style="max-width: 600px">
-            <div class="contact-head">
-                <div class="row center">
-                    <div class="col-lg-12 col-12">
-                        <div class="form-main">
-                            <div>
-                                <h3 style="color: #f7941d; font-size: 30px;">Accedi</h3>
-                            </div>
+	<section id="contact-us" class="contact-us section">
+		<div class="container" style="max-width: 600px">
+			<div class="contact-head">
+				<div class="row center">
+					<div class="col-lg-12 col-12">
+						<div class="form-main">
+							<div>
+								<h3 style="color: #f7941d; font-size: 30px;">Accedi</h3>
+							</div>
+							<s:actionerror />
+							<s:form action="actions/LoginCliente">
+								<div class="row">
+									<div class=" col-12">
+										<div class="form-group">
+											<s:label for="email" class="font-weight-bold"
+												style="font-size: 20px;">Email</s:label>
+											<s:textfield name="cliente.email" placeholder="Email" />
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class=" col-12">
+										<div class="form-group">
+											<s:label for="password" class="font-weight-bold"
+												style="font-size: 20px;">Password</s:label>
+											<s:password name="cliente.password" placeholder="Password" />
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<s:submit cssClass="btn" />
+								</div>
+							</s:form>
 
-                            <s:form action="actions/LoginCliente" cssClass="form-inline">
-                                <div class="form-group mb-3">
-                                    <s:label for="email" class="font-weight-bold" style="font-size: 20px;">Email</s:label>
-                                    <s:textfield name="cliente.email" placeholder="Email" cssClass="form-control" />
-                                </div>
-                                <div class="form-group mb-3">
-                                    <s:label for="password" class="font-weight-bold" style="font-size: 20px;">Password</s:label>
-                                    <s:password name="cliente.password" placeholder="Password" cssClass="form-control" />
-                                </div>
-                                <div class="form-group mb-3">
-                                    <s:submit value="Login" cssClass="btn" />
-                                </div>
-                            </s:form>
+							<div class="container">
+								<div class="text-center" style="margin-top: 20px">
+									<a href="<s:url action='NuovoCliente'/>">Sei un nuovo
+										Cliente? Registrati</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-                            <div class="container">
-                                <div class="text-center" style="margin-top: 20px">
-                                    <a href="<s:url action='NuovoCliente'/>">Sei un nuovo Cliente? Registrati</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    	<script type="text/javascript" charset="UTF-8"
+	<script type="text/javascript" charset="UTF-8"
 		src="/js/registration.js"></script>
-			<%@include file="/WEB-INF/footer.jsp" %>
-	
+	<%@include file="/WEB-INF/footer.jsp"%>
+
 	<!-- Jquery -->
 	<script src="/js/jquery.min.js"></script>
 	<script src="/js/jquery-migrate-3.0.0.js"></script>

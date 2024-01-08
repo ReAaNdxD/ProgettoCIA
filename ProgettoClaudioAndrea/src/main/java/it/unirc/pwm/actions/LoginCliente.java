@@ -27,6 +27,8 @@ public class LoginCliente extends ActionSupport implements SessionAware {
 		ClienteDAO cDAO = ClienteDAOFactory.getDAO();
 		Cliente c = cDAO.login(cliente.getEmail(), cliente.getPassword());
 		System.out.println(c);
+		System.out.println(cliente.getEmail());
+		System.out.println(cliente.getPassword());
 		if (c != null) {
 			this.cliente = c;
 			session.put("cliente", this.cliente);
