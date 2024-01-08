@@ -21,8 +21,8 @@ public class Cliente implements java.io.Serializable {
 	private String cognome;
 	private Clienteprime clienteprime;
 	private Set<Carrello> carrellos = new HashSet<Carrello>(0);
-	private Set<Indirizzospedizione> indirizzospediziones = new HashSet<Indirizzospedizione>(0);
-	private Set<CartaCredito> cartacreditos = new HashSet<CartaCredito>(0);
+//	private Set<Indirizzospedizione> indirizzospediziones = new HashSet<Indirizzospedizione>(0);
+//	private Set<CartaCredito> cartacreditos = new HashSet<CartaCredito>(0);
 
 	public Cliente() {
 	}
