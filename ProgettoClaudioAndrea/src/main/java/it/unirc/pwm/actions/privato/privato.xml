@@ -11,7 +11,13 @@
 			<result>/WEB-INF/privato/modificaClienteprova.jsp</result>
 		</action>
 		
-	<!-- 	asads -->
+		
+		<action name="ModificaCliente" class="it.unirc.pwm.actions.privato.ModificaCliente" >
+		<result name="success">/WEB-INF/privato/ilMioAccount.jsp</result>
+		<result name="error">/WEB-INF/privato/modificaClienteprova.jsp</result>
+		<result name="input">/WEB-INF/privato/modificaClienteprova.jsp</result>
+		</action>
+
 		
 
 
