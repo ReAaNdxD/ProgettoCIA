@@ -120,7 +120,7 @@
 							<%
 							}
 							%>
-							<s:actionerror />
+							<small><s:actionerror /></small>
 							<s:form action="actions/LoginCliente" id="form " method="post"
 								class="form form-signin" theme="simple">
 
@@ -135,7 +135,7 @@
 											<s:textfield name="cliente.email" placeholder="Email" />
 											<!-- small element serve per mostrare un messaggio d'errore nel caso 
 					in cui gli input siano errati -->
-											<small></small>
+											<small><s:fielderror fieldName="cliente.email"></s:fielderror></small>
 										</div>
 									</div>
 									<div class="col-12">
@@ -143,7 +143,7 @@
 											<label for="password" class="font-weight-bold"
 												style="font-size: 20px;">Password</label>
 											<s:password name="cliente.password" placeholder="Password" />
-											<small></small>
+											<small><s:fielderror fieldName="cliente.password"></s:fielderror></small>
 										</div>
 									</div>
 
