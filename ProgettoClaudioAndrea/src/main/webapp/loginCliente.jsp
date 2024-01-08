@@ -120,17 +120,19 @@
 							<%
 							}
 							%>
-							<s:actionerror/>
-							<s:form action="actions/LoginCliente" id="form "
-								method="post" class="form form-signin">
-							
-							<div class="row">
+							<s:actionerror />
+							<s:form action="actions/LoginCliente" id="form " method="post"
+								class="form form-signin" theme="simple">
+
+								<div class="row">
 									<div class=" col-12">
 										<div class="form-group">
 											<label for="email" class="font-weight-bold"
-												style="font-size: 20px;">Email</label> <!-- <input id="email"
+												style="font-size: 20px;">Email</label>
+											<!-- <input id="email"
 												placeholder="Email" type="text" name="email"
-												> --><s:textfield name="cliente.email" placeholder="Email" />
+												> -->
+											<s:textfield name="cliente.email" placeholder="Email" />
 											<!-- small element serve per mostrare un messaggio d'errore nel caso 
 					in cui gli input siano errati -->
 											<small></small>
@@ -139,28 +141,25 @@
 									<div class="col-12">
 										<div class="form-group">
 											<label for="password" class="font-weight-bold"
-												style="font-size: 20px;">Password</label><s:password name="cliente.password" placeholder="Password" /> <small></small>
+												style="font-size: 20px;">Password</label>
+											<s:password name="cliente.password" placeholder="Password" />
+											<small></small>
 										</div>
 									</div>
-									<div class="col-12">
-										<div class="form-check text-center">
-											<input id="checkbox1" type="checkbox" name="checkbox1">
-											<label for="checkbox1">Remember me</label>
-										</div>
-									</div>
+
 									<div class="col-12">
 										<div class="form-group button" style="text-align: center">
 											<button class="btn" type="submit" style="width: 100%;">Login</button>
 										</div>
 									</div>
 								</div>
-								</s:form>
-								<div class="container">
-									<div class="text-center" style="margin-top: 20px">
-										<a href="/RegistraNuovoCliente">Sei nuovo su DAG?
-											Registrati</a>
-									</div>
+							</s:form>
+							<div class="container">
+								<div class="text-center" style="margin-top: 20px">
+									<a href="/RegistraNuovoCliente">Sei nuovo su DAG?
+										Registrati</a>
 								</div>
+							</div>
 						</div>
 					</div>
 				</div>

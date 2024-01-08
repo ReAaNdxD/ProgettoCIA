@@ -10,6 +10,7 @@
 		<action name="RichiediModificaCliente">
 			<result>/WEB-INF/privato/modificaClienteprova.jsp</result>
 		</action>
+		
 
 
 	</package>
