@@ -1,4 +1,4 @@
-package it.unirc.pwm.actions.privato.IndirizzoSpedizione;
+package it.unirc.pwm.actions.privato.indirizzospedizione;
 
 import it.unirc.pwm.ht.Cliente;
 import it.unirc.pwm.ht.IndirizzoSpedizione;
