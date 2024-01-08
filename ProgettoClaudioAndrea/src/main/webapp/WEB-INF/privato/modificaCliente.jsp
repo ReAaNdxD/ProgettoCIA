@@ -35,7 +35,7 @@
 	<%@include file="/WEB-INF/preload.jsp"%>
 
 	<%@include file="/WEB-INF/header-scriptlet.jsp"%>
-	<%
+	<%-- <%
 		if (session.getAttribute("idCliente") == null || request.getAttribute("cliente") == null) {
 			//Non ha fatto il login ed ha messo direttamente l'url della jsp 
 			response.sendRedirect("/login.jsp");
@@ -44,7 +44,7 @@
 		Cliente c = (Cliente) request.getAttribute("cliente");
 		/* if (request.getAttribute("errore") != null) {
 			//Campi sbagliati
- */	%>
+ */	%> --%>
  
  	<%@include file="/WEB-INF/header.jsp"%>
 
