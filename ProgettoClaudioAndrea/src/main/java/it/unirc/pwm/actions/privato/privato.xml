@@ -24,7 +24,7 @@
 		</action>
 		
 		<action name="IndirizzoSpedizione" 
-		class="it.unirc.pwm.actions.privato.IndirizzoSpedizione.VisualizzaIndirizzoSpedizione" >
+		class="it.unirc.pwm.actions.privato.indirizzospedizione.VisualizzaIndirizzoSpedizione" >
 		<result name="success">/WEB-INF/privato/ilMioAccount.jsp</result>
 		<result name="error">/WEB-INF/privato/modificaCliente.jsp</result>
 		<result name="input">/WEB-INF/privato/modificaCliente.jsp</result>

@@ -21,8 +21,8 @@ public class Cliente implements java.io.Serializable {
 	private String cognome;
 	private Clienteprime clienteprime;
 	private Set<Carrello> carrellos = new HashSet<Carrello>(0);
-	private Set<Indirizzospedizione> indirizzospediziones = new HashSet<Indirizzospedizione>(0);
-	private Set<CartaCredito> cartacreditos = new HashSet<CartaCredito>(0);
+//	private Set<IndirizzoSpedizione> indirizzospediziones = new HashSet<IndirizzoSpedizione>(0);
+//	private Set<CartaCredito> cartacreditos = new HashSet<CartaCredito>(0);
 
 	public Cliente() {
 	}
@@ -39,15 +39,15 @@ public class Cliente implements java.io.Serializable {
 	}
 
 	public Cliente(String email, String password, String nome, String cognome, 
-			Clienteprime clienteprime, Set<Carrello> carrellos, Set<Indirizzospedizione> indirizzospediziones, Set<CartaCredito> cartacreditos) {
+			Clienteprime clienteprime, Set<Carrello> carrellos) {
 		this.email = email;
 		this.password = password;
 		this.nome = nome;
 		this.cognome = cognome;
 		this.clienteprime = clienteprime;
 		this.carrellos = carrellos;
-		this.indirizzospediziones = indirizzospediziones;
-		this.cartacreditos = cartacreditos;
+//		this.indirizzospediziones = indirizzospediziones;
+//		this.cartacreditos = cartacreditos;
 	}
 
 	public Integer getIdCliente() {
@@ -107,21 +107,21 @@ public class Cliente implements java.io.Serializable {
 		this.carrellos = carrellos;
 	}
 
-	public Set<Indirizzospedizione> getIndirizzospediziones() {
-		return this.indirizzospediziones;
-	}
-
-	public void setIndirizzospediziones(Set<Indirizzospedizione> indirizzospediziones) {
-		this.indirizzospediziones = indirizzospediziones;
-	}
-
-	public Set<CartaCredito> getCartacreditos() {
-		return this.cartacreditos;
-	}
-
-	public void setCartacreditos(Set<CartaCredito> cartacreditos) {
-		this.cartacreditos = cartacreditos;
-	}
+//	public Set<Indirizzospedizione> getIndirizzospediziones() {
+//		return this.indirizzospediziones;
+//	}
+//
+//	public void setIndirizzospediziones(Set<Indirizzospedizione> indirizzospediziones) {
+//		this.indirizzospediziones = indirizzospediziones;
+//	}
+//
+//	public Set<CartaCredito> getCartacreditos() {
+//		return this.cartacreditos;
+//	}
+//
+//	public void setCartacreditos(Set<CartaCredito> cartacreditos) {
+//		this.cartacreditos = cartacreditos;
+//	}
 	@Override
 	public String toString() {
 		return "Cliente [idCliente=" + idCliente + ", email=" + email + ", password=" + password + ", nome=" + nome

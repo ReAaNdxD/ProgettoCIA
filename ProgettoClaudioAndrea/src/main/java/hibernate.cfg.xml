@@ -16,7 +16,7 @@
         <mapping resource="it/unirc/pwm/ht/Sottocategoria.hbm.xml"/>
         <mapping resource="it/unirc/pwm/ht/Compone.hbm.xml"/>
         <mapping resource="it/unirc/pwm/ht/Venditore.hbm.xml"/>
-        <mapping resource="it/unirc/pwm/ht/Cartacredito.hbm.xml"/>
+        <mapping resource="it/unirc/pwm/ht/CartaCredito.hbm.xml"/>
         <mapping resource="it/unirc/pwm/ht/Categoria.hbm.xml"/>
         <mapping resource="it/unirc/pwm/ht/Metodospedizione.hbm.xml"/>
         <mapping resource="it/unirc/pwm/ht/Magazzino.hbm.xml"/>
