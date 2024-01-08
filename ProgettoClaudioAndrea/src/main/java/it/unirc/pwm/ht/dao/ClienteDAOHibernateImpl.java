@@ -192,11 +192,11 @@ public class ClienteDAOHibernateImpl implements ClienteDAO {
 			result = session.createQuery(queryHQL, Cliente.class).setParameter(1, email)
 					.setParameter(2, password).getSingleResult();
 			transaction.commit();
-//		} catch (HibernateException e) {
-//			transaction.rollback();
-//			result = null;
-//		} catch (Exception e) {
-//			result = null;
+		} catch (HibernateException e) {
+			transaction.rollback();
+			result = null;
+		} catch (Exception e) {
+			result = null;
 		} finally {
 			session.close();
 		}
