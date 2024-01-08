@@ -22,7 +22,7 @@ public class Cliente implements java.io.Serializable {
 	private Clienteprime clienteprime;
 	private Set<Carrello> carrellos = new HashSet<Carrello>(0);
 	private Set<Indirizzospedizione> indirizzospediziones = new HashSet<Indirizzospedizione>(0);
-	private Set<Cartacredito> cartacreditos = new HashSet<Cartacredito>(0);
+	private Set<CartaCredito> cartacreditos = new HashSet<CartaCredito>(0);
 
 	public Cliente() {
 	}
@@ -39,7 +39,7 @@ public class Cliente implements java.io.Serializable {
 	}
 
 	public Cliente(String email, String password, String nome, String cognome, 
-			Clienteprime clienteprime, Set<Carrello> carrellos, Set<Indirizzospedizione> indirizzospediziones, Set<Cartacredito> cartacreditos) {
+			Clienteprime clienteprime, Set<Carrello> carrellos, Set<Indirizzospedizione> indirizzospediziones, Set<CartaCredito> cartacreditos) {
 		this.email = email;
 		this.password = password;
 		this.nome = nome;
@@ -115,11 +115,11 @@ public class Cliente implements java.io.Serializable {
 		this.indirizzospediziones = indirizzospediziones;
 	}
 
-	public Set<Cartacredito> getCartacreditos() {
+	public Set<CartaCredito> getCartacreditos() {
 		return this.cartacreditos;
 	}
 
-	public void setCartacreditos(Set<Cartacredito> cartacreditos) {
+	public void setCartacreditos(Set<CartaCredito> cartacreditos) {
 		this.cartacreditos = cartacreditos;
 	}
 	@Override

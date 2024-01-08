@@ -63,6 +63,9 @@
 								<li><a href="/GoToPrime">Prime</a></li>
 								<li><a href="/privato/cliente/ordine/VisualizzaOrdini">Visualizza
 										i tuoi ordini</a></li>
+										<li><a
+									href="/privato/cartacredito/VisualizzaCartaCredito">Visualizza
+										le tue carte di credito</a></li>
 								<li><a href="/Logout">Logout</a></li>
 							</ul>
 						</div>

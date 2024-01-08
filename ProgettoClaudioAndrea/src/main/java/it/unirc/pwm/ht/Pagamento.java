@@ -9,14 +9,14 @@ import java.sql.Date;
 public class Pagamento implements java.io.Serializable {
 
 	private int numeroOrdine;
-	private Cartacredito cartacredito;
+	private CartaCredito cartacredito;
 	private Ordine ordine;
 	private Date data;
 
 	public Pagamento() {
 	}
 
-	public Pagamento(Cartacredito cartacredito, Ordine ordine, Date data) {
+	public Pagamento(CartaCredito cartacredito, Ordine ordine, Date data) {
 		this.cartacredito = cartacredito;
 		this.ordine = ordine;
 		this.data = data;
@@ -30,11 +30,11 @@ public class Pagamento implements java.io.Serializable {
 		this.numeroOrdine = numeroOrdine;
 	}
 
-	public Cartacredito getCartacredito() {
+	public CartaCredito getCartacredito() {
 		return this.cartacredito;
 	}
 
-	public void setCartacredito(Cartacredito cartacredito) {
+	public void setCartacredito(CartaCredito cartacredito) {
 		this.cartacredito = cartacredito;
 	}
 

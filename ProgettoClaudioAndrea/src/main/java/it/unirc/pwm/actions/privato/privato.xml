@@ -6,21 +6,27 @@
 	<package name="privato" namespace="/actions/privato"
 		extends="struts-default">
 
-		
+
 		<action name="RichiediModificaCliente">
 			<result>/WEB-INF/privato/modificaCliente.jsp</result>
 		</action>
-		
-		
-		<action name="ModificaCliente" class="it.unirc.pwm.actions.privato.ModificaCliente" >
-		<result name="success">/WEB-INF/privato/ilMioAccount.jsp</result>
-		<result name="error">/WEB-INF/privato/modificaCliente.jsp</result>
-		<result name="input">/WEB-INF/privato/modificaCliente.jsp</result>
+
+
+		<action name="ModificaCliente"
+			class="it.unirc.pwm.actions.privato.ModificaCliente">
+			<result name="success">/WEB-INF/privato/ilMioAccount.jsp</result>
+			<result name="error">/WEB-INF/privato/modificaCliente.jsp</result>
+			<result name="input">/WEB-INF/privato/modificaCliente.jsp</result>
 		</action>
 
-		
 
 
+	</package>
+	<package name="cartacredito"
+		namespace="/actions/privato/cartacredito" extends="struts-default">
+		<action name="VisualizzaCartaCredito" class="it.unirc.pwm.actions.privato.cartacredito.VisualizzaCartaCredito">
+			<return name="success">/WEB-INF/privato/visualizzaCarteCredito.jsp/</return>
+		</action>
 	</package>
 
 
