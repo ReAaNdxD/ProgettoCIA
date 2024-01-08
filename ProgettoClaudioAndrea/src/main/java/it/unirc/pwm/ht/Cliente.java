@@ -125,9 +125,9 @@ public class Cliente implements java.io.Serializable {
 	@Override
 	public String toString() {
 		return "Cliente [idCliente=" + idCliente + ", email=" + email + ", password=" + password + ", nome=" + nome
-				+ ", cognome=" + cognome + ", clienteprime=" + clienteprime + ", carrellos=" + carrellos
-				+ ", indirizzospediziones=" + indirizzospediziones + ", cartacreditos=" + cartacreditos + "]";
+				+ ", cognome=" + cognome + "]";
 	}
+
 	
 
 }
