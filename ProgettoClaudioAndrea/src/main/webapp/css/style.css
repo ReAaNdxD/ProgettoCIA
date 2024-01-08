@@ -4991,6 +4991,26 @@ a.brand-link:hover {
 	border-radius: 0px;
 	font-weight: 400;
 }
+.contact-us .form .form-group textfield {
+	height: 48px;
+	line-height: 48px;
+	width: 100%;
+	border: 1px solid #e6e2f5;
+	padding: 0px 20px;
+	color: #333;
+	border-radius: 0px;
+	font-weight: 400;
+}
+.contact-us .form .form-group password {
+	height: 48px;
+	line-height: 48px;
+	width: 100%;
+	border: 1px solid #e6e2f5;
+	padding: 0px 20px;
+	color: #333;
+	border-radius: 0px;
+	font-weight: 400;
+}
 .contact-us .form .form-group textarea {
 	height: 180px;
 	width: 100%;
