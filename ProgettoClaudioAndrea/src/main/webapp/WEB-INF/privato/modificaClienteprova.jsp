@@ -28,7 +28,7 @@
 											<s:label for="nome" class="font-weight-bold">Nome</s:label>
 											<s:textfield id="nome" placeholder="Nome"
 												onkeypress="return alphaOnly(event)" name="nome"
-												value="%{cliente.nome}" />
+												value="%{session.cliente.nome}" />
 											<s:fielderror fieldName="nome" />
 										</div>
 									</div>
@@ -37,7 +37,7 @@
 											<s:label for="cognome" class="font-weight-bold">Cognome</s:label>
 											<s:textfield onkeypress="return alphaOnly(event)"
 												id="cognome" placeholder="Cognome" name="cognome"
-												value="%{cliente.cognome}" />
+												value="%{session.cliente.cognome}" />
 											<s:fielderror fieldName="cognome" />
 										</div>
 									</div>
@@ -45,7 +45,7 @@
 										<div class="form-group">
 											<s:label for="email" class="font-weight-bold">Email</s:label>
 											<s:textfield id="email" placeholder="Email" name="email"
-												value="%{cliente.email}" />
+												value="%{session.cliente.email}" />
 											<s:fielderror fieldName="email" />
 										</div>
 									</div>
@@ -54,7 +54,7 @@
 											<s:label for="password" class="font-weight-bold">Password</s:label>
 											<s:password id="password"
 												title="La password deve essere tra 8 e 15 caratteri e deve contenere almeno una lettera maiuscola, una minuscola e un carattere speciale"
-												placeholder="Password" name="password" value="%{cliente.password}" />
+												placeholder="Password" name="password" value="%{session.cliente.password}" />
 											<s:fielderror fieldName="password" />
 											<small>La password deve essere tra 8 e 15 caratteri e
 												deve contenere almeno <br>una lettera maiuscola una

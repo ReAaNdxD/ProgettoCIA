@@ -23,6 +23,7 @@ public class ModificaCliente extends ActionSupport {
 		ClienteDAO cDAO = ClienteDAOFactory.getDAO();
 		if (cDAO.modifica(cliente))
 			return SUCCESS;
+		
 		else {
 			addActionError("Esiste già un cliente con la stessa Email");
 			return ERROR;
