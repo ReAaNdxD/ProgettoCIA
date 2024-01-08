@@ -12,7 +12,7 @@ public class Ordine implements java.io.Serializable {
 
 	private Integer numeroOrdine;
 	private Metodospedizione metodospedizione;
-	private Indirizzospedizione indirizzospedizione;
+	private IndirizzoSpedizione indirizzospedizione;
 	private Carrello carrello;
 	private Statoordine statoordine;
 	private float costoTotale;
@@ -32,7 +32,7 @@ public class Ordine implements java.io.Serializable {
 		this.dataCreazione = dataCreazione;
 	}
 
-	public Ordine(Metodospedizione metodospedizione, Indirizzospedizione indirizzospedizione, Carrello carrello,
+	public Ordine(Metodospedizione metodospedizione, IndirizzoSpedizione indirizzospedizione, Carrello carrello,
 			Statoordine statoordine, float costoTotale, Date dataCreazione, Pagamento pagamento, Set spediziones) {
 		this.metodospedizione = metodospedizione;
 		this.indirizzospedizione = indirizzospedizione;
@@ -60,11 +60,11 @@ public class Ordine implements java.io.Serializable {
 		this.metodospedizione = metodospedizione;
 	}
 
-	public Indirizzospedizione getIndirizzospedizione() {
+	public IndirizzoSpedizione getIndirizzospedizione() {
 		return this.indirizzospedizione;
 	}
 
-	public void setIndirizzospedizione(Indirizzospedizione indirizzospedizione) {
+	public void setIndirizzospedizione(IndirizzoSpedizione indirizzospedizione) {
 		this.indirizzospedizione = indirizzospedizione;
 	}
 

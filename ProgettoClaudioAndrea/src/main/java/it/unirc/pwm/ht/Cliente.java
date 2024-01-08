@@ -21,7 +21,7 @@ public class Cliente implements java.io.Serializable {
 	private String cognome;
 	private Clienteprime clienteprime;
 	private Set<Carrello> carrellos = new HashSet<Carrello>(0);
-	private Set<Indirizzospedizione> indirizzospediziones = new HashSet<Indirizzospedizione>(0);
+	private Set<IndirizzoSpedizione> indirizzospediziones = new HashSet<IndirizzoSpedizione>(0);
 	private Set<Cartacredito> cartacreditos = new HashSet<Cartacredito>(0);
 
 	public Cliente() {
@@ -39,7 +39,7 @@ public class Cliente implements java.io.Serializable {
 	}
 
 	public Cliente(String email, String password, String nome, String cognome, 
-			Clienteprime clienteprime, Set<Carrello> carrellos, Set<Indirizzospedizione> indirizzospediziones, Set<Cartacredito> cartacreditos) {
+			Clienteprime clienteprime, Set<Carrello> carrellos, Set<IndirizzoSpedizione> indirizzospediziones, Set<Cartacredito> cartacreditos) {
 		this.email = email;
 		this.password = password;
 		this.nome = nome;
@@ -107,11 +107,11 @@ public class Cliente implements java.io.Serializable {
 		this.carrellos = carrellos;
 	}
 
-	public Set<Indirizzospedizione> getIndirizzospediziones() {
+	public Set<IndirizzoSpedizione> getIndirizzospediziones() {
 		return this.indirizzospediziones;
 	}
 
-	public void setIndirizzospediziones(Set<Indirizzospedizione> indirizzospediziones) {
+	public void setIndirizzospediziones(Set<IndirizzoSpedizione> indirizzospediziones) {
 		this.indirizzospediziones = indirizzospediziones;
 	}
 
