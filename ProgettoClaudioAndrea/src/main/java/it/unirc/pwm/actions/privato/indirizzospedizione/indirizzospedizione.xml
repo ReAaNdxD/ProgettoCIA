@@ -1,0 +1,29 @@
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 6.0//EN" "https://struts.apache.org/dtds/struts-6.0.dtd">
+
+
+<struts>
+
+	<package name="indirizzospedizione" 
+		namespace="/actions/privato/indirizzospedizione"
+			extends="struts-default">
+		
+		
+		<action name="VisualizzaIndirizzoSpedizione"
+			class="it.unirc.pwm.actions.privato.indirizzospedizione.VisualizzaIndirizzoSpedizione">
+			<result>/WEB-INF/privato/indirizzospedizione/visualizzaIndirizziSpedizione.jsp</result>
+		</action>
+		
+		
+		</package>
+	
+	
+	
+<!-- 	<package name="cartacredito"
+		namespace="/actions/privato/cartacredito" extends="struts-default">
+		<action name="VisualizzaCartaCredito" class="it.unirc.pwm.actions.privato.cartacredito.VisualizzaCartaCredito">
+			<return name="success">/WEB-INF/privato/visualizzaCarteCredito.jsp/</return>
+		</action>
+	</package> -->
+
+
+</struts>

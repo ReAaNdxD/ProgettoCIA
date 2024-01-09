@@ -58,7 +58,7 @@
 								<li><a href="/actions/privato/RichiediModificaCliente">Modifica
 										Account</a></li>
 								<li><a
-									href="/privato/cliente/indirizzospedizione/VisualizzaIndirizziSpedizione">Visualizza
+									href="/actions/privato/indirizzospedizione/VisualizzaIndirizzoSpedizione">Visualizza
 										i tuoi indirizzi</a></li>
 								<li><a href="/GoToPrime">Prime</a></li>
 								<li><a href="/privato/cliente/ordine/VisualizzaOrdini">Visualizza

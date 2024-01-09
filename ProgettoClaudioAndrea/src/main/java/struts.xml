@@ -25,4 +25,6 @@
 
 	<include file="it/unirc/pwm/actions/actions.xml" />
 	<include file="it/unirc/pwm/actions/privato/privato.xml" />
+	<include file="it/unirc/pwm/actions/privato/indirizzospedizione/indirizzospedizione.xml" />
+	
 </struts>

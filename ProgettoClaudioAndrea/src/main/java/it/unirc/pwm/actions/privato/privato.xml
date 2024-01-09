@@ -19,9 +19,7 @@
 			<result name="input">/WEB-INF/privato/modificaCliente.jsp</result>
 		</action>
 		
-		<action name="RichiediIndirizzoSpedizione">
-			<result>/WEB-INF/privato/indirizzospedizione/visualizzaIndirizziSpedizione.jsp</result>
-		</action>
+		
 		
 <!-- 		<action name="IndirizzoSpedizione" 
 		class="it.unirc.pwm.actions.privato.indirizzospedizione.VisualizzaIndirizzoSpedizione" >

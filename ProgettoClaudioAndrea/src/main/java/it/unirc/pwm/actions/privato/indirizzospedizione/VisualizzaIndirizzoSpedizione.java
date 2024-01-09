@@ -36,7 +36,8 @@ public class VisualizzaIndirizzoSpedizione extends ActionSupport implements Sess
 
 
 	@Override
-	public void withSession(Map<String, Object> arg0) {
+	public void withSession(Map<String, Object> session) {
+		this.session=session;
 		
 	}
 }
