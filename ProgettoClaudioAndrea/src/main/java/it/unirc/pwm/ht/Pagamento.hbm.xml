@@ -8,7 +8,7 @@
                 <param name="property">ordine</param>
             </generator>
         </id>
-        <many-to-one class="it.unirc.pwm.ht.Cartacredito" fetch="select" name="cartacredito">
+        <many-to-one class="it.unirc.pwm.ht.CartaCredito" fetch="select" name="cartacredito">
             <column name="idCarta" not-null="true"/>
         </many-to-one>
         <one-to-one class="it.unirc.pwm.ht.Ordine" constrained="true" name="ordine"/>

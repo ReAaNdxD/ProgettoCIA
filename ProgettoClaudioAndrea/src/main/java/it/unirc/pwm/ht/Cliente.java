@@ -21,8 +21,8 @@ public class Cliente implements java.io.Serializable {
 	private String cognome;
 	private Clienteprime clienteprime;
 	private Set<Carrello> carrellos = new HashSet<Carrello>(0);
-//	private Set<IndirizzoSpedizione> indirizzospediziones = new HashSet<IndirizzoSpedizione>(0);
-//	private Set<CartaCredito> cartacreditos = new HashSet<CartaCredito>(0);
+	private Set<IndirizzoSpedizione> indirizzospediziones = new HashSet<IndirizzoSpedizione>(0);
+	private Set<CartaCredito> cartacreditos = new HashSet<CartaCredito>(0);
 
 	public Cliente() {
 	}
@@ -107,21 +107,21 @@ public class Cliente implements java.io.Serializable {
 		this.carrellos = carrellos;
 	}
 
-//	public Set<Indirizzospedizione> getIndirizzospediziones() {
-//		return this.indirizzospediziones;
-//	}
-//
-//	public void setIndirizzospediziones(Set<Indirizzospedizione> indirizzospediziones) {
-//		this.indirizzospediziones = indirizzospediziones;
-//	}
-//
-//	public Set<CartaCredito> getCartacreditos() {
-//		return this.cartacreditos;
-//	}
-//
-//	public void setCartacreditos(Set<CartaCredito> cartacreditos) {
-//		this.cartacreditos = cartacreditos;
-//	}
+	public Set<IndirizzoSpedizione> getIndirizzospediziones() {
+		return this.indirizzospediziones;
+	}
+
+	public void setIndirizzospediziones(Set<IndirizzoSpedizione> indirizzospediziones) {
+		this.indirizzospediziones = indirizzospediziones;
+	}
+
+	public Set<CartaCredito> getCartacreditos() {
+		return this.cartacreditos;
+	}
+
+	public void setCartacreditos(Set<CartaCredito> cartacreditos) {
+		this.cartacreditos = cartacreditos;
+	}
 	@Override
 	public String toString() {
 		return "Cliente [idCliente=" + idCliente + ", email=" + email + ", password=" + password + ", nome=" + nome
