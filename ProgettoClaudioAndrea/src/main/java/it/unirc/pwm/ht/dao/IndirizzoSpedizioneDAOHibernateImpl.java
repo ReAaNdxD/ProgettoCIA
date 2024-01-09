@@ -37,10 +37,10 @@ public class IndirizzoSpedizioneDAOHibernateImpl implements IndirizzoSpedizioneD
 			res = true;
 		} catch (HibernateException e) {
 			transaction.rollback();
-			return false;
+//			return false;
 		} catch(PersistenceException pe) {
 			transaction.rollback();
-			return false;
+//			return false;
 		}
 		finally {
 			if (session != null) // spesso omesso
@@ -91,15 +91,17 @@ public class IndirizzoSpedizioneDAOHibernateImpl implements IndirizzoSpedizioneD
 		try {
 			transaction = session.beginTransaction();
 
-			String queryHQL = "from IndirizzoSpedizione";
-			result = session.createQuery(queryHQL, IndirizzoSpedizione.class).list();
-
+			String queryHQL = "from IndirizzoSpedizione i WHERE i.idCliente=:id";
+			result = session.createQuery(queryHQL, IndirizzoSpedizione.class).setParameter("id", cliente.getIdCliente()).list();
 			transaction.commit();
 		} catch (HibernateException e) {
 			transaction.rollback();
-			result = null;
+//			result = null;
+			System.out.println(e + "sono nel primo catch");
 		} catch (Exception e) {
-			result = null;
+//			result = null;
+			System.out.println(e);
+
 		} finally {
 			session.close();
 		}

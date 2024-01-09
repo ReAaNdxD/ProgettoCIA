@@ -9,6 +9,13 @@ import java.util.Set;
  */
 public class IndirizzoSpedizione implements java.io.Serializable {
 
+	@Override
+	public String toString() {
+		return "IndirizzoSpedizione [idIndirizzoSpedizione=" + idIndirizzoSpedizione + ", cliente=" + cliente
+				+ ", preferito=" + preferito + ", regione=" + regione + ", provincia=" + provincia + ", citta=" + citta
+				+ ", via=" + via + ", ncivico=" + ncivico + ", cap=" + cap + ", telefono=" + telefono + "]";
+	}
+
 	private Integer idIndirizzoSpedizione;
 	private Cliente cliente;
 	private byte preferito;

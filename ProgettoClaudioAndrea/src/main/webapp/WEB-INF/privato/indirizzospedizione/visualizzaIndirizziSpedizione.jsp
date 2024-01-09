@@ -65,7 +65,7 @@
 		<br>
 		<div align="center">
 			<a type="button"
-				href="/privato/cliente/indirizzospedizione/RichiediAggiungiIndirizzoSpedizione"
+				href="/actions/privato/indirizzospedizione/RichiediAggiungiIndirizzoSpedizione"
 				class="btn btn-primary"> Crea un nuovo indirizzo spedizione </a>
 		</div>
 	</div>

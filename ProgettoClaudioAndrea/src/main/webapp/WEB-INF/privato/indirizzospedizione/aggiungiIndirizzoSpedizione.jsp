@@ -7,7 +7,7 @@
 
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@ page contentType="text/html;charset=UTF-8" %>
+
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
@@ -27,54 +27,54 @@
                                 <h3 style="color: #f7941d">Aggiungi Indirizzo Di Spedizione</h3>
                             </div>
                             <s:actionerror/>
-                            <s:form action="/privato/cliente/indirizzospedizione/AggiungiIndirizzoSpedizione" theme="simple" method="post" validate="true">
+                            <s:form action="/actions/privato/indirizzospedizione/AggiungiIndirizzoSpedizione" theme="simple" method="post" validate="true">
                                 <div class="row">
                                     <div class="col-lg-6 col-12">
                                         <div class="form-group">
                                             <label for="regione" class="font-weight-bold">Regione</label>
-                                            <s:textfield id="regione" placeholder="Regione" type="text" onkeypress="return alphaOnly(event)" name="regione" required="true" />
+                                            <s:textfield id="regione" placeholder="Regione" type="text" onkeypress="return alphaOnly(event)" name="indirizzo.regione" required="true" />
                                             <small></small>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-12">
                                         <div class="form-group">
                                             <label for="provincia" class="font-weight-bold">Provincia</label>
-                                            <s:textfield id="provincia" onkeypress="return /[a-z]/i.test(event.key)" placeholder="Provincia" type="text" maxlength="2" pattern=".{2,}" required="true" title="Provincia deve avere 2 lettere" name="provincia" style="text-transform: uppercase" />
+                                            <s:textfield id="provincia" onkeypress="return /[a-z]/i.test(event.key)" placeholder="Provincia" type="text" maxlength="2" pattern=".{2,}" required="true" title="Provincia deve avere 2 lettere" name="indirizzo.provincia" style="text-transform: uppercase" />
                                             <small></small>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-12">
                                         <div class="form-group">
                                             <label for="citta" class="font-weight-bold">Città</label>
-                                            <s:textfield id="citta" placeholder="Città" type="text" name="citta" onkeypress="return alphaOnly(event)" required="true" />
+                                            <s:textfield id="citta" placeholder="Città" type="text" name="indirizzo.citta" onkeypress="return alphaOnly(event)" required="true" />
                                             <small></small>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-12">
                                         <div class="form-group">
                                             <label for="via" class="font-weight-bold">Via</label>
-                                            <s:textfield id="via" placeholder="Via" type="text" onkeypress="return alphaOnly(event)" name="via" required="true" />
+                                            <s:textfield id="via" placeholder="Via" type="text" onkeypress="return alphaOnly(event)" name="indirizzo.via" required="true" />
                                             <small></small>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-12">
                                         <div class="form-group">
-                                            <label for="numeroCivico" class="font-weight-bold">Numero Civico</label>
-                                            <s:textfield id="numeroCivico" required="true" placeholder="Numero Civico" type="text" maxlength="3" name="numeroCivico" />
+                                            <label for="ncivico" class="font-weight-bold">Numero Civico</label>
+                                            <s:textfield id="ncivico" required="true" placeholder="Numero Civico" type="text" maxlength="3" name="indirizzo.ncivico" />
                                             <small></small>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-12">
                                         <div class="form-group">
                                             <label for="cap" class="font-weight-bold">CAP</label>
-                                            <s:textfield id="cap" placeholder="CAP" type="text" onkeypress="return onlyNumbers(event)" name="cap" maxlength="5" pattern=".{5,}" required="true" title="CAP deve avere 5 cifre" />
+                                            <s:textfield id="cap" placeholder="CAP" type="text" onkeypress="return onlyNumbers(event)" name="indirizzo.cap" maxlength="5" pattern=".{5,}" required="true" title="CAP deve avere 5 cifre" />
                                             <small></small>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-12">
                                         <div class="form-group">
-                                            <label for="numeroTelefonico" class="font-weight-bold">Telefono</label>
-                                            <s:textfield id="numeroTelefonico" placeholder="Telefono" type="text" onkeypress="return onlyNumbers(event)" name="numeroTelefonico" maxlength="10" pattern=".{10,}" required="true" title="Inserire un numero di telefono di 10 cifre" />
+                                            <label for="telefono" class="font-weight-bold">Telefono</label>
+                                            <s:textfield id="telefono" placeholder="Telefono" type="text" onkeypress="return onlyNumbers(event)" name="indirizzo.telefono" maxlength="10" pattern=".{10,}" required="true" title="Inserire un numero di telefono di 10 cifre" />
                                             <small></small>
                                         </div>
                                     </div>

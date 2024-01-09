@@ -6,6 +6,7 @@ import org.apache.struts2.action.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import it.unirc.pwm.ht.Cliente;
 import it.unirc.pwm.ht.IndirizzoSpedizione;
 import it.unirc.pwm.ht.dao.IndirizzoSpedizioneDAO;
 import it.unirc.pwm.ht.dao.IndirizzoSpedizioneDAOFactory;
@@ -14,6 +15,7 @@ public class AggiungiIndirizzoSpedizione extends ActionSupport implements Sessio
 	private static final long serialVersionUID = 1L;
 	private IndirizzoSpedizione indirizzo;
 	private Map<String, Object> session;
+	private Cliente cliente;
 
 	public IndirizzoSpedizione getIndirizzo() {
 		return indirizzo;
@@ -26,12 +28,17 @@ public class AggiungiIndirizzoSpedizione extends ActionSupport implements Sessio
 	@Override
 	public String execute() {
 		IndirizzoSpedizioneDAO iSDAO = IndirizzoSpedizioneDAOFactory.getDAO();
+		cliente = (Cliente) session.get("cliente");
+		indirizzo.setCliente(cliente);
+		System.out.println(indirizzo);
 		if(iSDAO.salva(indirizzo)) {
-			session.put("indirizzi", indirizzo);
+			System.out.println(iSDAO.getAll(cliente));
+			session.replace("indirizzi", iSDAO.getAll(cliente));
 			return SUCCESS;
-		}else
+		}else {
 			addActionError("Errore nel salvataggio");
 			return ERROR;
+		}
 	}
 
 

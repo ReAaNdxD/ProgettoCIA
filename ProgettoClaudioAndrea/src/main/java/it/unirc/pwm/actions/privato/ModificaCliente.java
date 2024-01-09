@@ -45,8 +45,6 @@ public class ModificaCliente extends ActionSupport implements SessionAware {
 		}
 	}
 	public void validate() {
-		System.out.println(ripetiPassword);
-		System.out.println(cliente.getPassword());
 		if (!cliente.getPassword().equals(ripetiPassword)) {
 			System.out.println(cliente);
             addActionError("Le due password non corrispondono.");

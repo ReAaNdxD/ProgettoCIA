@@ -31,6 +31,7 @@ public class VisualizzaIndirizzoSpedizione extends ActionSupport implements Sess
         IndirizzoSpedizioneDAO indirizzoSpedizioneDAO = IndirizzoSpedizioneDAOFactory.getDAO();
         List<IndirizzoSpedizione> indirizzi = indirizzoSpedizioneDAO.getAll(cliente);
         session.put("indirizziSpedizione", indirizzi);
+        
         return SUCCESS;
     }
 
