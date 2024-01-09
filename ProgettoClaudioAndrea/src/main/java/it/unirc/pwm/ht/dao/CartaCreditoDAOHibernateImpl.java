@@ -15,26 +15,7 @@ public class CartaCreditoDAOHibernateImpl implements CartaCreditoDAO {
 
 	@Override
 	public boolean salva(CartaCredito cc, Cliente cl) {
-		Session session = HibernateUtil.getSessionFactory().openSession();
-		Transaction transaction = null;
-		boolean res = false;
-		try {
-			transaction = session.beginTransaction();
-			session.persist(cliente);
-			transaction.commit();
-			res = true;
-		} catch (HibernateException e) {
-			transaction.rollback();
-			return false;
-		} catch(PersistenceException pe) {
-			transaction.rollback();
-			return false;
-		}
-		finally {
-			if (session != null) // spesso omesso
-				session.close();
-		}
-		return res;
+		return false;
 	}
 
 	@Override
