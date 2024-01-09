@@ -10,8 +10,31 @@
 		
 		<action name="VisualizzaIndirizzoSpedizione"
 			class="it.unirc.pwm.actions.privato.indirizzospedizione.VisualizzaIndirizzoSpedizione">
-			<result>/WEB-INF/privato/indirizzospedizione/visualizzaIndirizziSpedizione.jsp</result>
+			<result name ="success">/WEB-INF/privato/indirizzospedizione/visualizzaIndirizziSpedizione.jsp</result>
 		</action>
+		
+		<action name="RichiediModificaIndirizzoSpedizione">
+			<result>/WEB-INF/privato/indirizzospedizione/modificaIndirizzoSpedizione.jsp</result>
+		</action>
+		
+		<action name="ModificaIndirizzoSpedizione"
+			class="it.unirc.pwm.actions.privato.indirizzospedizione.ModificaIndirizzoSpedizione">
+			<result name ="success">/WEB-INF/privato/indirizzospedizione/visualizzaIndirizziSpedizione.jsp</result>
+			<result name ="input">/WEB-INF/privato/indirizzospedizione/modificaIndirizzoSpedizione.jsp</result>
+			<result name ="error">/WEB-INF/privato/indirizzospedizione/modificaIndirizzoSpedizione.jsp</result>		
+		</action>
+		
+		<action name="RichiediAggiungiIndirizzoSpedizione">
+			<result>/WEB-INF/privato/indirizzospedizione/aggiungiIndirizzoSpedizione.jsp</result>
+		</action>
+		
+		<action name="AggiungiIndirizzoSpedizione"
+			class="it.unirc.pwm.actions.privato.indirizzospedizione.AggiungiIndirizzoSpedizione">
+			<result name ="success">/WEB-INF/privato/indirizzospedizione/visualizzaIndirizziSpedizione.jsp</result>
+			<result name ="input">/WEB-INF/privato/indirizzospedizione/aggiungiIndirizzoSpedizione.jsp</result>
+			<result name ="error">/WEB-INF/privato/indirizzospedizione/aggiungiIndirizzoSpedizione.jsp</result>		
+		</action>
+		
 		
 		
 		</package>

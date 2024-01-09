@@ -26,6 +26,7 @@
                             <div class="title">
                                 <h3 style="color: #f7941d">Aggiungi Indirizzo Di Spedizione</h3>
                             </div>
+                            <s:actionerror/>
                             <s:form action="/privato/cliente/indirizzospedizione/AggiungiIndirizzoSpedizione" theme="simple" method="post" validate="true">
                                 <div class="row">
                                     <div class="col-lg-6 col-12">

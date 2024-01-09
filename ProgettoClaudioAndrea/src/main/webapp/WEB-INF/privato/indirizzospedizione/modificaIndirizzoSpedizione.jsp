@@ -16,13 +16,13 @@
     <link rel="stylesheet" type="text/css" href="/css/AggiungiCartaCredito.css">
 </head>
 <body>
-    <%
+<%--     <%
     if (session.getAttribute("indirizzo") == null) {
         out.write("Errore :-(");
         return;
     }
     VisualizzaIndirizzoSpedizione i = (VisualizzaIndirizzoSpedizione) session.getAttribute("indirizzo");
-    %>
+    %> --%>
     <section id="contact-us" class="contact-us section">
         <div class="container">
             <div class="contact-head">

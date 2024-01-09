@@ -50,7 +50,7 @@
 									<td>
 										<div class="button">
 											<a
-												href="/privato/cliente/indirizzospedizione/RichiediModificaIndirizzoSpedizione?id=<s:property value="#indirizzo.idIndirizzoSpedizione" />">
+												href="/actions/privato/indirizzospedizione/RichiediModificaIndirizzoSpedizione?id=<s:property value="#indirizzo.idIndirizzoSpedizione" />">
 												<button type="button" class="btn btn-primary">Modifica</button>
 											</a>
 										</div>
