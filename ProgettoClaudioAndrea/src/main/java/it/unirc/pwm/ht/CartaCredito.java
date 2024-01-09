@@ -22,6 +22,7 @@ public class CartaCredito implements java.io.Serializable {
 //	private Cliente cliente;
 	private Set clientes = new HashSet(0);
 	private Set pagamentos = new HashSet(0);
+//	ciao
 
 	public CartaCredito() {
 	}
