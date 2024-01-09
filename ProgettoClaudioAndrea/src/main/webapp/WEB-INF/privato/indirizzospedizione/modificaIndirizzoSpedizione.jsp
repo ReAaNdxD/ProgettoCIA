@@ -1,213 +1,145 @@
-<%@page import="it.unirc.db.ecommerce.beans.Sottocategoria"%>
-<%@page import="it.unirc.db.ecommerce.beans.SottocategoriaDAO"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
 <%@page import="java.util.Enumeration"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="java.text.NumberFormat"%>
 <%@page import="it.unirc.db.ecommerce.views.ViewProduct"%>
-<%@page import="it.unirc.db.ecommerce.beans.CategoriaDAO"%>
-<%@page import="it.unirc.db.ecommerce.beans.Categoria"%>
-<%@page import="it.unirc.db.ecommerce.beans.Carrello"%>
-<%@page import="it.unirc.db.ecommerce.beans.CarrelloDAO"%>
-<%@page import="it.unirc.db.ecommerce.beans.ArticoloDAO"%>
-<%@page import="it.unirc.db.ecommerce.views.GridProduct"%>
-<%@page import="it.unirc.db.ecommerce.beans.Prodotto"%>
-<%@page import="it.unirc.db.ecommerce.beans.ProdottoDAO"%>
-<%@page
-	import="it.unirc.db.ecommerce.beans.join.ArticoloComponeCarrelloDAO"%>
+<%@page import="it.unirc.pwm.actions.privato.indirizzospedizione.VisualizzaIndirizzoSpedizione"%>
 <%@page import="java.util.Vector"%>
-<%@page import="it.unirc.db.ecommerce.beans.ClienteDAO"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@ page import="it.unirc.db.ecommerce.beans.Cliente"%>
-<%@ page import="it.unirc.db.ecommerce.beans.IndirizzoSpedizione"%>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Modifica Indirizzo Spedizione</title>
-<%@include file="/WEB-INF/head.jsp" %>
-
-<link rel="stylesheet" type="text/css"
-	href="/css/AggiungiCartaCredito.css">
+    <title>Modifica Indirizzo Spedizione</title>
+    <%@ include file="/WEB-INF/head.jsp" %>
+    <link rel="stylesheet" type="text/css" href="/css/AggiungiCartaCredito.css">
 </head>
 <body>
-	<%
-	if (session.getAttribute("indirizzo") == null) {
-		out.write("Errore :-(");
-		return;
-			}
-			VisualizzaIndirizzoSpedizione i = (VisualizzaIndirizzoSpedizione) session.getAttribute("indirizzo");
-	%>
- 
- <%@include file="/WEB-INF/preload.jsp"%>
-
-	<%@include file="/WEB-INF/header-scriptlet.jsp"%>
- 
- 	<%@include file="/WEB-INF/header.jsp"%>
-
-	<section id="contact-us" class="contact-us section">
-		<div class="container">
-			<div class="contact-head">
-				<div class="row">
-					<div class="col-lg-12 col-12">
-						<div class="form-main">
-							<div class="title">
-								<h3 style="color: #f7941d">Modifica Indirizzo Di Spedizione</h3>
-							</div>
-							<%
-								if (session.getAttribute("modificaIS") != null) {
-									//Non è riuscito ad effettuare la modifica
-									session.setAttribute("modificaIS", null);
-							%>
-							<div class="error-page">
-								<div class="error-inner">
-									<h5 class="h5" style="color: #F7941D">
-										<%
-											out.append("Alcuni campi sono sbagliati :-(");
-										%>
-									</h5>
-								</div>
-							</div>
-							<%
-								}
-
-								if (session.getAttribute("modification") != null) {
-									//Non è riuscito ad effettuare la modifica
-									session.setAttribute("modification", null);
-							%>
-							<div class="error-page">
-								<div class="error-inner">
-									<h5 class="h5" style="color: #F7941D">
-										<%
-											out.append("Non siamo riusciti a modificare l'indirizzo :-(");
-										%>
-									</h5>
-								</div>
-							</div>
-							<%
-								}
-
-								if (session.getAttribute("preferitoIS") != null) {
-									//Non è riuscito a renderlo preferito
-									session.setAttribute("preferitoIS", null);
-							%>
-							<div class="error-page">
-								<div class="error-inner">
-									<h5 class="h5" style="color: #F7941D">
-										<%
-											out.append("Non siamo riusciti a rendere l'indirizzo preferito :-(");
-										%>
-									</h5>
-								</div>
-							</div>
-							<%
-								}
-							%>
-							<form id="form" class="form" method="post"
-								action="ModificaIndirizzoSpedizione" onsubmit="return valida()">
-								<div class="row">
-									<div class="col-lg-6 col-12">
-										<div class="form-group">
-											<label for="regione" class="font-weight-bold">Regione</label>
-											<input id="regione" placeholder="Regione" type="text"
-												onkeypress="return alphaOnly(event)" name="regione"
-												value="<%=i.getRegione()%>" required>
-											<!-- small element serve per mostrare un messaggio d'errore nel caso 
-					in cui gli input siano errati -->
-											<small></small>
-										</div>
-									</div>
-									<div class="col-lg-6 col-12">
-										<div class="form-group">
-											<label for="provincia" class="font-weight-bold">Provincia</label>
-											<input onkeypress="return /[a-z]/i.test(event.key)"
-												id="provincia" placeholder="Provincia" type="text"
-												maxlength="2" pattern=".{2,}" required
-												title="Provincia deve avere 2 lettere"
-												value="<%=i.getProvincia()%>" name="provincia"
-												style="text-transform: uppercase"> <small></small>
-										</div>
-									</div>
-									<div class="col-lg-6 col-12">
-										<div class="form-group">
-											<label for="citta" class="font-weight-bold">Città</label> <input
-												id="citta" placeholder="Città" type="text" name="citta"
-												value="<%=i.getCitta()%>"
-												onkeypress="return alphaOnly(event)" required> <small></small>
-										</div>
-									</div>
-									<div class="col-lg-6 col-12">
-										<div class="form-group">
-											<label for="via" class="font-weight-bold">Via</label> <input
-												id="via" placeholder="Via" type="text"
-												onkeypress="return alphaOnly(event)" name="via"
-												value="<%=i.getVia()%>" required> <small></small>
-										</div>
-									</div>
-									<div class="col-lg-6 col-12">
-										<div class="form-group">
-											<label for="numeroCivico" class="font-weight-bold">Numero
-												Civico</label> <input id="numeroCivico" required
-												placeholder="Numero Civico" type="text" maxlength="3"
-												name="numeroCivico" value="<%=i.getNCivico()%>"> <small></small>
-										</div>
-									</div>
-									<div class="col-lg-6 col-12">
-										<div class="form-group">
-											<label for="cap" class="font-weight-bold">CAP</label> <input
-												id="cap" placeholder="CAP" type="text"
-												onkeypress="return onlyNumbers(event)" name="cap"
-												value="<%=i.getCap()%>" maxlength="5" pattern=".{5,}"
-												required title="CAP deve avere 5 cifre"> <small></small>
-										</div>
-									</div>
-									<div class="col-lg-6 col-12">
-										<div class="form-group">
-											<label for="numeroTelefonico" class="font-weight-bold">Telefono</label>
-											<input id="numeroTelefonico" placeholder="Telefono"
-												type="text" onkeypress="return onlyNumbers(event)"
-												name="numeroTelefonico" value="<%=i.getTelefono()%>"
-												maxlength="10" pattern=".{10,}" required
-												title="Inserire un numero di telefono di 10 cifre">
-											<small></small>
-										</div>
-									</div>
-									<%
-										if (request.getAttribute("preferito") == null) {
-									%><!-- In quanto se non c'è l'attributo significa che non è l'indirizzo preferito 
-			e quindi deve comparire la checkbox -->
-									<div class="col-12">
-										<div class="form-check">
-											<input id="preferito" name="preferito" type="checkbox"
-												value="true"> <label for="preferito">Vuoi
-												che sia l'indirizzo preferito?</label>
-										</div>
-									</div>
-									<%
-										}
-									%>
-									<div class="col-12">
-										<div class="form-group button">
-											<button class="btn" onclick="history.go(-1); return false;">Annulla</button>
-											<button type="submit" class="btn">Modifica</button>
-										</div>
-									</div>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-		<%@include file="/WEB-INF/footer.jsp"%>
+    <%
+    if (session.getAttribute("indirizzo") == null) {
+        out.write("Errore :-(");
+        return;
+    }
+    VisualizzaIndirizzoSpedizione i = (VisualizzaIndirizzoSpedizione) session.getAttribute("indirizzo");
+    %>
+    <section id="contact-us" class="contact-us section">
+        <div class="container">
+            <div class="contact-head">
+                <div class="row">
+                    <div class="col-lg-12 col-12">
+                        <div class="form-main">
+                            <div class="title">
+                                <h3 style="color: #f7941d">Modifica Indirizzo Di Spedizione</h3>
+                            </div>
+                            <%
+                            if (session.getAttribute("modificaIS") != null) {
+                                session.setAttribute("modificaIS", null);
+                            %>
+                                <div class="error-page">
+                                    <div class="error-inner">
+                                        <h5 class="h5" style="color: #F7941D">
+                                            <%= "Alcuni campi sono sbagliati :-(" %>
+                                        </h5>
+                                    </div>
+                                </div>
+                            <%
+                            }
+                            if (session.getAttribute("modification") != null) {
+                                session.setAttribute("modification", null);
+                            %>
+                                <div class="error-page">
+                                    <div class="error-inner">
+                                        <h5 class="h5" style="color: #F7941D">
+                                            <%= "Non siamo riusciti a modificare l'indirizzo :-(" %>
+                                        </h5>
+                                    </div>
+                                </div>
+                            <%
+                            }
+                            if (session.getAttribute("preferitoIS") != null) {
+                                session.setAttribute("preferitoIS", null);
+                            %>
+                                <div class="error-page">
+                                    <div class="error-inner">
+                                        <h5 class="h5" style="color: #F7941D">
+                                            <%= "Non siamo riusciti a rendere l'indirizzo preferito :-(" %>
+                                        </h5>
+                                    </div>
+                                </div>
+                            <%
+                            }
+                            %>
+                            <s:form action="ModificaIndirizzoSpedizione" theme="simple" method="post" validate="true">
+                                <div class="row">
+                                    <div class="col-lg-6 col-12">
+                                        <div class="form-group">
+                                            <s:textfield name="regione" label="Regione" cssClass="form-control" value="%{#i.regione}" required="true" />
+                                            <small></small>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-12">
+                                        <div class="form-group">
+                                            <s:textfield name="provincia" label="Provincia" cssClass="form-control" value="%{#i.provincia}" required="true" />
+                                            <small></small>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-12">
+                                        <div class="form-group">
+                                            <s:textfield name="citta" label="Città" cssClass="form-control" value="%{#i.citta}" required="true" />
+                                            <small></small>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-12">
+                                        <div class="form-group">
+                                            <s:textfield name="via" label="Via" cssClass="form-control" value="%{#i.via}" required="true" />
+                                            <small></small>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-12">
+                                        <div class="form-group">
+                                            <s:textfield name="numeroCivico" label="Numero Civico" cssClass="form-control" value="%{#i.numeroCivico}" required="true" />
+                                            <small></small>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-12">
+                                        <div class="form-group">
+                                            <s:textfield name="cap" label="CAP" cssClass="form-control" value="%{#i.cap}" required="true" />
+                                            <small></small>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-12">
+                                        <div class="form-group">
+                                            <s:textfield name="numeroTelefonico" label="Telefono" cssClass="form-control" value="%{#i.numeroTelefonico}" required="true" />
+                                            <small></small>
+                                        </div>
+                                    </div>
+                                    <s:if test="#empty preferito">
+                                        <div class="col-12">
+                                            <div class="form-check">
+                                                <s:checkbox name="preferito" fieldValue="true" label="Vuoi che sia l'indirizzo preferito?" />
+                                            </div>
+                                        </div>
+                                    </s:if>
+                                    <div class="col-12">
+                                        <div class="form-group button">
+                                            <button class="btn" onclick="history.go(-1); return false;">Annulla</button>
+                                            <s:submit value="Modifica" cssClass="btn" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </s:form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <%@include file="/WEB-INF/footer.jsp"%>
 
 	<script type="text/javascript" charset="UTF-8"
 		src="/js/IndirizzoSpedizione/funzioniIS.js"></script>
 		
-		
-	<%-- 	<%@include file="/WEB-INF/js.jsp"%> --%>
 
 	<!-- Jquery -->
 	<script src="/js/jquery.min.js"></script>

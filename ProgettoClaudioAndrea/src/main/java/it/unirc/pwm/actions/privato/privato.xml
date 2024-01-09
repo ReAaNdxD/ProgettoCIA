@@ -20,15 +20,15 @@
 		</action>
 		
 		<action name="RichiediIndirizzoSpedizione">
-			<result>/WEB-INF/privato/indirizzoSpedizione.jsp</result>
+			<result>/WEB-INF/privato/indirizzospedizione/visualizzaIndirizziSpedizione.jsp</result>
 		</action>
 		
-		<action name="IndirizzoSpedizione" 
+<!-- 		<action name="IndirizzoSpedizione" 
 		class="it.unirc.pwm.actions.privato.indirizzospedizione.VisualizzaIndirizzoSpedizione" >
-		<result name="success">/WEB-INF/privato/ilMioAccount.jsp</result>
-		<result name="error">/WEB-INF/privato/modificaCliente.jsp</result>
-		<result name="input">/WEB-INF/privato/modificaCliente.jsp</result>
-		</action>
+		<result name="success">/WEB-INF/privato/indirizzospedizione/visualizzaIndirizziSpedizione.jsp</result>
+		<result name="error">/WEB-INF/privato/ilMioAccount.jsp</result>
+		<result name="input">/WEB-INF/privato/ilMioAccount.jsp</result>
+		</action> -->
 
 	</package>
 <!-- 	<package name="cartacredito"
