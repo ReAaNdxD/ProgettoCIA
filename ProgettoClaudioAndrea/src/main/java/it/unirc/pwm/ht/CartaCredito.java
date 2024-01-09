@@ -19,8 +19,9 @@ public class CartaCredito implements java.io.Serializable {
 	private int codiceSicurezza;
 	private Date dataScadenza;
 	private String intestatario;
-	private Cliente cliente;
-//	private Set pagamentos = new HashSet(0);
+//	private Cliente cliente;
+	private Set clientes = new HashSet(0);
+	private Set pagamentos = new HashSet(0);
 
 	public CartaCredito() {
 	}
@@ -32,12 +33,13 @@ public class CartaCredito implements java.io.Serializable {
 		this.intestatario = intestatario;
 	}
 
-	public CartaCredito(long numeroCarta, int codiceSicurezza, Date dataScadenza, String intestatario, Cliente cliente) {
+	public CartaCredito(long numeroCarta, int codiceSicurezza, Date dataScadenza, String intestatario, Set clientes) {
 		this.numeroCarta = numeroCarta;
 		this.codiceSicurezza = codiceSicurezza;
 		this.dataScadenza = dataScadenza;
 		this.intestatario = intestatario;
-		this.cliente = cliente;
+		this.clientes= clientes;
+//		this.cliente = cliente;
 //		this.pagamentos = pagamentos;
 	}
 
@@ -81,20 +83,29 @@ public class CartaCredito implements java.io.Serializable {
 		this.intestatario = intestatario;
 	}
 
-	public Cliente getCliente() {
-		return this.cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-
-//	public Set getPagamentos() {
-//		return this.pagamentos;
+//	public Cliente getCliente() {
+//		return this.cliente;
 //	}
 //
-//	public void setPagamentos(Set pagamentos) {
-//		this.pagamentos = pagamentos;
+//	public void setCliente(Cliente cliente) {
+//		this.cliente = cliente;
 //	}
+	
+	
+	public Set getClientes() {
+		return this.clientes;
+	}
+
+	public void setClientes(Set clientes) {
+		this.clientes = clientes;
+	}
+
+	public Set getPagamentos() {
+		return this.pagamentos;
+	}
+
+	public void setPagamentos(Set pagamentos) {
+		this.pagamentos = pagamentos;
+	}
 
 }

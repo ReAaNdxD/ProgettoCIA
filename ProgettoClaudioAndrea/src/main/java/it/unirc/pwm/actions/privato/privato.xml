@@ -31,6 +31,9 @@
 		</action> -->
 
 	</package>
+	
+	
+	
 <!-- 	<package name="cartacredito"
 		namespace="/actions/privato/cartacredito" extends="struts-default">
 		<action name="VisualizzaCartaCredito" class="it.unirc.pwm.actions.privato.cartacredito.VisualizzaCartaCredito">

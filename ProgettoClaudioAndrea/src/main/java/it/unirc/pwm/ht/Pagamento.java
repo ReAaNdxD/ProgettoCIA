@@ -8,6 +8,10 @@ import java.sql.Date;
  */
 public class Pagamento implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int numeroOrdine;
 	private CartaCredito cartacredito;
 	private Ordine ordine;
