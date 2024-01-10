@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import it.unirc.pwm.ecommerce.util.HibernateUtil;
 import it.unirc.pwm.ht.Cliente;
@@ -91,8 +92,10 @@ public class IndirizzoSpedizioneDAOHibernateImpl implements IndirizzoSpedizioneD
 		try {
 			transaction = session.beginTransaction();
 
-			String queryHQL = "from IndirizzoSpedizione i WHERE i.idCliente=:id";
-			result = session.createQuery(queryHQL, IndirizzoSpedizione.class).setParameter("id", cliente.getIdCliente()).list();
+			String queryHQL = "from IndirizzoSpedizione WHERE cliente=?1";
+			Query <IndirizzoSpedizione> query = session.createQuery(queryHQL, IndirizzoSpedizione.class);
+			query.setParameter(1, cliente);
+			result = query.list();
 			transaction.commit();
 		} catch (HibernateException e) {
 			transaction.rollback();
