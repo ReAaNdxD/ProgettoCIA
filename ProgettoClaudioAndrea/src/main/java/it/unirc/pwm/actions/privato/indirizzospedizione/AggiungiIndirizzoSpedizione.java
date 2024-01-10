@@ -30,9 +30,7 @@ public class AggiungiIndirizzoSpedizione extends ActionSupport implements Sessio
 		IndirizzoSpedizioneDAO iSDAO = IndirizzoSpedizioneDAOFactory.getDAO();
 		cliente = (Cliente) session.get("cliente");
 		indirizzo.setCliente(cliente);
-		System.out.println(indirizzo);
 		if(iSDAO.salva(indirizzo)) {
-			System.out.println(iSDAO.getAll(cliente));
 			session.replace("indirizzi", iSDAO.getAll(cliente));
 			return SUCCESS;
 		}else {
