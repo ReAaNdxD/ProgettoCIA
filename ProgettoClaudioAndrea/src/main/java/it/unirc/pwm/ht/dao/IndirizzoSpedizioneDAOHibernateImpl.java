@@ -76,7 +76,8 @@ public class IndirizzoSpedizioneDAOHibernateImpl implements IndirizzoSpedizioneD
 			transaction.commit();
 		} catch (HibernateException e) {
 			transaction.rollback();
-			result = null;
+			System.out.println(e);
+//			result = null;
 		} finally {
 			session.close();
 		}
