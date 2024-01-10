@@ -28,6 +28,8 @@ public class IndirizzoSpedizioneDAOHibernateImpl implements IndirizzoSpedizioneD
 
 	@Override
 	public boolean salva(IndirizzoSpedizione is) {
+		boolean b = nonCiSonoIndirizzi(is.getCliente());
+		is.setPreferito(b);
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = null;
 		boolean res = false;
@@ -38,10 +40,10 @@ public class IndirizzoSpedizioneDAOHibernateImpl implements IndirizzoSpedizioneD
 			res = true;
 		} catch (HibernateException e) {
 			transaction.rollback();
-//			return false;
+			return false;
 		} catch(PersistenceException pe) {
 			transaction.rollback();
-//			return false;
+			return false;
 		}
 		finally {
 			if (session != null) // spesso omesso
@@ -51,9 +53,33 @@ public class IndirizzoSpedizioneDAOHibernateImpl implements IndirizzoSpedizioneD
 	}
 
 	@Override
-	public boolean nonCiSonoIndirizzi(int idCliente) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean nonCiSonoIndirizzi(Cliente cliente) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+	    Transaction transaction = null;
+	    boolean preferito = false;
+
+	    try {
+	        transaction = session.beginTransaction();
+	        String queryHQL = "FROM IndirizzoSpedizione WHERE cliente=?1";
+	        Query<IndirizzoSpedizione> query = session.createQuery(
+	                queryHQL, IndirizzoSpedizione.class);
+	        query.setParameter(1, cliente);
+	        List<IndirizzoSpedizione> indirizzi = query.list();
+	        transaction.commit();
+	        if (indirizzi.isEmpty()) {
+	            preferito = true;
+	        }
+
+	    } catch (HibernateException e) {
+	        if (transaction != null) {
+	            transaction.rollback();
+	        }
+	        e.printStackTrace();
+	    } finally {
+	        session.close();
+	    }
+
+	    return preferito;
 	}
 
 	@Override
@@ -115,8 +141,8 @@ public class IndirizzoSpedizioneDAOHibernateImpl implements IndirizzoSpedizioneD
 
 	@Override
 	public boolean hasIndirizzi(Cliente cliente) {
-		// TODO Auto-generated method stub
 		return false;
+		
 	}
 
 	@Override
@@ -139,8 +165,24 @@ public class IndirizzoSpedizioneDAOHibernateImpl implements IndirizzoSpedizioneD
 
 	@Override
 	public IndirizzoSpedizione getById(int is) {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction transaction = null;
+		IndirizzoSpedizione result = null;
+		try {
+			transaction = session.beginTransaction();
+			String queryHQL = "from IndirizzoSpedizione where idIndirizzoSpedizione =?1";
+			result = session.createQuery(queryHQL, IndirizzoSpedizione.class).setParameter(1, is)
+					.getSingleResult();
+			transaction.commit();
+		} catch (HibernateException e) {
+			transaction.rollback();
+			result = null;
+		} catch (Exception e) {
+			result = null;
+		} finally {
+			session.close();
+		}
+		return result;
 	}
 
 }

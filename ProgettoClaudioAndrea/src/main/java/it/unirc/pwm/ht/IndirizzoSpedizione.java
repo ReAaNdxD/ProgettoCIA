@@ -11,14 +11,13 @@ public class IndirizzoSpedizione implements java.io.Serializable {
 
 	@Override
 	public String toString() {
-		return "IndirizzoSpedizione [idIndirizzoSpedizione=" + idIndirizzoSpedizione + ", cliente=" + cliente
-				+ ", preferito=" + preferito + ", regione=" + regione + ", provincia=" + provincia + ", citta=" + citta
+		return "IndirizzoSpedizione [idIndirizzoSpedizione=" + idIndirizzoSpedizione + ", preferito=" + preferito + ", regione=" + regione + ", provincia=" + provincia + ", citta=" + citta
 				+ ", via=" + via + ", ncivico=" + ncivico + ", cap=" + cap + ", telefono=" + telefono + "]";
 	}
 
 	private Integer idIndirizzoSpedizione;
 	private Cliente cliente;
-	private byte preferito;
+	private boolean preferito;
 	private String regione;
 	private String provincia;
 	private String citta;
@@ -31,7 +30,7 @@ public class IndirizzoSpedizione implements java.io.Serializable {
 	public IndirizzoSpedizione() {
 	}
 
-	public IndirizzoSpedizione(Cliente cliente, byte preferito, String regione, String provincia, String citta,
+	public IndirizzoSpedizione(Cliente cliente, boolean preferito, String regione, String provincia, String citta,
 			String via, String ncivico, int cap, long telefono) {
 		this.cliente = cliente;
 		this.preferito = preferito;
@@ -44,7 +43,7 @@ public class IndirizzoSpedizione implements java.io.Serializable {
 		this.telefono = telefono;
 	}
 
-	public IndirizzoSpedizione(Cliente cliente, byte preferito, String regione, String provincia, String citta,
+	public IndirizzoSpedizione(Cliente cliente, boolean preferito, String regione, String provincia, String citta,
 			String via, String ncivico, int cap, long telefono, Set ordines) {
 		this.cliente = cliente;
 		this.preferito = preferito;
@@ -74,11 +73,11 @@ public class IndirizzoSpedizione implements java.io.Serializable {
 		this.cliente = cliente;
 	}
 
-	public byte getPreferito() {
+	public boolean getPreferito() {
 		return this.preferito;
 	}
 
-	public void setPreferito(byte preferito) {
+	public void setPreferito(boolean preferito) {
 		this.preferito = preferito;
 	}
 

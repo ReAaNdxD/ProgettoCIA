@@ -27,25 +27,26 @@
 							<div class="title">
 								<h3 style="color: #f7941d">Modifica Indirizzo Di Spedizione</h3>
 							</div>
-			
+
 							<div class="error-page">
-								<div class="error-inner">
-								</div>
+								<div class="error-inner"></div>
 							</div>
-						
+
 							<div class="error-page">
-								<div class="error-inner">
-								</div>
+								<div class="error-inner"></div>
 							</div>
-                            <s:actionerror/>
-							<s:form action="actions/privato/indirizzospedizione/ModificaIndirizzoSpedizione" theme="simple"
-								method="post" validate="true">
+							<s:actionerror />
+							<s:form
+								action="actions/privato/indirizzospedizione/ModificaIndirizzoSpedizione"
+								theme="simple" method="post" validate="true">
 								<div class="row">
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
 											<s:textfield id="regione" placeholder="Regione"
 												name="indirizzo.regione" cssClass="form-control"
-												value="%{#indirizzo.regione}" required="true" />
+												value="%{#session.indirizzo.regione}" required="true" />
+											<s:hidden value="%{#session.indirizzo.idIndirizzoSpedizione}"
+												name="id" label="" />
 											<small></small>
 										</div>
 									</div>
@@ -53,21 +54,26 @@
 										<div class="form-group">
 											<s:textfield id="provincia" placeholder="Provincia"
 												name="indirizzo.provincia" cssClass="form-control"
-												value="%{#indirizzo.provincia}" required="true" />
+												value="%{#session.indirizzo.provincia}" required="true"
+												maxlength="2" pattern=".{2,}"
+												title="Provincia deve avere 2 lettere"
+												name="indirizzo.provincia" style="text-transform: uppercase" />
 											<small></small>
 										</div>
 									</div>
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
-											<s:textfield id="citta" placeholder="Città" name="indirizzo.citta"
-												cssClass="form-control" value="%{#indirizzo.citta}" required="true" />
+											<s:textfield id="citta" placeholder="Città"
+												name="indirizzo.citta" cssClass="form-control"
+												value="%{#session.indirizzo.citta}" required="true" />
 											<small></small>
 										</div>
 									</div>
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
 											<s:textfield id="via" placeholder="Via" name="indirizzo.via"
-												cssClass="form-control" value="%{#indirizzo.via}" required="true" />
+												cssClass="form-control" value="%{#session.indirizzo.via}"
+												required="true" />
 											<small></small>
 										</div>
 									</div>
@@ -75,14 +81,17 @@
 										<div class="form-group">
 											<s:textfield id="ncivico" placeholder="Numero Civico"
 												name="indirizzo.ncivico" cssClass="form-control"
-												value="%{#indirizzo.ncivico}" required="true" />
+												value="%{#session.indirizzo.ncivico}" required="true"
+												maxlength="3" />
 											<small></small>
 										</div>
 									</div>
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
 											<s:textfield id="cap" placeholder="CAP" name="indirizzo.cap"
-												cssClass="form-control" value="%{#indirizzo.cap}" required="true" />
+												cssClass="form-control" value="%{#session.indirizzo.cap}"
+												required="true" maxlength="5" pattern=".{5,}"
+												title="CAP deve avere 5 cifre" />
 											<small></small>
 										</div>
 									</div>
@@ -90,8 +99,16 @@
 										<div class="form-group">
 											<s:textfield id="Telefono" placeholder="Telefono"
 												name="indirizzo.telefono" cssClass="form-control"
-												value="%{#indirizzo.telefono}" required="true" />
+												value="%{#session.indirizzo.telefono}" required="true"
+												maxlength="10" pattern=".{10,}"
+												title="Inserire un numero di telefono di 10 cifre" />
 											<small></small>
+										</div>
+									</div>
+									<div class="col-lg-6 col-12">
+										<div class="form-group">
+											<label for="preferito">Preferito</label>
+											<s:checkbox id="preferito" name="indirizzo.preferito" />
 										</div>
 									</div>
 									<div class="col-12">

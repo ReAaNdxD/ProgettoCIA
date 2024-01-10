@@ -12,7 +12,7 @@ public interface IndirizzoSpedizioneDAO {
 	public IndirizzoSpedizione get(IndirizzoSpedizione is);
 	public IndirizzoSpedizione getIndirizzoByCliente(IndirizzoSpedizione is);
 	public boolean salva(IndirizzoSpedizione is);
-	public boolean nonCiSonoIndirizzi(int idCliente);
+	public boolean nonCiSonoIndirizzi(Cliente cliente);
 	public boolean elimina(IndirizzoSpedizione is);
 	public boolean modifica(IndirizzoSpedizione is);
 	public List<IndirizzoSpedizione> getAll(Cliente cliente);

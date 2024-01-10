@@ -28,7 +28,10 @@
 							</tr>
 						</thead>
 						<tbody>
+						
 							<s:iterator value="#session.indirizziSpedizione" var="indirizzo">
+							<s:hidden value="#indirizzo.idIndirizzoSpedizione" name="id"
+										label="" />
 								<tr>
 									<td style="text-align: center;"><s:property
 											value="#indirizzo.regione" /></td>
@@ -39,7 +42,7 @@
 									<td style="text-align: center;"><s:property
 											value="#indirizzo.via" /></td>
 									<td style="text-align: center;"><s:property
-											value="#indirizzo.nCivico" /></td>
+											value="#indirizzo.ncivico" /></td>
 									<td style="text-align: center;"><s:property
 											value="#indirizzo.cap" /></td>
 									<td style="text-align: center;"><s:property
@@ -49,6 +52,7 @@
 									</td>
 									<td>
 										<div class="button">
+										
 											<a
 												href="/actions/privato/indirizzospedizione/RichiediModificaIndirizzoSpedizione?id=<s:property value="#indirizzo.idIndirizzoSpedizione" />">
 												<button type="button" class="btn btn-primary">Modifica</button>

@@ -6,16 +6,23 @@ import org.apache.struts2.action.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import it.unirc.pwm.ht.Cliente;
 import it.unirc.pwm.ht.IndirizzoSpedizione;
 import it.unirc.pwm.ht.dao.IndirizzoSpedizioneDAO;
 import it.unirc.pwm.ht.dao.IndirizzoSpedizioneDAOFactory;
 
-public class AggiungiIndirizzoSpedizione extends ActionSupport implements SessionAware {
+public class RichiediModificaIndirizzoSpedizione extends ActionSupport implements SessionAware {
 	private static final long serialVersionUID = 1L;
 	private IndirizzoSpedizione indirizzo;
 	private Map<String, Object> session;
-	private Cliente cliente;
+	private Integer id;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
 	public IndirizzoSpedizione getIndirizzo() {
 		return indirizzo;
@@ -27,22 +34,16 @@ public class AggiungiIndirizzoSpedizione extends ActionSupport implements Sessio
 
 	@Override
 	public String execute() {
+		System.out.println(id + "sono id");
 		IndirizzoSpedizioneDAO iSDAO = IndirizzoSpedizioneDAOFactory.getDAO();
-		cliente = (Cliente) session.get("cliente");
-		indirizzo.setCliente(cliente);
-		if(iSDAO.salva(indirizzo)) {
-			session.replace("indirizziSpedizione", iSDAO.getAll(cliente));
-			return SUCCESS;
-		}else {
-			addActionError("Errore nel salvataggio");
-			return ERROR;
-		}
+		IndirizzoSpedizione i = iSDAO.getById(id);
+		session.put("indirizzo", i);
+		System.out.println(i + "sono i");
+		return SUCCESS;
 	}
-
 
 	@Override
 	public void withSession(Map<String, Object> session) {
 		this.session = session;
-
 	}
 }

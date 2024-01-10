@@ -13,8 +13,9 @@
 			<result name ="success">/WEB-INF/privato/indirizzospedizione/visualizzaIndirizziSpedizione.jsp</result>
 		</action>
 		
-		<action name="RichiediModificaIndirizzoSpedizione">
-			<result>/WEB-INF/privato/indirizzospedizione/modificaIndirizzoSpedizione.jsp</result>
+		<action name="RichiediModificaIndirizzoSpedizione"
+			class="it.unirc.pwm.actions.privato.indirizzospedizione.RichiediModificaIndirizzoSpedizione">
+			<result name ="success">/WEB-INF/privato/indirizzospedizione/modificaIndirizzoSpedizione.jsp</result>
 		</action>
 		
 		<action name="ModificaIndirizzoSpedizione"

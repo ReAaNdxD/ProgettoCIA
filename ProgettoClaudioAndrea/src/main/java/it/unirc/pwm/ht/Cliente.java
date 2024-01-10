@@ -122,10 +122,10 @@ public class Cliente implements java.io.Serializable {
 	public void setCartacreditos(Set<CartaCredito> cartacreditos) {
 		this.cartacreditos = cartacreditos;
 	}
-//	@Override
-//	public String toString() {
-//		return "Cliente [idCliente=" + idCliente + ", email=" + email + ", password=" + password + ", nome=" + nome
-//				+ ", cognome=" + cognome + "]";
-//	}
+	@Override
+	public String toString() {
+		return "Cliente [idCliente=" + idCliente + ", email=" + email + ", password=" + password + ", nome=" + nome
+				+ ", cognome=" + cognome + "]";
+	}
 
 }
