@@ -18,13 +18,6 @@
 	href="/css/AggiungiCartaCredito.css">
 </head>
 <body>
-	<%--     <%
-    if (session.getAttribute("indirizzo") == null) {
-        out.write("Errore :-(");
-        return;
-    }
-    VisualizzaIndirizzoSpedizione i = (VisualizzaIndirizzoSpedizione) session.getAttribute("indirizzo");
-    %> --%>
 	<section id="contact-us" class="contact-us section">
 		<div class="container">
 			<div class="contact-head">
@@ -45,59 +38,59 @@
 								</div>
 							</div>
                             <s:actionerror/>
-							<s:form action="actions/privato/ModificaIndirizzoSpedizione" theme="simple"
+							<s:form action="actions/privato/indirizzospedizione/ModificaIndirizzoSpedizione" theme="simple"
 								method="post" validate="true">
 								<div class="row">
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
 											<s:textfield id="regione" placeholder="Regione"
-												name="i.regione" cssClass="form-control"
-												value="%{#i.regione}" required="true" />
+												name="indirizzo.regione" cssClass="form-control"
+												value="%{#indirizzo.regione}" required="true" />
 											<small></small>
 										</div>
 									</div>
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
 											<s:textfield id="provincia" placeholder="Provincia"
-												name="i.provincia" cssClass="form-control"
-												value="%{#i.provincia}" required="true" />
+												name="indirizzo.provincia" cssClass="form-control"
+												value="%{#indirizzo.provincia}" required="true" />
 											<small></small>
 										</div>
 									</div>
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
-											<s:textfield id="citta" placeholder="Città" name="i.citta"
-												cssClass="form-control" value="%{#i.citta}" required="true" />
+											<s:textfield id="citta" placeholder="Città" name="indirizzo.citta"
+												cssClass="form-control" value="%{#indirizzo.citta}" required="true" />
 											<small></small>
 										</div>
 									</div>
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
-											<s:textfield id="via" placeholder="Via" name="i.via"
-												cssClass="form-control" value="%{#i.via}" required="true" />
+											<s:textfield id="via" placeholder="Via" name="indirizzo.via"
+												cssClass="form-control" value="%{#indirizzo.via}" required="true" />
 											<small></small>
 										</div>
 									</div>
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
 											<s:textfield id="numeroCivico" placeholder="Numero Civico"
-												name="i.numeroCivico" cssClass="form-control"
-												value="%{#i.numeroCivico}" required="true" />
+												name="indirizzo.numeroCivico" cssClass="form-control"
+												value="%{#indirizzo.numeroCivico}" required="true" />
 											<small></small>
 										</div>
 									</div>
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
-											<s:textfield id="cap" placeholder="CAP" name="i.cap"
-												cssClass="form-control" value="%{#i.cap}" required="true" />
+											<s:textfield id="cap" placeholder="CAP" name="indirizzo.cap"
+												cssClass="form-control" value="%{#indirizzo.cap}" required="true" />
 											<small></small>
 										</div>
 									</div>
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
 											<s:textfield id="numeroTelefonico" placeholder="Telefono"
-												name="i.numeroTelefonico" cssClass="form-control"
-												value="%{#i.numeroTelefonico}" required="true" />
+												name="indirizzo.numeroTelefonico" cssClass="form-control"
+												value="%{#indirizzo.numeroTelefonico}" required="true" />
 											<small></small>
 										</div>
 									</div>

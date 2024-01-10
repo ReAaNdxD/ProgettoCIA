@@ -26,6 +26,8 @@ public class ModificaIndirizzoSpedizione extends ActionSupport implements Sessio
 	@Override
 	public String execute() {
 		
+		indirizzo = (IndirizzoSpedizione) session.get("indirizzo");
+		
 		
 		if (indirizzo != null) {
 			IndirizzoSpedizioneDAO iSDAO = IndirizzoSpedizioneDAOFactory.getDAO();
