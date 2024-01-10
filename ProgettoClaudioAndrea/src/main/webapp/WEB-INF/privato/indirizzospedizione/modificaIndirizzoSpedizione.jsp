@@ -42,27 +42,31 @@
 								<div class="row">
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
+										<s:hidden value="%{#session.indirizzo.idIndirizzoSpedizione}"
+												name="id" label="" />
+										<label for="Regione" class="font-weight-bold">Regione</label>
 											<s:textfield id="regione" placeholder="Regione"
 												name="indirizzo.regione" cssClass="form-control"
 												value="%{#session.indirizzo.regione}" required="true" />
-											<s:hidden value="%{#session.indirizzo.idIndirizzoSpedizione}"
-												name="id" label="" />
+											
 											<small></small>
 										</div>
 									</div>
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
+										<label for="provincia" class="font-weight-bold">Provincia</label>
 											<s:textfield id="provincia" placeholder="Provincia"
 												name="indirizzo.provincia" cssClass="form-control"
 												value="%{#session.indirizzo.provincia}" required="true"
 												maxlength="2" pattern=".{2,}"
 												title="Provincia deve avere 2 lettere"
-												name="indirizzo.provincia" style="text-transform: uppercase" />
+												 style="text-transform: uppercase" />
 											<small></small>
 										</div>
 									</div>
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
+										<label for="citta" class="font-weight-bold">Città</label>
 											<s:textfield id="citta" placeholder="Città"
 												name="indirizzo.citta" cssClass="form-control"
 												value="%{#session.indirizzo.citta}" required="true" />
@@ -71,6 +75,7 @@
 									</div>
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
+										<label for="cia" class="font-weight-bold">via</label>
 											<s:textfield id="via" placeholder="Via" name="indirizzo.via"
 												cssClass="form-control" value="%{#session.indirizzo.via}"
 												required="true" />
@@ -79,6 +84,7 @@
 									</div>
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
+										<label for="civico" class="font-weight-bold">Civico</label>
 											<s:textfield id="ncivico" placeholder="Numero Civico"
 												name="indirizzo.ncivico" cssClass="form-control"
 												value="%{#session.indirizzo.ncivico}" required="true"
@@ -88,6 +94,7 @@
 									</div>
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
+										<label for="cap" class="font-weight-bold">CAP</label>
 											<s:textfield id="cap" placeholder="CAP" name="indirizzo.cap"
 												cssClass="form-control" value="%{#session.indirizzo.cap}"
 												required="true" maxlength="5" pattern=".{5,}"
@@ -97,6 +104,7 @@
 									</div>
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
+										<label for="telefono" class="font-weight-bold">Telefono</label>
 											<s:textfield id="Telefono" placeholder="Telefono"
 												name="indirizzo.telefono" cssClass="form-control"
 												value="%{#session.indirizzo.telefono}" required="true"
@@ -105,12 +113,12 @@
 											<small></small>
 										</div>
 									</div>
-									<div class="col-lg-6 col-12">
+									<%-- <div class="col-lg-6 col-12">
 										<div class="form-group">
 											<label for="preferito">Preferito</label>
 											<s:checkbox id="preferito" name="indirizzo.preferito" />
 										</div>
-									</div>
+									</div> --%>
 									<div class="col-12">
 										<div class="form-group button">
 											<button class="btn" onclick="history.go(-1); return false;">Annulla</button>
