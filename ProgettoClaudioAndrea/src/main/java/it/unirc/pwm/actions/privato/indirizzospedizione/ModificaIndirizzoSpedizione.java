@@ -27,21 +27,20 @@ public class ModificaIndirizzoSpedizione extends ActionSupport implements Sessio
 	public String execute() {
 		
 		indirizzo = (IndirizzoSpedizione) session.get("indirizzo");
-		
-		
-		if (indirizzo != null) {
-			IndirizzoSpedizioneDAO iSDAO = IndirizzoSpedizioneDAOFactory.getDAO();
-			iSDAO.modifica(indirizzo);
-			
-			System.out.println(indirizzo);
 
-			session.put("indirizzi", indirizzo);
+	    if (indirizzo != null) {
+	        IndirizzoSpedizioneDAO iSDAO = IndirizzoSpedizioneDAOFactory.getDAO();
+	        iSDAO.modifica(indirizzo);
 
-			return SUCCESS;
-		}else {
-			addActionError("Operazione fallita");
-			return ERROR;
-		}
+	        System.out.println(indirizzo);
+
+	        session.put("indirizzo", indirizzo);
+
+	        return SUCCESS;
+	    } else {
+	        addActionError("Operazione fallita");
+	        return ERROR;
+	    }
 	}
 
 	@Override

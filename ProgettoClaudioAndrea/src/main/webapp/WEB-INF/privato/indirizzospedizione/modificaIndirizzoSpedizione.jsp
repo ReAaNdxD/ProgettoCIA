@@ -44,53 +44,53 @@
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
 											<s:textfield id="regione" placeholder="Regione"
-												name="indirizzi.regione" cssClass="form-control"
-												value="%{#indirizzi.regione}" required="true" />
+												name="indirizzo.regione" cssClass="form-control"
+												value="%{#indirizzo.regione}" required="true" />
 											<small></small>
 										</div>
 									</div>
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
 											<s:textfield id="provincia" placeholder="Provincia"
-												name="indirizzi.provincia" cssClass="form-control"
-												value="%{#indirizzi.provincia}" required="true" />
+												name="indirizzo.provincia" cssClass="form-control"
+												value="%{#indirizzo.provincia}" required="true" />
 											<small></small>
 										</div>
 									</div>
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
-											<s:textfield id="citta" placeholder="Città" name="indirizzi.citta"
-												cssClass="form-control" value="%{#indirizzi.citta}" required="true" />
+											<s:textfield id="citta" placeholder="Città" name="indirizzo.citta"
+												cssClass="form-control" value="%{#indirizzo.citta}" required="true" />
 											<small></small>
 										</div>
 									</div>
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
-											<s:textfield id="via" placeholder="Via" name="indirizzi.via"
-												cssClass="form-control" value="%{#indirizzi.via}" required="true" />
+											<s:textfield id="via" placeholder="Via" name="indirizzo.via"
+												cssClass="form-control" value="%{#indirizzo.via}" required="true" />
 											<small></small>
 										</div>
 									</div>
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
-											<s:textfield id="numeroCivico" placeholder="Numero Civico"
-												name="indirizzi.ncivico" cssClass="form-control"
-												value="%{#indirizzi.ncivico}" required="true" />
+											<s:textfield id="ncivico" placeholder="Numero Civico"
+												name="indirizzo.ncivico" cssClass="form-control"
+												value="%{#indirizzo.ncivico}" required="true" />
 											<small></small>
 										</div>
 									</div>
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
-											<s:textfield id="cap" placeholder="CAP" name="indirizzi.cap"
-												cssClass="form-control" value="%{#indirizzi.cap}" required="true" />
+											<s:textfield id="cap" placeholder="CAP" name="indirizzo.cap"
+												cssClass="form-control" value="%{#indirizzo.cap}" required="true" />
 											<small></small>
 										</div>
 									</div>
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
 											<s:textfield id="Telefono" placeholder="Telefono"
-												name="indirizzi.telefono" cssClass="form-control"
-												value="%{#indirizzi.telefono}" required="true" />
+												name="indirizzo.telefono" cssClass="form-control"
+												value="%{#indirizzo.telefono}" required="true" />
 											<small></small>
 										</div>
 									</div>
