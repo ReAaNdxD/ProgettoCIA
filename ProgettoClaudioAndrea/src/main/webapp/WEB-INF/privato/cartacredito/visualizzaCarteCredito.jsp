@@ -1,3 +1,4 @@
+<%@ taglib uri="/struts-tags" prefix="s"%>
 <%@page import="it.unirc.pwm.ht.Sottocategoria"%>
 <%-- <%@page import="it.unirc.pwm.ht.dao.SottocategoriaDAO"%> --%>
 <%@page import="java.util.Enumeration"%>
@@ -31,8 +32,8 @@
 
 	<%@include file="/WEB-INF/preload.jsp"%>
 
-	<%@include file="/WEB-INF/header-scriptlet.jsp"%>
-	<%
+	<%-- <%@include file="/WEB-INF/header-scriptlet.jsp"%> --%>
+	<%-- <%
 		/* Vector<CartaCredito> carte = null; /*         if (request.getAttribute("carte") == null) {
 		out.write("Errore generico");
 		return;
@@ -48,9 +49,9 @@
 			return;
 		}
 		Vector<CartaCredito> carte = (Vector<CartaCredito>) request.getAttribute("carte");
-	%>
+	%> --%>
 	
-	<%@include file="/WEB-INF/header.jsp"%>
+<%-- 	<%@include file="/WEB-INF/header.jsp"%> --%>
 
 
 
@@ -113,40 +114,30 @@
 						<thead>
 							<tr class="main-hading">
 								<th class="text-center">NUMERO CARTA</th>
-								<th class="text-center">DATA DI SCADENZA</th>
 								<th class="text-center">INTESTATARIO</th>
-								<th class="text-center"></th>
 								<th class="text-center"></th>
 							</tr>
 						</thead>
 						<tbody>
-							<%
-								for (CartaCredito c : carte) {
-							%>
-							<tr>
-								<td style="text-align: center;" data-title="NUMERO CARTA"><%=c.getNumeroCarta()%></td>
-								<td style="text-align: center;" data-title="DATA DI SCADENZA"><%=c.getDataScadenza()%></td>
-								<td style="text-align: center;" data-title="INTESTATARIO"><%=c.getIntestatario()%></td>
-								<td>
-									<div class="button">
-										<a
-											href="/privato/cliente/cartacredito/RimuoviCartaCredito?id=<%=c.getIdCartaCredito()%>"><button
-												type="button" class="btn btn-primary "
-												onclick="return confermaRimozione()">Rimuovi</button></a>
-									</div>
-								</td>
-
-
-								<td><div class="button">
-										<a
-											href="/privato/cliente/cartacredito/RichiediModificaCartaCredito?id=<%=c.getIdCartaCredito()%>"><button
-												type="button" class="btn btn-primary ">Modifica</button></a>
-									</div></td>
-							</tr>
-							<%
-								}
-							%>
-						</tbody>
+							<s:iterator value="#session.carteCredito" var="carta">
+							
+								<tr>
+								<%-- <s:hidden value="#carta.idCartaCredito" name="id"
+										label="" /> --%>
+									<td style="text-align: center;"><s:property
+											value="#carta.numeroCarta" /></td>
+									<td style="text-align: center;"><s:property
+											value="#carta.intestatario" /></td>
+									<td>
+										<div class="button">
+											<a
+												href="/actions/privato/cartacredito/RichiediModificaCartaCredito?id=<s:property value="#carta.idCartaCredito" />">
+												<button type="button" class="btn btn-primary">Modifica</button>
+											</a>
+										</div>
+									</td>
+								</tr>
+							</s:iterator>
 					</table>
 					
 					<!--/ End Shopping Summery -->
@@ -157,7 +148,7 @@
 		<br>
 		<div align="center">
 			<a type="button"
-				href="/privato/cliente/cartacredito/RichiediAggiungiCartaCredito"
+				href="/actions/privato/cartacredito/RichiediAggiungiCartaCredito"
 				class="btn btn-primary">Aggiungi carta</a>
 		</div>
 	</div>

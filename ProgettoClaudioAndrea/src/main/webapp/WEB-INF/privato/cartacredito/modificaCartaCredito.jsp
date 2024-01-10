@@ -1,25 +1,25 @@
-<%@page import="it.unirc.db.ecommerce.beans.Sottocategoria"%>
-<%@page import="it.unirc.db.ecommerce.beans.SottocategoriaDAO"%>
+<%@page import="it.unirc.pwm.ht.Sottocategoria"%>
+<%-- <%@page import="it.unirc.pwm.ht.dao.SottocategoriaDAO"%> --%>
 <%@page import="java.util.Enumeration"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="it.unirc.db.ecommerce.views.ViewProduct"%>
-<%@page import="it.unirc.db.ecommerce.beans.CategoriaDAO"%>
-<%@page import="it.unirc.db.ecommerce.beans.Categoria"%>
-<%@page import="it.unirc.db.ecommerce.beans.Carrello"%>
-<%@page import="it.unirc.db.ecommerce.beans.CarrelloDAO"%>
-<%@page import="it.unirc.db.ecommerce.beans.ArticoloDAO"%>
+<%@page import="it.unirc.pwm.ht.dao.CategoriaDAO"%>
+<%@page import="it.unirc.pwm.ht.Categoria"%>
+<%@page import="it.unirc.pwm.ht.Carrello"%>
+<%@page import="it.unirc.pwm.ht.dao.CarrelloDAO"%>
+<%@page import="it.unirc.pwm.ht.dao.ArticoloDAO"%>
 <%@page import="it.unirc.db.ecommerce.views.GridProduct"%>
-<%@page import="it.unirc.db.ecommerce.beans.Prodotto"%>
-<%@page
-	import="it.unirc.db.ecommerce.beans.join.ArticoloComponeCarrelloDAO"%>
-<%@page import="it.unirc.db.ecommerce.beans.ProdottoDAO"%>
+<%@page import="it.unirc.pwm.ht.Prodotto"%>
+<%@page import="it.unirc.pwm.ht.join.dao.ArticoloComponeCarrelloDAO"%>
+<%-- <%@page import="it.unirc.pwm.ht.dao.ProdottoDAO"%> --%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@page import="it.unirc.db.ecommerce.beans.Cliente"%>
-<%@page import="it.unirc.db.ecommerce.beans.CartaCreditoDAO"%>
-<%@page import="it.unirc.db.ecommerce.beans.CartaCredito"%>
+<%-- <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> --%>
+<%@page import="it.unirc.pwm.ht.Cliente"%>
+<%@page import="it.unirc.pwm.ht.dao.CartaCreditoDAO"%>
+<%@page import="it.unirc.pwm.ht.CartaCredito"%>
 <%@ page import="java.util.Vector"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,9 +34,9 @@
 
 <%@include file="/WEB-INF/preload.jsp"%>
 
-	<%@include file="/WEB-INF/header-scriptlet.jsp"%>
+<%-- 	<%@include file="/WEB-INF/header-scriptlet.jsp"%> --%>
 	
-	<%@include file="/WEB-INF/header.jsp"%>
+<%-- 	<%@include file="/WEB-INF/header.jsp"%> --%>
 
 	<%-- 	<%
 		if (session.getAttribute("cartacredito") == null)
@@ -69,14 +69,7 @@
 		}
 	%> --%>
 
-	<%
-		if (session.getAttribute("cartacredito") == null || session.getAttribute("idCliente") == null){
-			response.sendRedirect("/login.jsp");
-	        return;
-		}
-		else {
-			CartaCredito c = (CartaCredito) session.getAttribute("cartacredito");
-	%>
+	
 
 	<section id="contact-us" class="contact-us section">
 		<div class="container">
@@ -87,85 +80,61 @@
 							<div class="title">
 								<h3 style="color: #f7941d">Modifica Carta Credito</h3>
 							</div>
-							<%
-								if (request.getAttribute("errore") != null) {
-							%>
-							<div class="error-page">
-								<div class="error-inner">
-									<h5 class="h5" style="color: #F7941D">
-										<%
-											out.append("Alcuni campi sono sbagliati :-(");
-										%>
-									</h5>
-								</div>
-							</div>
-							<%
-								}
-							%>
-							<form id="form" class="form" method="post"
-								action="ModificaCartaCredito">
+							<small><s:actionerror/></small>
+							<s:form id="form" class="form" method="post"
+								action="/actions/privato/cartacredito/ModificaCartaCredito"
+								theme="simple">
 								<div class="row">
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
 											<label for="numeroCarta" class="font-weight-bold">Numero
-												Carta</label> <input id="numeroCarta" placeholder="numero di carta"
+												Carta</label>
+											<s:textfield id="numeroCarta" placeholder="numero di carta" value="%{#session.carta.numeroCarta}"
 												type="text" onkeypress="return onlyNumbers(event)"
 												title="Il numero carta deve avere tra 13 e 16 cifre"
-												name="numeroCarta" maxlength="16" pattern=".{13,16}"
-												value="<%=c.getNumeroCarta()%>" />
+												name="carta.numeroCarta" maxlength="16" pattern=".{13,16}"
+												requiredLabel="true" />
 											<!-- small element serve per mostrare un messaggio d'errore nel caso 
 					in cui gli input siano errati -->
-											<small> </small>
+											<small></small>
 										</div>
 									</div>
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
 											<label for="intestatario" class="font-weight-bold">Intestatario</label>
-											<input id="intestatario" placeholder="intestatario"
-												type="text" name="intestatario"
-												onkeypress="return alphaOnly(event)"
-												title="Metti un intestatario"
-												value="<%=c.getIntestatario()%>" required></input> <small></small>
+											<s:textfield id="intestatario" placeholder="intestatario" value="%{#session.carta.intestatario}"
+												type="text" name="carta.intestatario"
+												onkeypress="return alphaOnly(event)" requiredLabel="true" />
+											<small></small>
 										</div>
 									</div>
-									<div class="col-lg-6 col-12">
-										<div class="form-group">
-											<label for="dataScadenza" class="font-weight-bold">Data
-												Di Scadenza</label> <input id="dataScadenza"
-												placeholder="data di scadenza" type="date"
-												name="dataScadenza" value="<%=c.getDataScadenza()%>"
-												required /> <small></small>
-										</div>
-									</div>
+									
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
 											<label for="codiceSicurezza" class="font-weight-bold">Codice
-												Sicurezza</label> <input id="codiceSicurezza"
-												placeholder="codice di sicurezza" type="text"
-												name="codiceSicurezza" pattern=".{3,}" required
-												title="Il codice sicurezza deve avere tre cifre"
-												onkeypress="return onlyNumbers(event)" maxlength="3"
-												value="<%=c.getCodiceSicurezza()%>" /><small></small>
+												Sicurezza</label>
+											<s:textfield id="codiceSicurezza"
+												placeholder="codice di sicurezza" type="text" value="%{#session.carta.codiceSicurezza}"
+												name="carta.codiceSicurezza" pattern=".{3,3}"
+												onkeypress="return onlyNumbers(event)" />
+											<small></small>
 										</div>
 									</div>
 									<div class="col-12">
 										<div class="form-group button">
 											<button class="btn" onclick="history.go(-1); return false;">Annulla</button>
-											<button type="submit" class="btn"
-												onclick="return confermaModifica()">Modifica</button>
+											<button type="submit" class="btn">Aggiungi</button>
 										</div>
 									</div>
 								</div>
-							</form>
+							</s:form>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-	<%
-		}
-	%>
+	
 	
 	
 	<%@include file="/WEB-INF/footer.jsp"%>

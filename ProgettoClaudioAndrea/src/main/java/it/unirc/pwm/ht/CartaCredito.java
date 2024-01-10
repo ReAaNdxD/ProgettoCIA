@@ -17,30 +17,38 @@ public class CartaCredito implements java.io.Serializable {
 	private Integer idCartaCredito;
 	private long numeroCarta;
 	private int codiceSicurezza;
-	private Date dataScadenza;
 	private String intestatario;
 //	private Cliente cliente;
-	private Set clientes = new HashSet(0);
+	private Set<Cliente> clientes = new HashSet<Cliente>(0);
 	private Set pagamentos = new HashSet(0);
 //	ciao
 
 	public CartaCredito() {
 	}
 
-	public CartaCredito(long numeroCarta, int codiceSicurezza, Date dataScadenza, String intestatario) {
+	
+
+	@Override
+	public String toString() {
+		return "CartaCredito [idCartaCredito=" + idCartaCredito + ", numeroCarta=" + numeroCarta + ", codiceSicurezza="
+				+ codiceSicurezza + ", intestatario=" + intestatario + "]";
+	}
+
+
+
+	public CartaCredito(long numeroCarta, int codiceSicurezza, String intestatario) {
 		this.numeroCarta = numeroCarta;
 		this.codiceSicurezza = codiceSicurezza;
-		this.dataScadenza = dataScadenza;
+//		this.dataScadenza = dataScadenza;
 		this.intestatario = intestatario;
 	}
 
-	public CartaCredito(long numeroCarta, int codiceSicurezza, Date dataScadenza, String intestatario, Set clientes) {
+	public CartaCredito(long numeroCarta, int codiceSicurezza, Date dataScadenza, String intestatario, Set <Cliente> clientes) {
 		this.numeroCarta = numeroCarta;
 		this.codiceSicurezza = codiceSicurezza;
-		this.dataScadenza = dataScadenza;
+//		this.dataScadenza = dataScadenza;
 		this.intestatario = intestatario;
 		this.clientes= clientes;
-//		this.cliente = cliente;
 //		this.pagamentos = pagamentos;
 	}
 
@@ -68,13 +76,13 @@ public class CartaCredito implements java.io.Serializable {
 		this.codiceSicurezza = codiceSicurezza;
 	}
 
-	public Date getDataScadenza() {
-		return this.dataScadenza;
-	}
-
-	public void setDataScadenza(Date dataScadenza) {
-		this.dataScadenza = dataScadenza;
-	}
+//	public Date getDataScadenza() {
+//		return this.dataScadenza;
+//	}
+//
+//	public void setDataScadenza(Date dataScadenza) {
+//		this.dataScadenza = dataScadenza;
+//	}
 
 	public String getIntestatario() {
 		return this.intestatario;
@@ -93,11 +101,11 @@ public class CartaCredito implements java.io.Serializable {
 //	}
 	
 	
-	public Set getClientes() {
+	public Set<Cliente> getClientes() {
 		return this.clientes;
 	}
 
-	public void setClientes(Set clientes) {
+	public void setClientes(Set<Cliente> clientes) {
 		this.clientes = clientes;
 	}
 

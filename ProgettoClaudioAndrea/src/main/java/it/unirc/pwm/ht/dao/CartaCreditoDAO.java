@@ -1,5 +1,6 @@
 package it.unirc.pwm.ht.dao;
 
+import java.util.List;
 import java.util.Vector;
 
 import it.unirc.pwm.ht.CartaCredito;
@@ -12,9 +13,9 @@ public interface CartaCreditoDAO {
 	public CartaCredito getByNumCarta(CartaCredito creditCard);
 	public boolean elimina(CartaCredito cc);
 	public boolean modifica(CartaCredito cc);
-	public Vector<CartaCredito> getAll();
-	public Vector<CartaCredito> getAllByCliente(Cliente cliente);
+	public List<CartaCredito> getAll();
+	public List<CartaCredito> getAllByCliente(Cliente cliente);
 	public boolean hasCartaCredito(int cliente);
 	public boolean vincoloCC1(CartaCredito cartaCredito, Cliente cliente);
-	public Vector<CartaCredito> carteDelCliente(int cliente);
+	public List<CartaCredito> carteDelCliente(int cliente);
 }

@@ -1,0 +1,41 @@
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 6.0//EN" "https://struts.apache.org/dtds/struts-6.0.dtd">
+
+
+<struts>
+
+	<package name="cartacredito"
+		namespace="/actions/privato/cartacredito" extends="struts-default">
+
+
+		<action name="VisualizzaCartaCredito"
+			class="it.unirc.pwm.actions.privato.cartacredito.VisualizzaCartaCredito">
+			<result>/WEB-INF/privato/cartacredito/visualizzaCarteCredito.jsp
+			</result>
+		</action>
+
+		<action name="RichiediAggiungiCartaCredito">
+			<result>/WEB-INF/privato/cartacredito/aggiungiCartaCredito.jsp
+			</result>
+		</action>
+		<action name="AggiungiCartaCredito" class="it.unirc.pwm.actions.privato.cartacredito.AggiungiCartaCredito">
+		<result name="success">/WEB-INF/privato/cartacredito/visualizzaCarteCredito.jsp</result>
+		<result name="error">/WEB-INF/privato/cartacredito/aggiungiCartaCredito.jsp</result>
+		</action>
+		
+		<action name="RichiediModificaCartaCredito" class="it.unirc.pwm.actions.privato.cartacredito.RichiediModificaCartaCredito">
+		<result name="success">/WEB-INF/privato/cartacredito/modificaCartaCredito.jsp</result>
+		<result name="error">/WEB-INF/privato/cartacredito/visualizzaCarteCredito.jsp</result>
+		</action>
+		
+		<action name="ModificaCartaCredito" class="it.unirc.pwm.actions.privato.cartacredito.ModificaCartaCredito">
+		<result name="error">/WEB-INF/privato/cartacredito/modificaCartaCredito.jsp</result>
+		<result name="success">/WEB-INF/privato/cartacredito/visualizzaCarteCredito.jsp</result>
+		</action>
+
+	</package>
+
+
+
+	
+
+</struts>
