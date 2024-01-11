@@ -140,9 +140,9 @@
                                     <div class="navbar-collapse">
                                         <div class="nav-inner">
                                             <ul class="nav main-menu menu navbar-nav">
-                                                <li <%if(item_nav==1) out.write("class=\"active\"");%>><a href="/">Home</a></li>
+                                                <li <%if(item_nav==1) out.write("class=\"active\"");%>><a href="/actions/privato/articoli/VisualizzaArticoli">SHOPPING</a></li>
                                                 
-	                                             <%
+	                                            <%--  <%
 	                                             
 	                                             	
 												    for(Categoria categoria : categoriaDAO.getAll()){
@@ -150,7 +150,7 @@
 			                                    		<li <%if(ref!=null&&category_url!=null&&category_url==categoria.getIdCategoria()) out.write("class=\"active\"");%>><a href="/Search?category=<%= categoria.getIdCategoria() %>&ref=nav"><%= categoria.getNome() %></a></li>
 			                                    <%	
 			                                    	}
-			                                    %>
+			                                    %> --%>
 			                                    </ul>
                                         </div>
                                     </div>
