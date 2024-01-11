@@ -36,8 +36,11 @@ public class ModificaCliente extends ActionSupport implements SessionAware {
 
 	public String execute() {
 		ClienteDAO cDAO = ClienteDAOFactory.getDAO();
+		System.out.println(cliente);
+		Cliente c =(Cliente)session.get("cliente");
+		cliente.setIdCliente(c.getIdCliente());
 		if (cDAO.modifica(cliente)) {
-			session.put("cliente", this.cliente);
+			session.replace("cliente", this.cliente);
 			return SUCCESS;
 		}else {
 			addActionError("Esiste già un cliente con la stessa Email");

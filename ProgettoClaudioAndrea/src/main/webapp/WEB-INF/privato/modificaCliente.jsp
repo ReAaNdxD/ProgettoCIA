@@ -25,33 +25,33 @@
 								<div class="row">
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
-											<s:label for="nome" class="font-weight-bold">Nome</s:label>
+											<label for="nome" class="font-weight-bold">Nome</label>
 											<s:textfield id="nome" placeholder="Nome"
-												onkeypress="return alphaOnly(event)" name="cliente.nome"
-												value="%{session.cliente.nome}" />
+												onkeypress="return alphaOnly(event)" name="cliente.nome" 
+												value="%{#session.cliente.nome}" />
 											<s:fielderror fieldName="nome" />
 										</div>
 									</div>
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
-											<s:label for="cognome" class="font-weight-bold">Cognome</s:label>
+											<label for="cognome" class="font-weight-bold">Cognome</label>
 											<s:textfield onkeypress="return alphaOnly(event)"
 												id="cognome" placeholder="Cognome" name="cliente.cognome"
-												value="%{session.cliente.cognome}" />
+												value="%{#session.cliente.cognome}" />
 											<s:fielderror fieldName="cognome" />
 										</div>
 									</div>
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
-											<s:label for="email" class="font-weight-bold">Email</s:label>
+											<label for="email" class="font-weight-bold">Email</label>
 											<s:textfield id="email" placeholder="Email" name="cliente.email"
-												value="%{session.cliente.email}" />
+												value="%{#session.cliente.email}" />
 											<s:fielderror fieldName="email" />
 										</div>
 									</div>
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
-											<s:label for="password" class="font-weight-bold">Password</s:label>
+											<label for="password" class="font-weight-bold">Password</label>
 											<s:password id="password"
 												placeholder="Password" name="cliente.password"
 												value="%{session.cliente.password}" />
@@ -60,7 +60,7 @@
 									</div>
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
-											<s:label for="ripetiPassword" class="font-weight-bold">Ripeti Password</s:label>
+											<label for="ripetiPassword" class="font-weight-bold">Ripeti Password</label>
 											<s:password id="ripetiPassword"
 												placeholder="Riscrivi Password" name="ripetiPassword" />
 											<s:fielderror fieldName="ripetiPassword" />
