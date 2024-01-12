@@ -5,8 +5,10 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import it.unirc.pwm.ecommerce.util.HibernateUtil;
+import it.unirc.pwm.ht.Articolo;
 import it.unirc.pwm.ht.Carrello;
 import it.unirc.pwm.ht.Cliente;
 import it.unirc.pwm.ht.Ordine;
@@ -40,8 +42,24 @@ public class CarrelloDAOHibernateImpl implements CarrelloDAO {
 
 	@Override
 	public Carrello getCarrelloByCliente(Cliente cliente) {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction transaction = null;
+		Carrello result = null;
+		try {
+			transaction = session.beginTransaction();
+			String queryHQL = "from Carrello where idCliente =?1 and attivo=true";
+			result = session.createQuery(queryHQL, Carrello.class).setParameter(1, cliente.getIdCliente())
+					.getSingleResult();
+			transaction.commit();
+		} catch (HibernateException e) {
+			transaction.rollback();
+			result = null;
+		} catch (Exception e) {
+			result = null;
+		} finally {
+			session.close();
+		}
+		return result;
 	}
 
 	@Override
@@ -94,6 +112,33 @@ public class CarrelloDAOHibernateImpl implements CarrelloDAO {
 
 			String queryHQL = "from Carrello";
 			result = session.createQuery(queryHQL, Carrello.class).list();
+
+			transaction.commit();
+		} catch (HibernateException e) {
+			transaction.rollback();
+			result = null;
+		} catch (Exception e) {
+			result = null;
+		} finally {
+			session.close();
+		}
+
+		return result;
+	}
+	
+	@Override
+	public List<Articolo> getArticoli(Carrello carrello) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction transaction = null;
+		List<Articolo> result = null;
+
+		try {
+			transaction = session.beginTransaction();
+
+			String queryHQL = "select a from Carrello c join Articolo a WHERE c.idCarrello=?1";
+			Query<Articolo> query = session.createQuery(queryHQL, Articolo.class);
+			query.setParameter(1, carrello.getIdCarrello());
+			result = query.list();
 
 			transaction.commit();
 		} catch (HibernateException e) {

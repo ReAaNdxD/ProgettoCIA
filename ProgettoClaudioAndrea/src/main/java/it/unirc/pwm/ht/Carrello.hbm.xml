@@ -9,7 +9,7 @@
         <many-to-one class="it.unirc.pwm.ht.Cliente" fetch="select" name="cliente">
             <column name="idCliente" not-null="true"/>
         </many-to-one>
-        <property name="attivo" type="byte">
+        <property name="attivo" type="boolean">
             <column name="attivo" not-null="true"/>
         </property>
        <!--  <set fetch="select" inverse="true" lazy="true" name="ordines" table="ordine">

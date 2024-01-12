@@ -18,6 +18,11 @@
 		<result name="error">/loginCliente.jsp</result>
 		<result name="input">/loginCliente.jsp</result>
 		</action>
+		
+		<action name="VisualizzaAccount" class="it.unirc.pwm.actions.VisualizzaAccount" >
+		<result name="success">/WEB-INF/privato/ilMioAccount.jsp</result>
+		<result name="error">/loginCliente.jsp</result>
+		</action>
 
 	</package>
 

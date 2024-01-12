@@ -13,10 +13,10 @@
                         <!--/ End Logo -->
                         
                     </div>
-                    <div class="col-lg-8 col-md-8 col-12 search-bar-ord">
-                        <div class="search-bar-top">
-                            <div class="search-bar">
-                                <select id="category-elem">
+                     <div class="col-lg-8 col-md-8 col-12 search-bar-ord">
+<!--                         <div class="search-bar-top">
+                            <div class="search-bar"> -->
+                                <%-- <select id="category-elem">
                                     <option value="0" selected="selected">All Category</option>
                                     	<%
 										    for(Categoria categoria : categoriaDAO.getAll()){
@@ -25,14 +25,14 @@
                                     	<%	
                                             } 
                                         %>
-                                </select>
-                                <form id="search-form" action="/Search">
+                                </select> --%>
+                                <!--  <form id="search-form" action="/Search">
                                     <input id="imp-search" name="search" placeholder="Search Products Here....." type="search">
                                     <button type="button" id="search" class="btnn"><i class="ti-search"></i></button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+                                </form> -->
+<!--                             </div>
+                        </div> -->
+                    </div> 
                     <div class="col-lg-2 col-md-2 col-sm-6 right-bar-ord">
                         <div class="right-bar">
                             <!-- Search Form -->
@@ -51,13 +51,13 @@
                                 		totalCount= articoliCarrello.size();
                                 		
                                 %>
-                                		<a href="/privato/cliente/carrello/Cart" class="single-icon"><i class="fa fa-shopping-cart"></i> 
+                                		<a href="/actions/privato/carrello/Cart" class="single-icon"><i class="fa fa-shopping-cart"></i> 
                                 			<span class="total-count"><%=totalCount%></span>
                                 		</a>
                                 <%
                                 	}else {
                                 %>
-                                		<a href="/privato/cliente/carrello/Cart" class="single-icon"><i class="fa fa-shopping-cart"></i> 
+                                		<a href="/actions/privato/carrello/Cart" class="single-icon"><i class="fa fa-shopping-cart"></i> 
                                 			<span class="total-count">0</span>
                                 		</a>
                                 <%		
@@ -69,7 +69,7 @@
                                 <div class="shopping-item">
                                     <div class="dropdown-cart-header">
                                         <span><%=totalCount %> Item/s</span>
-                                        <a href="/privato/cliente/carrello/Cart">View Cart</a>
+                                        <a href="/actions/privato/carrello/Cart">View Cart</a>
                                     </div>
                                     <ul class="shopping-list">
                                     	
@@ -106,7 +106,7 @@
                                 </div>
                                 <!--/ End Shopping Item -->
                             </div>
-                            	<% 
+<%--                             	<% 
                                 	if(cliente!=null){
                                 %>
                                 	<div class="sinlge-bar shopping">
@@ -120,15 +120,15 @@
                                 	</div>
                                 <%		
                                 	}
-                                %>
+                                %>--%>
                                 
                                 
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Header Inner -->
+        </div> 
+  <!-- Header Inner -->
         <div class="header-inner">
             <div class="container">
                 <div class="cat-nav-head">
@@ -142,7 +142,7 @@
                                             <ul class="nav main-menu menu navbar-nav">
                                                 <li <%if(item_nav==1) out.write("class=\"active\"");%>><a href="/actions/privato/articoli/VisualizzaArticoli">SHOPPING</a></li>
                                                 
-	                                            <%--  <%
+	                                             <%
 	                                             
 	                                             	
 												    for(Categoria categoria : categoriaDAO.getAll()){
@@ -150,7 +150,7 @@
 			                                    		<li <%if(ref!=null&&category_url!=null&&category_url==categoria.getIdCategoria()) out.write("class=\"active\"");%>><a href="/Search?category=<%= categoria.getIdCategoria() %>&ref=nav"><%= categoria.getNome() %></a></li>
 			                                    <%	
 			                                    	}
-			                                    %> --%>
+			                                    %>
 			                                    </ul>
                                         </div>
                                     </div>
@@ -159,9 +159,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> 
             </div>
-        </div>
-        <!--/ End Header Inner -->
+        </div> 
+        <!--/ End Header Inner --> 
     </header>
     <!--/ End Header -->
