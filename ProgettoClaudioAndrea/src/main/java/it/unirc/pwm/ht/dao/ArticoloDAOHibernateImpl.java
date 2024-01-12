@@ -7,6 +7,7 @@ import java.util.Vector;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import it.unirc.pwm.ecommerce.util.HibernateUtil;
 import it.unirc.db.ecommerce.views.GridProduct;
@@ -14,6 +15,7 @@ import it.unirc.db.ecommerce.views.Griglia;
 import it.unirc.db.ecommerce.views.ViewProduct;
 import it.unirc.pwm.ht.Articolo;
 import it.unirc.pwm.ht.Cliente;
+import it.unirc.pwm.ht.IndirizzoSpedizione;
 
 public class ArticoloDAOHibernateImpl implements ArticoloDAO {
 
@@ -44,8 +46,29 @@ public class ArticoloDAOHibernateImpl implements ArticoloDAO {
 
 	@Override
 	public Articolo get(Articolo articolo) {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction transaction = null;
+		Articolo result = null;
+
+		try {
+			transaction = session.beginTransaction();
+
+			String queryHQL = "from Articolo WHERE idArticolo=?1";
+			Query <Articolo> query = session.createQuery(queryHQL, Articolo.class);
+			result = query.setParameter(1, articolo).getSingleResult();
+			
+			transaction.commit();
+		} catch (HibernateException e) {
+			transaction.rollback();
+			result = null;
+		} catch (Exception e) {
+			result = null;
+
+		} finally {
+			session.close();
+		}
+
+		return result;
 	}
 
 	@Override

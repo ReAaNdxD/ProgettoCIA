@@ -9,21 +9,28 @@ import java.util.Set;
  */
 public class Carrello implements java.io.Serializable {
 
+	private static final long serialVersionUID = 1L;
 	private Integer idCarrello;
 	private Cliente cliente;
-	private byte attivo;
+	private boolean attivo;
 //	private Set ordines = new HashSet(0);
 	private Set compones = new HashSet(0);
+	
+	@Override
+	public String toString() {
+		return "Carrello [idCarrello=" + idCarrello + ", cliente=" + cliente.getIdCliente() + ", attivo=" + attivo + "]";
+	}
+
 
 	public Carrello() {
 	}
 
-	public Carrello(Cliente cliente, byte attivo) {
+	public Carrello(Cliente cliente, boolean attivo) {
 		this.cliente = cliente;
 		this.attivo = attivo;
 	}
 
-	public Carrello(Cliente cliente, byte attivo, Set compones) {
+	public Carrello(Cliente cliente, boolean attivo, Set compones) {
 		this.cliente = cliente;
 		this.attivo = attivo;
 //		this.ordines = ordines;
@@ -46,11 +53,11 @@ public class Carrello implements java.io.Serializable {
 		this.cliente = cliente;
 	}
 
-	public byte getAttivo() {
+	public boolean getAttivo() {
 		return this.attivo;
 	}
 
-	public void setAttivo(byte attivo) {
+	public void setAttivo(boolean attivo) {
 		this.attivo = attivo;
 	}
 

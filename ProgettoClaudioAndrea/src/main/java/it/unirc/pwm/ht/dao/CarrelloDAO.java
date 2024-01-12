@@ -2,6 +2,7 @@ package it.unirc.pwm.ht.dao;
 
 import java.util.List;
 
+import it.unirc.pwm.ht.Articolo;
 import it.unirc.pwm.ht.Carrello;
 import it.unirc.pwm.ht.Cliente;
 import it.unirc.pwm.ht.Ordine;
@@ -18,4 +19,5 @@ public interface CarrelloDAO {
 	public boolean isCartFull(Ordine ordine);
 	public Carrello getAttivo(int cliente);
 	public Carrello getUltimoAcquisto(int cliente);
+	public List<Articolo> getArticoli(Carrello carrello);
 }
