@@ -13,14 +13,13 @@
                     <table class="table shopping-summery">
                         <thead>
                             <tr class="main-hading">
-                                <th class="text-center">Nome Prodotto</th>
                                 <th class="text-center">Prezzo</th>
                                 <th class="text-center">Quantità</th>
                                 <th class="text-center"></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <s:iterator value="listaArticoli" var="articolo">
+                            <s:iterator value="#session.listaArticoli" var="articolo">
                                 <tr>
                                     <td style="text-align: center;"><s:property value="#articolo.prezzo" />€</td>
                                     <td style="text-align: center;"><s:property value="#articolo.quantita" /></td>

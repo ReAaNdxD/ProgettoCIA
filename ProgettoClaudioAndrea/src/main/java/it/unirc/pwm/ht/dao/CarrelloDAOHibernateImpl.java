@@ -47,14 +47,16 @@ public class CarrelloDAOHibernateImpl implements CarrelloDAO {
 		Carrello result = null;
 		try {
 			transaction = session.beginTransaction();
-			String queryHQL = "from Carrello where idCliente =?1 and attivo=true";
-			result = session.createQuery(queryHQL, Carrello.class).setParameter(1, cliente.getIdCliente())
+			String queryHQL = "from Carrello where cliente =?1 and attivo=true";
+			result = session.createQuery(queryHQL, Carrello.class).setParameter(1, cliente)
 					.getSingleResult();
 			transaction.commit();
 		} catch (HibernateException e) {
 			transaction.rollback();
+			e.printStackTrace();
 			result = null;
 		} catch (Exception e) {
+			e.printStackTrace();
 			result = null;
 		} finally {
 			session.close();
@@ -143,8 +145,10 @@ public class CarrelloDAOHibernateImpl implements CarrelloDAO {
 			transaction.commit();
 		} catch (HibernateException e) {
 			transaction.rollback();
+			e.printStackTrace();
 			result = null;
 		} catch (Exception e) {
+			e.printStackTrace();
 			result = null;
 		} finally {
 			session.close();

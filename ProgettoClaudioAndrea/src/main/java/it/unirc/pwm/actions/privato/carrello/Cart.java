@@ -29,6 +29,9 @@ import it.unirc.pwm.ht.dao.CarrelloDAOFactory;
 	    	CarrelloDAO cDAO = CarrelloDAOFactory.getDAO();
 	    	Carrello carrelloCliente = cDAO.getCarrelloByCliente(cliente);
 	    	List<Articolo> listaArticoli = cDAO.getArticoli(carrelloCliente);
+	    	System.out.println(cliente);
+	    	System.out.println(carrelloCliente);
+	    	System.out.println(listaArticoli);
 	    	
 	    	session.put("listaArticoli", listaArticoli);
 	        return SUCCESS;

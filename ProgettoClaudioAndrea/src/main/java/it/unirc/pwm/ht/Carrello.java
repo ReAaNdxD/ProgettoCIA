@@ -15,6 +15,12 @@ public class Carrello implements java.io.Serializable {
 	private boolean attivo;
 //	private Set ordines = new HashSet(0);
 	private Set compones = new HashSet(0);
+	
+	@Override
+	public String toString() {
+		return "Carrello [idCarrello=" + idCarrello + ", cliente=" + cliente.getIdCliente() + ", attivo=" + attivo + "]";
+	}
+
 
 	public Carrello() {
 	}
