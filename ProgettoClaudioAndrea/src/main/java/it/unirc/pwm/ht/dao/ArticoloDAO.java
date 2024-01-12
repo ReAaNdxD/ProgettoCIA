@@ -7,6 +7,7 @@ import java.util.List;
 import it.unirc.db.ecommerce.views.GridProduct;
 import it.unirc.db.ecommerce.views.ViewProduct;
 import it.unirc.pwm.ht.Articolo;
+import it.unirc.pwm.ht.Carrello;
 import it.unirc.pwm.ht.Cliente;
 
 public interface ArticoloDAO {
@@ -26,5 +27,6 @@ public interface ArticoloDAO {
 	public boolean aggiornaQuantita(Articolo articolo, int quantita);
 	public int vincoloA1(Articolo articolo);
 	public List<String> getAllBrand(String queryField, HashMap<String, Object> param);
+	public List<Articolo> getArticoli(Carrello carrello);
 	
 }

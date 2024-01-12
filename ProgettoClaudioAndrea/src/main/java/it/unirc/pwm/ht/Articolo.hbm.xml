@@ -18,7 +18,7 @@
         <property name="quantita" type="int">
             <column name="quantita" not-null="true"/>
         </property>
-        <set fetch="select" inverse="true" lazy="true" name="compones" table="compone">
+        <set fetch="select" inverse="false" lazy="true" name="compones" table="compone">
             <key>
                 <column name="idArticolo" not-null="true"/>
             </key>

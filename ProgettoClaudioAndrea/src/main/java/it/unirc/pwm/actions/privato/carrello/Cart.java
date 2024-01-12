@@ -11,6 +11,8 @@ import com.opensymphony.xwork2.ModelDriven;
 import it.unirc.pwm.ht.Articolo;
 import it.unirc.pwm.ht.Carrello;
 import it.unirc.pwm.ht.Cliente;
+import it.unirc.pwm.ht.dao.ArticoloDAO;
+import it.unirc.pwm.ht.dao.ArticoloDAOFactory;
 import it.unirc.pwm.ht.dao.CarrelloDAO;
 import it.unirc.pwm.ht.dao.CarrelloDAOFactory;
 	
@@ -27,8 +29,9 @@ import it.unirc.pwm.ht.dao.CarrelloDAOFactory;
 	    public String execute() {
 	    	Cliente cliente = (Cliente) session.get("cliente");
 	    	CarrelloDAO cDAO = CarrelloDAOFactory.getDAO();
+	    	ArticoloDAO aDAO = ArticoloDAOFactory.getDAO();
 	    	Carrello carrelloCliente = cDAO.getCarrelloByCliente(cliente);
-	    	List<Articolo> listaArticoli = cDAO.getArticoli(carrelloCliente);
+	    	List<Articolo> listaArticoli = aDAO.getArticoli(carrelloCliente);
 	    	System.out.println(cliente);
 	    	System.out.println(carrelloCliente);
 	    	System.out.println(listaArticoli);

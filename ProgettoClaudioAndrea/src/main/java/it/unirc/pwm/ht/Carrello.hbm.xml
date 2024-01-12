@@ -18,7 +18,7 @@
             </key>
             <one-to-many class="it.unirc.pwm.ht.Ordine"/>
         </set> -->
-        <set fetch="select" inverse="true" lazy="true" name="compones" table="compone">
+        <set fetch="select" cascade="save-update" inverse="true" lazy="true" name="compones" table="compone">
             <key>
                 <column name="idCarrello" not-null="true"/>
             </key>
