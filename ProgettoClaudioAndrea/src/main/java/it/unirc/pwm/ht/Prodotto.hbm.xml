@@ -6,7 +6,7 @@
             <column name="idProdotto"/>
             <generator class="identity"/>
         </id>
-        <many-to-one class="it.unirc.pwm.ht.Sottocategoria" fetch="select" name="sottocategoria">
+        <many-to-one class="it.unirc.pwm.ht.Sottocategoria" fetch="select" name="sottocategoria" lazy="false">
             <column name="idSottocategoria" not-null="true"/>
         </many-to-one>
         <property name="nome" type="string">

@@ -20,7 +20,7 @@ public interface ArticoloDAO {
 	public List<Articolo> getAll();
 	public List<Articolo> getAllAvailableProducts();
 	
-	public List<Griglia> visualizzaArticoli();
+	public List<Articolo> visualizzaArticoli();
 	
 	public List<GridProduct> getAllAvailableProducts(String queryField, int currentPage, int recordsPerPage,
 			HashMap<String, Object> param);

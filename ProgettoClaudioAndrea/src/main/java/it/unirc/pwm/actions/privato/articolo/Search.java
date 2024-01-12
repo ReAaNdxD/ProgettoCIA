@@ -11,8 +11,8 @@ import com.opensymphony.xwork2.ModelDriven;
 
 import it.unirc.pwm.ht.dao.ArticoloDAO;
 import it.unirc.db.ecommerce.views.GridProduct;
-import it.unirc.db.ecommerce.views.Griglia;
 import it.unirc.db.ecommerce.views.ViewProduct;
+import it.unirc.pwm.ht.Articolo;
 import it.unirc.pwm.ht.Cliente;
 import it.unirc.pwm.ht.dao.ArticoloDAOFactory;
 
@@ -28,7 +28,7 @@ public class Search extends ActionSupport implements SessionAware {
 	public String execute() {
 		int recordsPerPage = 6;
 		ArticoloDAO articoloDAO = ArticoloDAOFactory.getDAO();
-		List<Griglia> articoli = articoloDAO.visualizzaArticoli();
+		List<Articolo> articoli = articoloDAO.visualizzaArticoli();
 		System.out.println(articoli);
 		if(articoli == null) {
 			System.out.println("ERRORE");

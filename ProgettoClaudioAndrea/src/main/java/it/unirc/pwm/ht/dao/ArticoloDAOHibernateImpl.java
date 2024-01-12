@@ -265,19 +265,17 @@ public class ArticoloDAOHibernateImpl implements ArticoloDAO {
 	}
 
 	@Override
-	public List<Griglia> visualizzaArticoli() {
+	public List<Articolo> visualizzaArticoli() {
 		// TODO Auto-generated method stub
 		
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = null;
-		List<Griglia> result = null;
+		List<Articolo> result = null;
 
 		try {
 			transaction = session.beginTransaction();
-
-			String queryHQL = " from Articolo a JOIN Prodotto p  ON a.prodotto.idProdotto=p.idProdotto";
-			result = session.createQuery(queryHQL, Griglia.class).list();
-
+			String queryHQL = "  from Articolo a JOIN Prodotto p  ON a.prodotto.idProdotto=p.idProdotto";
+			result = session.createQuery(queryHQL, Articolo.class).list();
 			transaction.commit();
 		} catch (HibernateException e) {
 			transaction.rollback();
