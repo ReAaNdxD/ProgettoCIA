@@ -128,6 +128,7 @@ public class ArticoloDAOHibernateImpl implements ArticoloDAO {
 		return result;
 	}
 	
+
 	public List<Articolo> getArticoli(Carrello carrello) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = null;
@@ -162,10 +163,32 @@ public class ArticoloDAOHibernateImpl implements ArticoloDAO {
 	}
 
 	@Override
-	public Vector<GridProduct> getAllAvailableProducts(String queryField, int currentPage, int recordsPerPage,
+	public List<GridProduct> getAllAvailableProducts(String queryField, int currentPage, int recordsPerPage,
 			HashMap<String, Object> param) {
+		
+		
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction transaction = null;
+		List<GridProduct> result = null;
+
+		try {
+			transaction = session.beginTransaction();
+
+			String queryHQL = "Select * from Articolo a JOIN Prodotto p  ON a.prodotto.idProdotto=p.idProdotto";
+			result = session.createQuery(queryHQL, GridProduct.class).list();
+
+			transaction.commit();
+		} catch (HibernateException e) {
+			transaction.rollback();
+			result = null;
+		} catch (Exception e) {
+			result = null;
+		} finally {
+			session.close();
+		}
+
+		return result;
 		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
@@ -264,6 +287,34 @@ public class ArticoloDAOHibernateImpl implements ArticoloDAO {
 	public Vector<String> getAllBrand(String queryField, HashMap<String, Object> param) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public List<Articolo> visualizzaArticoli() {
+		// TODO Auto-generated method stub
+		
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction transaction = null;
+		List<Articolo> result = null;
+
+		try {
+			transaction = session.beginTransaction();
+			String queryHQL = "  from Articolo a JOIN Prodotto p  ON a.prodotto.idProdotto=p.idProdotto";
+			result = session.createQuery(queryHQL, Articolo.class).list();
+			transaction.commit();
+		} catch (HibernateException e) {
+			transaction.rollback();
+			e.printStackTrace();
+			result = null;
+		} catch (Exception e) {
+			e.printStackTrace();
+			result = null;
+		} finally {
+			session.close();
+		}
+
+		return result;
+		
 	}
 
 }

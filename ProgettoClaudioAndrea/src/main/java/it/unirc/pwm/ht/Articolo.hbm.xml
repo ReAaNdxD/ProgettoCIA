@@ -9,7 +9,7 @@
         <many-to-one class="it.unirc.pwm.ht.Venditore" fetch="select" name="venditore">
             <column name="idVenditore" not-null="true"/>
         </many-to-one>
-        <many-to-one class="it.unirc.pwm.ht.Prodotto" fetch="select" name="prodotto">
+        <many-to-one class="it.unirc.pwm.ht.Prodotto" fetch="select" name="prodotto" lazy="false">
             <column name="idProdotto" not-null="true"/>
         </many-to-one>
         <property name="prezzo" type="float">

@@ -19,6 +19,9 @@ public interface ArticoloDAO {
 	public boolean modifica(Articolo articolo);
 	public List<Articolo> getAll();
 	public List<Articolo> getAllAvailableProducts();
+	
+	public List<Articolo> visualizzaArticoli();
+	
 	public List<GridProduct> getAllAvailableProducts(String queryField, int currentPage, int recordsPerPage,
 			HashMap<String, Object> param);
 	public List<GridProduct> getAllRandomProducts();

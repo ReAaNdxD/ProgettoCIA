@@ -27,6 +27,7 @@
 	<include file="it/unirc/pwm/actions/privato/privato.xml" />
 	<include file="it/unirc/pwm/actions/privato/indirizzospedizione/indirizzospedizione.xml" />
 	<include file="it/unirc/pwm/actions/privato/cartacredito/cartacredito.xml" />
+	<include file="it/unirc/pwm/actions/privato/articolo/articolo.xml" />
 	<include file="it/unirc/pwm/actions/privato/carrello/carrello.xml" />
 	
 

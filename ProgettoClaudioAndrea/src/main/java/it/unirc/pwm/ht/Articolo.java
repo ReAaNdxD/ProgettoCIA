@@ -20,6 +20,12 @@ public class Articolo implements java.io.Serializable {
 	public Articolo() {
 	}
 
+	@Override
+	public String toString() {
+		return "Articolo [idArticolo=" + idArticolo + ", venditore=" + venditore.getIdVenditore() + ", prodotto=" + prodotto
+				+", prezzo=" + prezzo + ", quantita=" + quantita + "]";
+	}
+
 	public Articolo(Venditore venditore, Prodotto prodotto, float prezzo, int quantita) {
 		this.venditore = venditore;
 		this.prodotto = prodotto;

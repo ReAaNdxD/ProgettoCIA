@@ -20,6 +20,13 @@ public class Prodotto implements java.io.Serializable {
 	public Prodotto() {
 	}
 
+	@Override
+	public String toString() {
+		return "Prodotto [idProdotto=" + idProdotto + ", sottocategoria=" + sottocategoria.getNome() + ", nome=" + nome
+				+ ", descrizioneBreve=" + descrizioneBreve + ", descrizioneDettagliata=" + descrizioneDettagliata
+				+ ", marca=" + marca + "]";
+	}
+
 	public Prodotto(Sottocategoria sottocategoria, String nome, String descrizioneBreve, String descrizioneDettagliata,
 			String marca) {
 		this.sottocategoria = sottocategoria;
