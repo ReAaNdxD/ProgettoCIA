@@ -1,28 +1,32 @@
-<%@page import="it.unirc.db.ecommerce.beans.Sottocategoria"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@page import="it.unirc.pwm.ht.Sottocategoria"%>
 <%@page import="it.unirc.db.ecommerce.beans.SottocategoriaDAO"%>
 <%@page import="java.util.Enumeration"%>
 <%@page import="java.util.HashMap"%>
+<%@page import="it.unirc.pwm.ht.Cliente"%>
+<%@page import="it.unirc.pwm.ht.dao.ClienteDAO"%>
+<%@page import="it.unirc.pwm.ht.dao.ClienteDAOFactory"%>
 <%@page import="it.unirc.db.ecommerce.views.ViewProduct"%>
-<%@page import="it.unirc.db.ecommerce.beans.CategoriaDAO"%>
-<%@page import="it.unirc.db.ecommerce.beans.Categoria"%>
-<%@page import="it.unirc.db.ecommerce.beans.Carrello"%>
-<%@page import="it.unirc.db.ecommerce.beans.CarrelloDAO"%>
-<%@page import="it.unirc.db.ecommerce.beans.ArticoloDAO"%>
+<%@page import="it.unirc.pwm.ht.dao.CategoriaDAO"%>
+<%@page import="it.unirc.pwm.ht.dao.CategoriaDAOFactory"%>
+<%@page import="it.unirc.pwm.ht.Categoria"%>
+<%@page import="it.unirc.pwm.ht.Carrello"%>
+<%@page import="it.unirc.pwm.ht.dao.CarrelloDAO"%>
+<%@page import="it.unirc.pwm.ht.dao.ArticoloDAO"%>
 <%@page import="it.unirc.db.ecommerce.views.GridProduct"%>
-<%@page import="it.unirc.db.ecommerce.beans.Prodotto"%>
-<%@page
-	import="it.unirc.db.ecommerce.beans.join.ArticoloComponeCarrelloDAO"%>
+<%@page import="it.unirc.pwm.ht.Prodotto"%>
+<%@page import="it.unirc.pwm.ht.join.dao.ArticoloComponeCarrelloDAO"%>
 <%@page import="java.util.Vector"%>
-<%@page import="it.unirc.db.ecommerce.beans.ProdottoDAO"%>
+<%-- <%@page import="it.unirc.pwm.ht.dao.ProdottoDAO"%> --%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%-- <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> --%>
 <%@page import="it.unirc.db.ecommerce.beans.Cliente"%>
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
 
-<%@include file="/WEB-INF/head.jsp" %>
+<%@include file="/WEB-INF/head.jsp"%>
 <link rel="stylesheet" href="/css/product.css">
 
 
@@ -32,7 +36,7 @@
 
 	<%@include file="/WEB-INF/preload.jsp"%>
 
-	<%@include file="/WEB-INF/header-scriptlet.jsp"%>
+	<%-- 	<%@include file="/WEB-INF/header-scriptlet.jsp"%> --%>
 
 	<%
 		// 		Vector<GridProduct> queryResult = articoloDAO.getAllAvailableProducts("rtx",0);
@@ -63,7 +67,7 @@
 	<section class="product-area shop-sidebar shop section">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-3 col-md-4 col-12">
+				<%-- <div class="col-lg-3 col-md-4 col-12">
 					<div class="shop-sidebar">
 						<!-- Single Widget -->
 						<div class="single-widget category">
@@ -329,18 +333,16 @@
 
 						<!--/ End Single Widget -->
 					</div>
-				</div>
+				</div> --%>
 				<div class="col-lg-9 col-md-8 col-12">
 
 
 					<div class="row">
-						<%
-							for (GridProduct prodotto : queryResult) {
-						%>
+						<s:iterator value="#session.articoli" var="articolo">
 						<div class="col-lg-3 col-md-4 col-12">
 							<div class="single-product">
 								<div class="product-img">
-									<a href="ProductDetails?id=<%=prodotto.getIdArticolo()%>">
+									<a href="ProductDetails?id=<s:property value="#articolo.prodotto.idProdotto" />">
 										<img class="default-img"
 										src="https://via.placeholder.com/550x750" alt="#"> <img
 										class="hover-img" src="https://via.placeholder.com/550x750"
@@ -349,19 +351,20 @@
 								</div>
 								<div class="product-content">
 									<h3>
-										<a href="ProductDetails?id=<%=prodotto.getIdArticolo()%>"><%=prodotto.getNomeProdotto()%></a>
+										<a href="ProductDetails?id=<s:property value="#articolo.prodotto.idArticolo" />"><s:property value="#articolo.prodotto.nome" /></a>
 									</h3>
 									<div class="product-price">
-										<span><%=prodotto.getPrezzo()%>€</span>
+										<span><s:property value="#articolo.prezzo" />€</span>
 									</div>
 								</div>
 							</div>
 						</div>
-						<%
+						</s:iterator>
+						<%-- <%
 							}
-						%>
+						%> --%>
 
-						<!-- Pagination -->
+						<%-- <!-- Pagination -->
 
 						<div class="col-lg-12 col-md-12 col-12">
 							<nav>
@@ -414,7 +417,7 @@
 								</ul>
 							</nav>
 						</div>
-						<!--/ End pagination -->
+						<!--/ End pagination --> --%>
 					</div>
 				</div>
 			</div>
