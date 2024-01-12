@@ -1,6 +1,6 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@page import="it.unirc.pwm.ht.Sottocategoria"%>
-<%@page import="it.unirc.db.ecommerce.beans.SottocategoriaDAO"%>
+<%-- <%@page import="it.unirc.pwm.ht.dao.SottocategoriaDAO"%> --%>
 <%@page import="java.util.Enumeration"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="it.unirc.pwm.ht.Cliente"%>
@@ -21,12 +21,12 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
 <%-- <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> --%>
-<%@page import="it.unirc.db.ecommerce.beans.Cliente"%>
+<%@page import="it.unirc.pwm.ht.Cliente"%>
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
 
-<%@include file="/WEB-INF/head.jsp"%>
+<%--  <%@include file="/WEB-INF/head.jsp"%>  --%>
 <link rel="stylesheet" href="/css/product.css">
 
 
@@ -37,7 +37,7 @@
 	<%@include file="/WEB-INF/preload.jsp"%>
 
 	<%-- 	<%@include file="/WEB-INF/header-scriptlet.jsp"%> --%>
-
+<%-- 
 	<%
 		// 		Vector<GridProduct> queryResult = articoloDAO.getAllAvailableProducts("rtx",0);
 		SottocategoriaDAO sottocategoriaDAO = new SottocategoriaDAO();
@@ -57,9 +57,9 @@
 		boolean isFilter;
 		String removeParam;
 		
-	%>
-
-	<%@include file="/WEB-INF/header.jsp"%>
+	%> --%>
+<%-- 
+	<%@include file="/WEB-INF/header.jsp"%> --%>
 
 
 
