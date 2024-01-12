@@ -140,7 +140,7 @@
                                     <div class="navbar-collapse">
                                         <div class="nav-inner">
                                             <ul class="nav main-menu menu navbar-nav">
-                                                <li <%if(item_nav==1) out.write("class=\"active\"");%>><a href="/actions/privato/articoli/VisualizzaArticoli">SHOPPING</a></li>
+                                                <li <%if(item_nav==1) out.write("class=\"active\"");%>><a href="/actions/privato/articolo/Search">SHOPPING</a></li>
                                                 
 	                                            <%--  <%
 	                                             

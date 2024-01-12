@@ -5,6 +5,7 @@ import java.util.List;
 
 
 import it.unirc.db.ecommerce.views.GridProduct;
+import it.unirc.db.ecommerce.views.Griglia;
 import it.unirc.db.ecommerce.views.ViewProduct;
 import it.unirc.pwm.ht.Articolo;
 import it.unirc.pwm.ht.Cliente;
@@ -18,6 +19,9 @@ public interface ArticoloDAO {
 	public boolean modifica(Articolo articolo);
 	public List<Articolo> getAll();
 	public List<Articolo> getAllAvailableProducts();
+	
+	public List<Griglia> visualizzaArticoli();
+	
 	public List<GridProduct> getAllAvailableProducts(String queryField, int currentPage, int recordsPerPage,
 			HashMap<String, Object> param);
 	public List<GridProduct> getAllRandomProducts();
