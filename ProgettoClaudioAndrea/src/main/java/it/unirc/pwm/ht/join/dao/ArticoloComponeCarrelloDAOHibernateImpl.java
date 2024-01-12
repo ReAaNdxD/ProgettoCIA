@@ -7,6 +7,11 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Vector;
 
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
+import it.unirc.pwm.ecommerce.util.HibernateUtil;
 import it.unirc.pwm.ht.Articolo;
 import it.unirc.pwm.ht.Carrello;
 import it.unirc.db.ecommerce.views.Compone;
@@ -78,24 +83,26 @@ public class ArticoloComponeCarrelloDAOHibernateImpl implements ArticoloComponeC
 
 	}
 
-	public boolean elimina(Articolo articolo, Carrello c) {
-		System.out.println("Articolo : " + articolo);
-		System.out.println("Carrello : " + c);
-		String query = "DELETE FROM compone WHERE idArticolo=? AND idCarrello=?";
-		boolean esito = false;
-		conn = DBManager.startConnection();
+	public boolean elimina(Articolo articolo, Carrello carrello) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction transaction = null;
+
 		try {
-			PreparedStatement ps = conn.prepareStatement(query);
-			ps.setInt(1, articolo.getIdArticolo());
-			ps.setInt(2, c.getIdCarrello());
-			int tmp = ps.executeUpdate();
-			if (tmp == 1) {
-				esito = true;
-			}
+			transaction = session.beginTransaction();
+
+			Query<Compone> query = session.createQuery(
+					"delete FROM Compone c WHERE c.articolo =?1 AND c.carrello =?2",
+					Compone.class);
+			query.setParameter(1, articolo.getIdArticolo());
+			query.setParameter(2, carrello.getIdCarrello());
+			transaction.commit();
+			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
+			return false;
+		} finally {
+			session.close();
 		}
-		return esito;
 	}
 
 	public Vector<Compone> articoliCarrello(Carrello c) {
@@ -200,29 +207,29 @@ public class ArticoloComponeCarrelloDAOHibernateImpl implements ArticoloComponeC
 		return esito;
 	}
 	public double calcoloCosto(Carrello carrello) {
-		  // La somma del prodotto costoAcquisto*quantità 
-		  double res = 0.0;
-		  System.out.println("Sono in calcoloCostoTotale");
-		  String query = "SELECT TRUNC(SUM(COSTI.costo),2) AS costoTotale\r\n" + 
-		    "  FROM (SELECT idArticolo, prezzoAcquisto, quantita, (prezzoAcquisto*quantita) AS costo\r\n" + 
-		    "    FROM compone\r\n" + 
-		    "  WHERE idCarrello=? ) COSTI";
-		  conn = DBManager.startConnection();
-		  try {
-		   PreparedStatement ps = conn.prepareStatement(query);
-		   ps.setInt(1, carrello.getIdCarrello());
-		   ResultSet rs = ps.executeQuery();
-		   System.out.println("Sono dopo resultset");
-		   if (rs.next()) {
-		    res = rs.getDouble("costoTotale");
-		    System.out.println("Prezzo totale" + res);
-		   }
-		  } catch (Exception e) {
-		   e.printStackTrace();
-		  }
-		  System.out.println("sto uscendo dal metodo calcoloCostoTotale");
-		  DBManager.closeConnection();
-		  return res;
-		 }
+		// La somma del prodotto costoAcquisto*quantità 
+		double res = 0.0;
+		System.out.println("Sono in calcoloCostoTotale");
+		String query = "SELECT TRUNC(SUM(COSTI.costo),2) AS costoTotale\r\n" + 
+				"  FROM (SELECT idArticolo, prezzoAcquisto, quantita, (prezzoAcquisto*quantita) AS costo\r\n" + 
+				"    FROM compone\r\n" + 
+				"  WHERE idCarrello=? ) COSTI";
+		conn = DBManager.startConnection();
+		try {
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setInt(1, carrello.getIdCarrello());
+			ResultSet rs = ps.executeQuery();
+			System.out.println("Sono dopo resultset");
+			if (rs.next()) {
+				res = rs.getDouble("costoTotale");
+				System.out.println("Prezzo totale" + res);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("sto uscendo dal metodo calcoloCostoTotale");
+		DBManager.closeConnection();
+		return res;
+	}
 
-	
+
