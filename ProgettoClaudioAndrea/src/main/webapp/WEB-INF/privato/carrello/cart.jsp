@@ -10,6 +10,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
+                <small><s:actionerror/></small>
                     <table class="table shopping-summery">
                         <thead>
                             <tr class="main-hading">
@@ -32,7 +33,7 @@
                                             <a href="/actions/privato/carrello/ModificaQuantita?id=<s:property value="#articolo.idArticolo" />">
                                                 <button type="button" class="btn btn-primary">Modifica Quantità</button>
                                             </a>
-                                            <a href="/actions/privato/carrello/RimuoviArticolo?id=<s:property value="#articolo.idArticolo" />">
+                                            <a href="/actions/privato/carrello/RemoveArticle?id=<s:property value="#articolo.idArticolo" />">
                                                 <button type="button" class="btn btn-danger">Rimuovi</button>
                                             </a>
                                         </div>

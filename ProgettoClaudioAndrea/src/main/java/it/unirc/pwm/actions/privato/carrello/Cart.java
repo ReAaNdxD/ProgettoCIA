@@ -19,7 +19,8 @@ import it.unirc.pwm.ht.dao.CarrelloDAOFactory;
 	public class Cart extends ActionSupport implements ModelDriven<Carrello>,SessionAware {
 		private static final long serialVersionUID = 1L;
 		private Carrello carrello;
-		private Map<String, Object> session; 
+		private Map<String, Object> session;
+
 	
 	    @Override
 	    public Carrello getModel() {
@@ -32,10 +33,6 @@ import it.unirc.pwm.ht.dao.CarrelloDAOFactory;
 	    	ArticoloDAO aDAO = ArticoloDAOFactory.getDAO();
 	    	Carrello carrelloCliente = cDAO.getCarrelloByCliente(cliente);
 	    	List<Articolo> listaArticoli = aDAO.getArticoli(carrelloCliente);
-	    	System.out.println(cliente);
-	    	System.out.println(carrelloCliente);
-	    	System.out.println(listaArticoli);
-	    	
 	    	session.put("listaArticoli", listaArticoli);
 	        return SUCCESS;
 	    }
