@@ -9,10 +9,13 @@
 <%@page import="it.unirc.db.ecommerce.views.ViewProduct"%>
 <%@page import="it.unirc.pwm.ht.dao.CategoriaDAO"%>
 <%@page import="it.unirc.pwm.ht.dao.CategoriaDAOFactory"%>
+<%@page import="it.unirc.db.ecommerce.views.Compone"%>
+<%@page import="java.util.List"%>
 <%@page import="it.unirc.pwm.ht.Categoria"%>
 <%@page import="it.unirc.pwm.ht.Carrello"%>
 <%@page import="it.unirc.pwm.ht.dao.CarrelloDAO"%>
 <%@page import="it.unirc.pwm.ht.dao.ArticoloDAO"%>
+<%@page import="it.unirc.pwm.ht.dao.ArticoloDAOFactory"%>
 <%@page import="it.unirc.db.ecommerce.views.GridProduct"%>
 <%@page import="it.unirc.pwm.ht.Prodotto"%>
 <%@page import="it.unirc.pwm.ht.join.dao.ArticoloComponeCarrelloDAO"%>
@@ -26,7 +29,7 @@
 <html lang="zxx">
 <head>
 
-<%--  <%@include file="/WEB-INF/head.jsp"%>  --%>
+  <%@include file="/WEB-INF/head.jsp"%>  
 <link rel="stylesheet" href="/css/product.css">
 
 
@@ -34,10 +37,11 @@
 </head>
 <body class="js">
 
-	<%@include file="/WEB-INF/preload.jsp"%>
+	<%-- <%@include file="/WEB-INF/preload.jsp"%> --%>
 
-	<%-- 	<%@include file="/WEB-INF/header-scriptlet.jsp"%> --%>
-<%-- 
+	 <%-- 	<%@include file="/WEB-INF/header-scriptlet.jsp"%>  --%>
+	 <%-- 	<%@include file="/WEB-INF/header.jsp"%> --%>
+	<%-- 
 	<%
 		// 		Vector<GridProduct> queryResult = articoloDAO.getAllAvailableProducts("rtx",0);
 		SottocategoriaDAO sottocategoriaDAO = new SottocategoriaDAO();
@@ -58,8 +62,7 @@
 		String removeParam;
 		
 	%> --%>
-<%-- 
-	<%@include file="/WEB-INF/header.jsp"%> --%>
+	
 
 
 
@@ -177,7 +180,7 @@
 
 						<!-- Shop By Brand -->
 						<div class="single-widget">
-							<h3 class="title">Marche</h3>
+								<h3 class="title">Marche</h3>
 							<ul class="categor-list">
 							
 							<%
@@ -239,14 +242,14 @@
 								}
 							%>
 
-							</ul>
+							 	</ul>
 						</div>
 						<!-- Shop By Brand -->
 
 
 						<!-- Shop By Price -->
 						<div class="single-widget range">
-							<h3 class="title">Shop by Price</h3>
+							<!-- <h3 class="title">Shop by Price</h3>
 							<div class="price-filter">
 								<div class="price-filter-inner contact-us">
 								<%
@@ -331,40 +334,43 @@
 						<!--/ End Shop By Price -->
 
 
-						<!--/ End Single Widget -->
-					</div>
-				</div> --%>
-				<div class="col-lg-9 col-md-8 col-12">
+						<!--/ End Single Widget --> 
+						</div>
+					</div> --%>
+					<div class="col-lg-12 col-md-12 col-12">
 
 
-					<div class="row">
-						<s:iterator value="#session.articoli" var="articolo">
-						<div class="col-lg-3 col-md-4 col-12">
-							<div class="single-product">
-								<div class="product-img">
-									<a href="ProductDetails?id=<s:property value="#articolo.prodotto.idProdotto" />">
-										<img class="default-img"
-										src="https://via.placeholder.com/550x750" alt="#"> <img
-										class="hover-img" src="https://via.placeholder.com/550x750"
-										alt="#">
-									</a>
-								</div>
-								<div class="product-content">
-									<h3>
-										<a href="ProductDetails?id=<s:property value="#articolo.prodotto.idArticolo" />"><s:property value="#articolo.prodotto.nome" /></a>
-									</h3>
-									<div class="product-price">
-										<span><s:property value="#articolo.prezzo" />€</span>
+						<div class="row">
+							<s:iterator value="#session.articoli" var="articolo">
+								<div class="col-lg-3 col-md-4 col-12">
+									<div class="single-product">
+										<div class="product-img">
+											<a
+												href="ProductDetails?id=<s:property value="#articolo.prodotto.idProdotto" />">
+												<img class="default-img"
+												src="https://via.placeholder.com/550x750" alt="#"> <img
+												class="hover-img" src="https://via.placeholder.com/550x750"
+												alt="#">
+											</a>
+										</div>
+										<div class="product-content">
+											<h3>
+												<a
+													href="ProductDetails?id=<s:property value="#articolo.prodotto.idArticolo" />"><s:property
+														value="#articolo.prodotto.nome" /></a>
+											</h3>
+											<div class="product-price">
+												<span><s:property value="#articolo.prezzo" />€</span>
+											</div>
+										</div>
 									</div>
 								</div>
-							</div>
-						</div>
-						</s:iterator>
-						<%-- <%
+							</s:iterator>
+							<%-- <%
 							}
 						%> --%>
 
-						<%-- <!-- Pagination -->
+							<%-- <!-- Pagination -->
 
 						<div class="col-lg-12 col-md-12 col-12">
 							<nav>
@@ -418,10 +424,10 @@
 							</nav>
 						</div>
 						<!--/ End pagination --> --%>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 	</section>
 	<!--/ End Product Style 1  -->
 
