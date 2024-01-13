@@ -345,8 +345,10 @@
 								<div class="col-lg-3 col-md-4 col-12">
 									<div class="single-product">
 										<div class="product-img">
+										<s:hidden value="#articolo.idArticolo" name="id"
+										label="" />
 											<a
-												href="ProductDetails?id=<s:property value="#articolo.prodotto.idProdotto" />">
+												href="/actions/privato/articolo/ProductDetails?id=<s:property value="#articolo.idArticolo"  />">
 												<img class="default-img"
 												src="https://via.placeholder.com/550x750" alt="#"> <img
 												class="hover-img" src="https://via.placeholder.com/550x750"
@@ -354,11 +356,26 @@
 											</a>
 										</div>
 										<div class="product-content">
-											<h3>
+											 <h3>
+											 
+											 <s:property value="#articolo.prodotto.nome" />
+											<%--  <s:form theme="simple">
 												<a
-													href="ProductDetails?id=<s:property value="#articolo.prodotto.idArticolo" />"><s:property
+													href="/actions/privato/articolo/ProductDetails?id=<s:property value="#articolo.idArticolo" />"><s:property
 														value="#articolo.prodotto.nome" /></a>
-											</h3>
+														</s:form> --%>
+										
+										
+										
+									<%-- 	<a
+												href="/actions/privato/indirizzospedizione/RichiediModificaIndirizzoSpedizione?id=<s:property value="#indirizzo.idIndirizzoSpedizione" />">
+												<button type="button" class="btn btn-primary">Modifica</button>
+											</a> --%>
+										
+										
+										
+										
+											</h3> 
 											<div class="product-price">
 												<span><s:property value="#articolo.prezzo" />€</span>
 											</div>

@@ -20,6 +20,11 @@ public class Articolo implements java.io.Serializable {
 	public Articolo() {
 	}
 
+	public Articolo(Integer idArticolo) {
+		super();
+		this.idArticolo = idArticolo;
+	}
+
 	@Override
 	public String toString() {
 		return "Articolo [idArticolo=" + idArticolo + ", venditore=" + venditore.getIdVenditore() + ", prodotto=" + prodotto

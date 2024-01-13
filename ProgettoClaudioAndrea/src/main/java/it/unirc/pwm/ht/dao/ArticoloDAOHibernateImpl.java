@@ -14,6 +14,7 @@ import it.unirc.db.ecommerce.views.ViewProduct;
 import it.unirc.pwm.ecommerce.util.HibernateUtil;
 import it.unirc.pwm.ht.Articolo;
 import it.unirc.pwm.ht.Carrello;
+import it.unirc.pwm.ht.CartaCredito;
 import it.unirc.pwm.ht.Cliente;
 
 public class ArticoloDAOHibernateImpl implements ArticoloDAO {
@@ -48,25 +49,22 @@ public class ArticoloDAOHibernateImpl implements ArticoloDAO {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = null;
 		Articolo result = null;
-
 		try {
 			transaction = session.beginTransaction();
-
-			String queryHQL = "from Articolo WHERE idArticolo=?1";
-			Query <Articolo> query = session.createQuery(queryHQL, Articolo.class);
-			result = query.setParameter(1, articolo).getSingleResult();
-			
+			String queryHQL = "from Articolo  where idArticolo =?1";
+			result = session.createQuery(queryHQL, Articolo.class).setParameter(1, articolo.getIdArticolo())
+					.getSingleResult();
 			transaction.commit();
 		} catch (HibernateException e) {
 			transaction.rollback();
+			e.printStackTrace();
 			result = null;
 		} catch (Exception e) {
+			e.printStackTrace();
 			result = null;
-
 		} finally {
 			session.close();
 		}
-
 		return result;
 	}
 

@@ -12,6 +12,12 @@
 			<result name="success">/WEB-INF/privato/articolo/shop-grid.jsp</result>
 			<result name="error">/WEB-INF/privato/ilMioAccount.jsp</result>
 		</action>
+		<action name="ProductDetails"
+			class="it.unirc.pwm.actions.privato.articolo.ProductDetails">
+			<result name="success">/WEB-INF/privato/articolo/product-detail.jsp</result>
+			<result name="error">/WEB-INF/privato/articolo/shop-grid.jsp</result>
+		</action>
+
 		
 		
 		

@@ -95,7 +95,7 @@
 									<div class="col-12">
 										<div class="form-group button">
 											<button class="btn" onclick="history.go(-1); return false;">Annulla</button>
-											<button type="submit" class="btn">Aggiungi</button>
+											<button type="submit" class="btn" >Aggiungi</button>
 										</div>
 									</div>
 								</div>
