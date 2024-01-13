@@ -137,7 +137,7 @@ public class CarrelloDAOHibernateImpl implements CarrelloDAO {
 		try {
 			transaction = session.beginTransaction();
 
-			String queryHQL = "select a from Carrello c join Articolo a WHERE c.idCarrello=?1";
+			String queryHQL = "select a from Carrello c join c.compones cc WHERE cc.carrello=?1";
 			Query<Articolo> query = session.createQuery(queryHQL, Articolo.class);
 			query.setParameter(1, carrello.getIdCarrello());
 			result = query.list();

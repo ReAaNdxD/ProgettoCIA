@@ -9,6 +9,12 @@
 	<action name="Cart" class="it.unirc.pwm.actions.privato.carrello.Cart">
         <result name="success">/WEB-INF/privato/carrello/cart.jsp</result>
     </action>
+    
+    <action name="RemoveArticle" class="it.unirc.pwm.actions.privato.carrello.RemoveArticle">
+        <result name="success">/WEB-INF/privato/carrello/cart.jsp</result>
+        <result name="error">/WEB-INF/privato/carrello/cart.jsp</result>
+        
+    </action>
 		
 
 	</package>

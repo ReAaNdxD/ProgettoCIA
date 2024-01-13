@@ -10,9 +10,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
+                <small><s:actionerror/></small>
                     <table class="table shopping-summery">
                         <thead>
                             <tr class="main-hading">
+                            	<th class="text-center">Nome Prodotto</th>
+                            	<th class="text-center">Marca</th>
                                 <th class="text-center">Prezzo</th>
                                 <th class="text-center">Quantità</th>
                                 <th class="text-center"></th>
@@ -21,6 +24,8 @@
                         <tbody>
                             <s:iterator value="#session.listaArticoli" var="articolo">
                                 <tr>
+                                	<td style="text-align: center;"><s:property value="#articolo.prodotto.nome" /></td>
+                                	<td style="text-align: center;"><s:property value="#articolo.prodotto.marca" /></td>
                                     <td style="text-align: center;"><s:property value="#articolo.prezzo" />€</td>
                                     <td style="text-align: center;"><s:property value="#articolo.quantita" /></td>
                                     <td>
@@ -28,7 +33,7 @@
                                             <a href="/actions/privato/carrello/ModificaQuantita?id=<s:property value="#articolo.idArticolo" />">
                                                 <button type="button" class="btn btn-primary">Modifica Quantità</button>
                                             </a>
-                                            <a href="/actions/privato/carrello/RimuoviArticolo?id=<s:property value="#articolo.idArticolo" />">
+                                            <a href="/actions/privato/carrello/RemoveArticle?id=<s:property value="#articolo.idArticolo" />">
                                                 <button type="button" class="btn btn-danger">Rimuovi</button>
                                             </a>
                                         </div>

@@ -9,13 +9,12 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
-import it.unirc.pwm.ecommerce.util.HibernateUtil;
 import it.unirc.db.ecommerce.views.GridProduct;
-import it.unirc.db.ecommerce.views.Griglia;
 import it.unirc.db.ecommerce.views.ViewProduct;
+import it.unirc.pwm.ecommerce.util.HibernateUtil;
 import it.unirc.pwm.ht.Articolo;
+import it.unirc.pwm.ht.Carrello;
 import it.unirc.pwm.ht.Cliente;
-import it.unirc.pwm.ht.IndirizzoSpedizione;
 
 public class ArticoloDAOHibernateImpl implements ArticoloDAO {
 
@@ -129,7 +128,33 @@ public class ArticoloDAOHibernateImpl implements ArticoloDAO {
 		return result;
 	}
 	
-	
+
+	public List<Articolo> getArticoli(Carrello carrello) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction transaction = null;
+		List<Articolo> result = null;
+
+		try {
+			transaction = session.beginTransaction();
+
+			String queryHQL = "select a from Articolo a join a.compones cc WHERE cc.carrello.idCarrello=?1";
+			Query<Articolo> query = session.createQuery(queryHQL, Articolo.class);
+			query.setParameter(1, carrello.getIdCarrello());
+			result = query.list();
+
+			transaction.commit();
+		} catch (HibernateException e) {
+			transaction.rollback();
+			e.printStackTrace();
+			result = null;
+		} catch (Exception e) {
+			e.printStackTrace();
+			result = null;
+		} finally {
+			session.close();
+		}
+		return result;
+	}
 
 	@Override
 	public Vector<Articolo> getAllAvailableProducts() {
