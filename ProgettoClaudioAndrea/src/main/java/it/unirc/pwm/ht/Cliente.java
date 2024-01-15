@@ -10,9 +10,6 @@ import java.util.Set;
  */
 public class Cliente implements java.io.Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private Integer idCliente;
 	private String email;
