@@ -97,7 +97,7 @@
 						<div class="product_text">
 							<p>
 
-								<s:if test="articolo.disponibilita > 0">
+								<s:if test="articolo.quantita > 0">
 									<span class="p-available"> Disponibilità immediata</span>
 								</s:if>
 								<s:else>
