@@ -8,7 +8,7 @@ import it.unirc.pwm.ht.Compone;
 
 public interface ComponeDAO {
 	public Compone get(Articolo a, Carrello c);
-	public boolean aggiungiArticoloCarrello(Articolo articolo, Carrello carrello, int quantita);
+	public boolean aggiungiArticoloCarrello(Compone c);
 	public boolean modifica(Articolo articolo, Carrello carrello, int quantita);
 	public boolean elimina(Compone c);
 	public List<Compone> articoliCarrello(Carrello c);

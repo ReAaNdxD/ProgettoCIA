@@ -10,12 +10,32 @@ import it.unirc.pwm.ecommerce.util.HibernateUtil;
 import it.unirc.pwm.ht.Articolo;
 import it.unirc.pwm.ht.Carrello;
 import it.unirc.pwm.ht.Compone;
+import jakarta.persistence.PersistenceException;
 
 public class ComponeDAOHibernateImpl implements ComponeDAO {
 
 
-	public boolean aggiungiArticoloCarrello(Articolo articolo, Carrello carrello, int quantita) {
-		return false;		
+	public boolean aggiungiArticoloCarrello(Compone c) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction transaction = null;
+		boolean res = false;
+		try {
+			transaction = session.beginTransaction();
+			session.persist(c);
+			transaction.commit();
+			res = true;
+		} catch (HibernateException e) {
+			transaction.rollback();
+			return false;
+		} catch(PersistenceException pe) {
+			transaction.rollback();
+			return false;
+		}
+		finally {
+			if (session != null) // spesso omesso
+				session.close();
+		}
+		return res;
 	}
 
 	public boolean modifica(Articolo articolo, Carrello carrello, int quantita) {
