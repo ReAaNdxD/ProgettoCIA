@@ -23,7 +23,7 @@ public class Articolo implements java.io.Serializable {
 	@Override
 	public String toString() {
 		return "Articolo [idArticolo=" + idArticolo + ", venditore=" + venditore.getIdVenditore() + ", prodotto=" + prodotto
-				+", prezzo=" + prezzo + ", quantita=" + quantita + "]";
+				+ ", prezzo=" + prezzo + ", quantita=" + quantita + ", compones=" + compones + "]";
 	}
 
 	public Articolo(Venditore venditore, Prodotto prodotto, float prezzo, int quantita) {

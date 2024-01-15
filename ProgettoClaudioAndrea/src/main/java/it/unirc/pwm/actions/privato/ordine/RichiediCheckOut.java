@@ -69,7 +69,7 @@ public class RichiediCheckOut extends HttpServlet {
 		// MI prendo gli indirizzi
 		IndirizzoSpedizioneDAO indirizzoSpedizioneDAO = new IndirizzoSpedizioneDAO();
 		Vector<IndirizzoSpedizione> indirizzi = indirizzoSpedizioneDAO.getAll(c);
-		ArticoloComponeCarrelloDAO aDAO = new ArticoloComponeCarrelloDAO();
+		ComponeDAO aDAO = new ComponeDAO();
 		Vector<CartaCredito> carte = creditoDAO.getAllByCliente(c);
 		
 		for (CartaCredito cartaCredito : carte) {

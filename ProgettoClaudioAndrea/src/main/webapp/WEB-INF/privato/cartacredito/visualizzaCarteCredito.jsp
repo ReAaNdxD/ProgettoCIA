@@ -12,7 +12,7 @@
 <%@page import="it.unirc.db.ecommerce.views.GridProduct"%>
 <%@page import="it.unirc.pwm.ht.Prodotto"%>
 <%@page
-	import="it.unirc.pwm.ht.join.dao.ArticoloComponeCarrelloDAO"%>
+	import="it.unirc.pwm.ht.join.dao.ComponeDAO"%>
 <%-- <%@page import="it.unirc.pwm.ht.dao.ProdottoDAO"%> --%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>

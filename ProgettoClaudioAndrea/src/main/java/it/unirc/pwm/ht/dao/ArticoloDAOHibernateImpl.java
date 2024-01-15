@@ -48,25 +48,22 @@ public class ArticoloDAOHibernateImpl implements ArticoloDAO {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = null;
 		Articolo result = null;
-
 		try {
 			transaction = session.beginTransaction();
-
-			String queryHQL = "from Articolo WHERE idArticolo=?1";
-			Query <Articolo> query = session.createQuery(queryHQL, Articolo.class);
-			result = query.setParameter(1, articolo).getSingleResult();
-			
+			String queryHQL = "from Articolo  where idArticolo =?1";
+			result = session.createQuery(queryHQL, Articolo.class).setParameter(1, articolo.getIdArticolo())
+					.getSingleResult();
 			transaction.commit();
 		} catch (HibernateException e) {
 			transaction.rollback();
+			e.printStackTrace();
 			result = null;
 		} catch (Exception e) {
+			e.printStackTrace();
 			result = null;
-
 		} finally {
 			session.close();
 		}
-
 		return result;
 	}
 

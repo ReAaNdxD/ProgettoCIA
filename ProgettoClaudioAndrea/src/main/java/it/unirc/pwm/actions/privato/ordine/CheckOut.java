@@ -246,7 +246,7 @@ public class CheckOut extends HttpServlet {
 		MetodoSpedizione metodoSpedizione = metodoSpedizioneDAO
 				.getMetodoSpedizione(new MetodoSpedizione(Integer.parseInt(request.getParameter("radio"))));
 		int idMetodoSpedizione = metodoSpedizione.getIdMetodoSpedizione();
-		ArticoloComponeCarrelloDAO accDAO = new ArticoloComponeCarrelloDAO();
+		ComponeDAO accDAO = new ComponeDAO();
 		Double costoTotale = accDAO.calcoloCosto(carrello) + metodoSpedizione.getSpeseSpedizione();
 		OrdineDAO oDAO = new OrdineDAO();
 		Ordine o = new Ordine(costoTotale, dataCreazione, idCarrello, idMetodoSpedizione, true, idIndirizzo);

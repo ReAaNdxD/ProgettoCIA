@@ -9,6 +9,11 @@ public class Compone implements java.io.Serializable {
 	private ComponeId id;
 	private Articolo articolo;
 	private Carrello carrello;
+	@Override
+	public String toString() {
+		return "Compone [id=" + id + "]";
+	}
+
 	private float prezzoAcquisto;
 	private int quantita;
 

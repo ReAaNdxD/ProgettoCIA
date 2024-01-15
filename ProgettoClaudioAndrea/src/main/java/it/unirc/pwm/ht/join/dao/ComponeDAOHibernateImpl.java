@@ -1,27 +1,19 @@
 package it.unirc.pwm.ht.join.dao;
 
+import java.util.List;
 import java.util.Vector;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
-import it.unirc.db.ecommerce.views.Compone;
+import it.unirc.pwm.ht.Compone;
 import it.unirc.pwm.ecommerce.util.HibernateUtil;
 import it.unirc.pwm.ht.Articolo;
 import it.unirc.pwm.ht.Carrello;
 
-public class ArticoloComponeCarrelloDAOHibernateImpl implements ArticoloComponeCarrelloDAO {
+public class ComponeDAOHibernateImpl implements ComponeDAO {
 
-//	private static Connection conn;
-
-//	private Compone recordToCompone(ResultSet rs) throws SQLException {
-//		Compone vectorCompone = new Compone();
-//		vectorCompone.setIdArticolo(rs.getInt("idArticolo"));
-//		vectorCompone.setPrezzoAcquisto(rs.getFloat("prezzoAcquisto"));
-//		vectorCompone.setquantita(rs.getInt("quantita"));
-//		return vectorCompone;
-//	}
 
 	public boolean aggiungiArticoloCarrello(Articolo articolo, Carrello carrello, int quantita) {
 		return false;		
@@ -35,24 +27,30 @@ public class ArticoloComponeCarrelloDAOHibernateImpl implements ArticoloComponeC
 	public boolean elimina(Articolo articolo, Carrello carrello) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = null;
+		boolean res = false;
+		
 
 		try {
-			transaction = session.beginTransaction();
-			String queryHQL ="delete FROM Compone c WHERE c.articolo.idArticolo =?1 AND c.carrello.idCarrello =?2";
-			Query query = session.createQuery(queryHQL);
-			query.setParameter(1, articolo.getIdArticolo());
-			query.setParameter(2, carrello.getIdCarrello());
-			transaction.commit();
-			return true;
+			
+            transaction = session.beginTransaction();
+            String hql = "delete from Compone c where c.articolo=?1 AND c.carrello=?2";
+            Query query = session.createQuery(hql);
+            query.setParameter(1, articolo);
+            query.setParameter(2, carrello);
+            res = true;
+            transaction.commit();
+
+			
 		} catch (Exception e) {
 			e.printStackTrace();
-			return false;
+			res = false;
 		} finally {
 			session.close();
 		}
+		return res;
 	}
 
-	public Vector<Compone> articoliCarrello(Carrello c) {
+	public List<it.unirc.db.ecommerce.views.Compone> articoliCarrello(Carrello c) {
 		return null;
 
 	}

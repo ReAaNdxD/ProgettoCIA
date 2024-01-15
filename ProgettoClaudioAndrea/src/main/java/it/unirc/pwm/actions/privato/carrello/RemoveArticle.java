@@ -9,8 +9,8 @@ import it.unirc.pwm.ht.dao.ArticoloDAO;
 import it.unirc.pwm.ht.dao.ArticoloDAOFactory;
 import it.unirc.pwm.ht.dao.CarrelloDAO;
 import it.unirc.pwm.ht.dao.CarrelloDAOFactory;
-import it.unirc.pwm.ht.join.dao.ArticoloComponeCarrelloDAO;
-import it.unirc.pwm.ht.join.dao.ArticoloComponeCarrelloDAOFactory;
+import it.unirc.pwm.ht.join.dao.ComponeDAO;
+import it.unirc.pwm.ht.join.dao.ComponeDAOFactory;
 
 import java.util.List;
 import java.util.Map;
@@ -20,11 +20,19 @@ import org.apache.struts2.action.SessionAware;
 public class RemoveArticle extends ActionSupport implements SessionAware {
 	private static final long serialVersionUID = 1L;
 	private Map<String, Object> session;
-    private Articolo articolo;
-    private Carrello carrello;
+	private Articolo articolo;
+	private Carrello carrello;
 	private Integer id;
 
-    public Carrello getCarrello() {
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Carrello getCarrello() {
 		return carrello;
 	}
 
@@ -32,7 +40,7 @@ public class RemoveArticle extends ActionSupport implements SessionAware {
 		this.carrello = carrello;
 	}
 
-    public Articolo getArticolo() {
+	public Articolo getArticolo() {
 		return articolo;
 	}
 
@@ -41,28 +49,27 @@ public class RemoveArticle extends ActionSupport implements SessionAware {
 	}
 
 	@Override
-    public void withSession(Map<String, Object> session) {
-        this.session = session;
-    }
+	public void withSession(Map<String, Object> session) {
+		this.session = session;
+	}
 
-    @Override
-    public String execute() {
-    	Cliente cliente = (Cliente) session.get("cliente");
-    	Articolo aId = new Articolo();
-    	aId.setIdArticolo(id);
-    	CarrelloDAO cDAO = CarrelloDAOFactory.getDAO();
-    	Carrello carrello = cDAO.getCarrelloByCliente(cliente);
-        ArticoloDAO aDAO = ArticoloDAOFactory.getDAO();
-        ArticoloComponeCarrelloDAO componeDAO = ArticoloComponeCarrelloDAOFactory.getDAO();
-        boolean res = componeDAO.elimina(aId, carrello);
-        if (res) {
-        	List<Articolo> listaArticoli = aDAO.getArticoli(carrello);
-	    	session.replace("listaArticoli", listaArticoli);
-	    	System.out.println("Sono dentro l'if");
-        	return SUCCESS;
-        }else
-        	System.out.println("Sono dentro l'errore");
-        	addActionError("Non siamo riusciti ad eliminare l'articolo dal carrello");
-        	return ERROR;
-    }
+	@Override
+	public String execute() {
+		Cliente cliente = (Cliente) session.get("cliente");
+		Articolo aId = new Articolo();
+		aId.setIdArticolo(id);
+		CarrelloDAO cDAO = CarrelloDAOFactory.getDAO();
+		Carrello carrello = cDAO.getCarrelloByCliente(cliente);
+		ArticoloDAO aDAO = ArticoloDAOFactory.getDAO();
+		ComponeDAO componeDAO = ComponeDAOFactory.getDAO();
+		if(componeDAO.elimina(aId, carrello)) {
+			List<Articolo> listaArticoli = aDAO.getArticoli(carrello);
+			session.replace("listaArticoli", listaArticoli);
+			return SUCCESS;
+		}else {
+			addActionError("Non siamo riusciti ad eliminare l'articolo dal carrello");
+			return ERROR;
+		}
+
+	}
 }

@@ -6,7 +6,7 @@ import it.unirc.pwm.ht.Articolo;
 import it.unirc.pwm.ht.Carrello;
 import it.unirc.db.ecommerce.views.Compone;
 
-public interface ArticoloComponeCarrelloDAO {
+public interface ComponeDAO {
 	public boolean aggiungiArticoloCarrello(Articolo articolo, Carrello carrello, int quantita);
 	public boolean modifica(Articolo articolo, Carrello carrello, int quantita);
 	public boolean elimina(Articolo articolo, Carrello c);
