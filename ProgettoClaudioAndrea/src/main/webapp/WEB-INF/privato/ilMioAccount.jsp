@@ -23,7 +23,7 @@
 <head>
 <meta charset="utf-8">
 <title>Il mio account</title>
-<%@include file="/WEB-INF/head.jsp"%>
+ <%@include file="/WEB-INF/head.jsp"%> 
 <link rel="stylesheet" href="/css/AggiungiCartaCredito.css">
 </head>
 <body class="js">

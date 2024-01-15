@@ -43,7 +43,7 @@
                             <div class="sinlge-bar shopping">
                                 
                                 
-                                <%
+                              <%--   <%
                                 	// Se non Ã¨ autenticato metto zero altrimenti prendo il valore di articoli in carrello del liente 
                                 	int totalCount=0;
                                 	if(cliente!=null){
@@ -56,19 +56,19 @@
                                 		</a>
                                 <%
                                 	}else {
-                                %>
+                                %> --%>
                                 		<a href="/actions/privato/carrello/Cart" class="single-icon"><i class="fa fa-shopping-cart"></i> 
-                                			<span class="total-count">0</span>
+                                			<span class="total-count"></span>
                                 		</a>
-                                <%		
+                              <%--   <%		
                                 	}
-                                %>
+                                %> --%>
                                 
                                 
                                 <!-- Shopping Item -->
                                 <div class="shopping-item">
                                     <div class="dropdown-cart-header">
-                                        <span><%=totalCount %> Item/s</span>
+                                        <span> Item/s</span>
                                         <a href="/actions/privato/carrello/Cart">View Cart</a>
                                     </div>
                                     <ul class="shopping-list">
