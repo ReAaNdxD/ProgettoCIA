@@ -30,9 +30,6 @@
                                     <td style="text-align: center;"><s:property value="#articolo.quantita" /></td>
                                     <td>
                                         <div class="button">
-                                            <a href="/actions/privato/carrello/ModificaQuantita?id=<s:property value="#articolo.idArticolo" />">
-                                                <button type="button" class="btn btn-primary">Modifica Quantità</button>
-                                            </a>
                                             <a href="/actions/privato/carrello/RemoveArticle?id=<s:property value="#articolo.idArticolo" />">
                                                 <button type="button" class="btn btn-danger">Rimuovi</button>
                                             </a>

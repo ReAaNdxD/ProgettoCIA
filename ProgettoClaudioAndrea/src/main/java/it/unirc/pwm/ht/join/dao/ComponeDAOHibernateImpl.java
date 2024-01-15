@@ -1,16 +1,15 @@
 package it.unirc.pwm.ht.join.dao;
 
 import java.util.List;
-import java.util.Vector;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.query.Query;
 
-import it.unirc.pwm.ht.Compone;
 import it.unirc.pwm.ecommerce.util.HibernateUtil;
 import it.unirc.pwm.ht.Articolo;
 import it.unirc.pwm.ht.Carrello;
+import it.unirc.pwm.ht.Compone;
 
 public class ComponeDAOHibernateImpl implements ComponeDAO {
 
@@ -22,9 +21,34 @@ public class ComponeDAOHibernateImpl implements ComponeDAO {
 	public boolean modifica(Articolo articolo, Carrello carrello, int quantita) {
 		return false;
 
+		
+	}
+	
+	@Override
+	public Compone get(Articolo a, Carrello c) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction transaction = null;
+		Compone result = null;
+		try {
+			transaction = session.beginTransaction();
+			String queryHQL = "from Compone where articolo =?1 and carrello=?2";
+			result = session.createQuery(queryHQL, Compone.class).setParameter(1, a)
+					.setParameter(2, c).getSingleResult();
+			transaction.commit();
+		} catch (HibernateException e) {
+			transaction.rollback();
+			e.printStackTrace();
+			result = null;
+		} catch (Exception e) {
+			e.printStackTrace();
+			result = null;
+		} finally {
+			session.close();
+		}
+		return result;
 	}
 
-	public boolean elimina(Articolo articolo, Carrello carrello) {
+	public boolean elimina(Compone c) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = null;
 		boolean res = false;
@@ -33,11 +57,9 @@ public class ComponeDAOHibernateImpl implements ComponeDAO {
 		try {
 			
             transaction = session.beginTransaction();
-            String hql = "delete from Compone c where c.articolo=?1 AND c.carrello=?2";
-            Query query = session.createQuery(hql);
-            query.setParameter(1, articolo);
-            query.setParameter(2, carrello);
-            res = true;
+            
+            session.remove(c);
+            res=true;
             transaction.commit();
 
 			
@@ -50,7 +72,7 @@ public class ComponeDAOHibernateImpl implements ComponeDAO {
 		return res;
 	}
 
-	public List<it.unirc.db.ecommerce.views.Compone> articoliCarrello(Carrello c) {
+	public List<Compone> articoliCarrello(Carrello c) {
 		return null;
 
 	}

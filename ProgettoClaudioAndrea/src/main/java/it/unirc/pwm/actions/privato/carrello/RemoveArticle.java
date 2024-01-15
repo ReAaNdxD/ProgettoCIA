@@ -5,6 +5,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import it.unirc.pwm.ht.Articolo;
 import it.unirc.pwm.ht.Carrello;
 import it.unirc.pwm.ht.Cliente;
+import it.unirc.pwm.ht.Compone;
 import it.unirc.pwm.ht.dao.ArticoloDAO;
 import it.unirc.pwm.ht.dao.ArticoloDAOFactory;
 import it.unirc.pwm.ht.dao.CarrelloDAO;
@@ -62,7 +63,8 @@ public class RemoveArticle extends ActionSupport implements SessionAware {
 		Carrello carrello = cDAO.getCarrelloByCliente(cliente);
 		ArticoloDAO aDAO = ArticoloDAOFactory.getDAO();
 		ComponeDAO componeDAO = ComponeDAOFactory.getDAO();
-		if(componeDAO.elimina(aId, carrello)) {
+		Compone c =componeDAO.get(aId, carrello);
+		if(componeDAO.elimina(c)) {
 			List<Articolo> listaArticoli = aDAO.getArticoli(carrello);
 			session.replace("listaArticoli", listaArticoli);
 			return SUCCESS;
@@ -70,6 +72,5 @@ public class RemoveArticle extends ActionSupport implements SessionAware {
 			addActionError("Non siamo riusciti ad eliminare l'articolo dal carrello");
 			return ERROR;
 		}
-
 	}
 }
