@@ -79,9 +79,11 @@
 						</div>
 						<%-- Nome Prodotto --%>
 
-						<div class="product_brand">
-							<s:textfield cssClass="brand-link" value="articolo.marca" />
-						</div>
+						
+						
+						
+						
+						
 
 						<hr>
 
@@ -110,11 +112,7 @@
 								%> --%>
 							</p>
 						</div>
-						<div class="product_text">
-							<p>
-								Venduto da: ${articolo}
-							</p>
-						</div>
+						
 
 
 						<%-- <%
@@ -158,23 +156,21 @@
 
 						</s:if>
 
-						<div id="accordion" class="accordion-area">
+						<div  class="accordion-area">
 							<div class="panel">
-								<div class="panel-header" id="headingOne">
-									<button class="panel-link" data-toggle="collapse"
-										data-target="#collapse1" aria-expanded="false"
-										aria-controls="collapse1">Descrizione</button>
+								<div class="panel-header" >
+									<button class="panel-link" 
+										>Descrizione</button>
 								</div>
-								<div id="collapse1" class="collapse"
-									aria-labelledby="headingOne" data-parent="#accordion">
+								
 									<div class="panel-body">
 										<p>
-											#<s:property value="articolo.prodotto.descrizioneBreve" />
+											<s:property value="articolo.prodotto.descrizioneBreve" />
 										</p>
 									</div>
-								</div>
+								
 							</div>
-							<div class="panel">
+							<%-- <div class="panel">
 								<div class="panel-header" id="headingTwo">
 									<button class="panel-link" data-toggle="collapse"
 										data-target="#collapse2" aria-expanded="false"
@@ -188,7 +184,22 @@
 										</p>
 									</div>
 								</div>
+							</div> --%>
+							
+							<div class="panel">
+								<div class="panel-header" >
+									<button class="panel-link" 
+										>Descrizione Dettagliata</button>
+								</div>
+								
+									<div class="panel-body">
+										<p>
+											<s:property value="articolo.prodotto.descrizioneDettagliata" />
+										</p>
+									</div>
+								
 							</div>
+							
 						</div>
 
 					</div>
