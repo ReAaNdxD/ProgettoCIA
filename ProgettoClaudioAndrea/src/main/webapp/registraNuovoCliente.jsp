@@ -53,25 +53,25 @@
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group">
                                         <label for="nome" class="font-weight-bold">Nome</label>
-                                        <s:textfield name="cliente.nome" placeholder="Nome" />
+                                        <s:textfield name="nome" placeholder="Nome" />
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group">
                                         <label for="cognome" class="font-weight-bold">Cognome</label>
-                                        <s:textfield name="cliente.cognome" placeholder="Cognome" />
+                                        <s:textfield name="cognome" placeholder="Cognome" />
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group">
                                         <label for="email" class="font-weight-bold">Email</label>
-                                        <s:textfield name="cliente.email" placeholder="Email" />
+                                        <s:textfield name="email" placeholder="Email" />
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group">
                                         <label for="password" class="font-weight-bold">Password</label>
-                                        <s:password name="cliente.password" placeholder="Password" />
+                                        <s:password name="password" placeholder="Password" />
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-12">
