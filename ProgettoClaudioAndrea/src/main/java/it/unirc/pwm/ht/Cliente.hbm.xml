@@ -19,11 +19,11 @@
             <column length="45" name="cognome" not-null="true"/>
         </property>
         <one-to-one class="it.unirc.pwm.ht.Clienteprime" name="clienteprime"/>
-        <set fetch="select" inverse="true" lazy="true" name="carrellos" table="carrello">
+        <set fetch="select" inverse="true" lazy="true" name="carrellos" table="carrello" cascade="save-update">
             <key>
                 <column name="idCliente" not-null="true"/>
             </key>
-            <one-to-many class="it.unirc.pwm.ht.Carrello"/>
+            <one-to-many class="it.unirc.pwm.ht.Carrello" />
         </set>
         <set fetch="select" inverse="true" lazy="true" name="indirizzospediziones" table="indirizzospedizione">
             <key>

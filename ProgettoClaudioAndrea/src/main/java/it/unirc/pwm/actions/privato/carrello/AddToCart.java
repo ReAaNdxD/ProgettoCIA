@@ -21,6 +21,10 @@ import it.unirc.pwm.ht.join.dao.ComponeDAOFactory;
 
 public class AddToCart extends ActionSupport implements SessionAware {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Articolo articolo;
 	private Map<String, Object> session;
 
@@ -34,23 +38,26 @@ public class AddToCart extends ActionSupport implements SessionAware {
 
 	@Override
 	public String execute() {
+		System.out.println("ADDTOCART");
 		Cliente cliente = (Cliente) session.get("cliente");
 		CarrelloDAO cDAO = CarrelloDAOFactory.getDAO();
 		Carrello carrello = cDAO.getCarrelloByCliente(cliente);
 		ArticoloDAO aDAO = ArticoloDAOFactory.getDAO();
 		ComponeDAO componeDAO = ComponeDAOFactory.getDAO();
-
+		System.out.println(articolo);
 		ComponeId cId = new ComponeId(articolo.getIdArticolo(), carrello.getIdCarrello());
 		System.out.println(cId);
 		Compone c = new Compone(cId, articolo, carrello, articolo.getPrezzo(), 1);
 		System.out.println(c);
 		if (componeDAO.aggiungiArticoloCarrello(c)) {
-			System.out.println("IF");
+			System.out.println("SALVA IF");
 			System.out.println(articolo.getQuantita());
 			articolo.modQuantità();
 			System.out.println(articolo.getQuantita());
 			boolean res = aDAO.modifica(articolo);
 			System.out.println(res);
+			List<Articolo> listaArticoli = aDAO.getArticoli(carrello);
+			session.put("listaArticoli", listaArticoli);
 			return SUCCESS;
 		}
 		addActionError("Non siamo riusciti ad aggiungere l'articolo nel carrello");

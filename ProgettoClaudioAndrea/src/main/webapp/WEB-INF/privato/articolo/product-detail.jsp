@@ -121,9 +121,9 @@
 
 						<s:if test="articolo.quantita>0">
 							<div class="order_info d-flex flex-row">
-								<s:form action="/actions/privato/carrello/AddToCart" >
+								<s:form action="/actions/privato/carrello/AddToCart" method="post">
 								<small></small>
-								<s:hidden name="articolo" value="articolo"/>
+								<s:param name="articolo"><s:property value="articolo"/></s:param>
 									<div class="button_container">
 										<button type="submit" class="button cart_button btn-color">Add
 											to Cart</button>

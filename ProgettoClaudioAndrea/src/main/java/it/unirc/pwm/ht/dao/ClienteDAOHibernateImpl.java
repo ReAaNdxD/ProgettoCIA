@@ -29,6 +29,8 @@ public class ClienteDAOHibernateImpl implements ClienteDAO {
 		boolean res = false;
 		try {
 			transaction = session.beginTransaction();
+			Carrello carrello = new Carrello(cliente, true);
+			cliente.getCarrellos().add(carrello);
 			session.persist(cliente);
 			transaction.commit();
 			res = true;
