@@ -119,41 +119,17 @@
 							if (articolo.getDisponibilita() > 0) {
 						%> --%>
 
-						<s:if test="#articolo.disponibilita>0">
+						<s:if test="articolo.quantita>0">
 							<div class="order_info d-flex flex-row">
-								<s:form action="AddToCart" class="d-flex">
-									<%-- <input id="idArticle" type="hidden" name="id"
-									value="<%=articolo.getIdArticolo()%>"> --%>
-									<%-- <s:param value="#articolo"></s:param> --%>
-									<!-- Product Quantity -->
-									<div class="qty">
-										<div class="input-group input-group-w">
-											<div class="button minus">
-												<button type="button" class="btn btn-primary btn-number"
-													disabled="disabled" data-type="minus" data-field="qty">
-													<i class="ti-minus"></i>
-												</button>
-											</div>
-											<input type="text" name="qty" class="input-number"
-												data-min="1" data-max="100" value="1">
-											<div class="button plus">
-												<button type="button" class="btn btn-primary btn-number"
-													data-type="plus" data-field="qty">
-													<i class="ti-plus"></i>
-												</button>
-											</div>
-										</div>
-									</div>
+								<s:form action="/actions/privato/carrello/AddToCart" >
+								<small></small>
+								<s:hidden name="articolo" value="articolo"/>
 									<div class="button_container">
 										<button type="submit" class="button cart_button btn-color">Add
 											to Cart</button>
 									</div>
 								</s:form>
 							</div>
-							<%-- <%
-							}
-						%> --%>
-
 						</s:if>
 
 						<div  class="accordion-area">

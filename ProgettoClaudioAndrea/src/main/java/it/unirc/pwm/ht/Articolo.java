@@ -86,6 +86,10 @@ public class Articolo implements java.io.Serializable {
 	public void setQuantita(int quantita) {
 		this.quantita = quantita;
 	}
+	
+	public void modQuantità () {
+		quantita= quantita-1;
+	}
 
 	public Set getCompones() {
 		return this.compones;
