@@ -25,6 +25,15 @@
 <head>
  <%@include file="/WEB-INF/head.jsp"%>
 <link rel="stylesheet" href="/css/product.css">
+<style>
+.small, small {
+  font-size: 80%;
+  font-weight: 1000;
+  margin-right: auto;
+}
+</style>
+
+
 </head>
 <body class="js"><%-- 
 
@@ -35,7 +44,6 @@
 
 
 	<%-- <%@include file="/WEB-INF/header.jsp"%> --%>
-
 
 
 	<section class="product-area shop-sidebar shop section shopping-cart">
@@ -121,9 +129,11 @@
 
 						<s:if test="articolo.quantita>0">
 							<div class="order_info d-flex flex-row">
+							<small><s:actionerror /></small>
 								<s:form action="/actions/privato/carrello/AddToCart" method="post">
 								<small></small>
-								<s:param name="articolo"><s:property value="articolo"/></s:param>
+								<s:textfield name="articolo.idArticolo" value="%{articolo.idArticolo}" type="hidden" readonly="true"/>
+								<s:textfield name="articolo.prezzo" value="%{articolo.prezzo}" type="hidden" readonly="true"/>
 									<div class="button_container">
 										<button type="submit" class="button cart_button btn-color">Add
 											to Cart</button>

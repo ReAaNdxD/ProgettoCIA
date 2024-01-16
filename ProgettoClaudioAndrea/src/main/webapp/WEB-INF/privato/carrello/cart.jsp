@@ -44,7 +44,7 @@
         </div>
         <br>
         <div align="center">
-            <a href="/privato/cliente/ordine/RichiediCheckOut" class="btn btn-primary">Procedi all'Ordine</a>
+            <a href="/actions/privato/carrello/RichiediCheckOut" class="btn btn-primary">Procedi all'Ordine</a>
         </div>
     </div>
 

@@ -17,9 +17,13 @@
     </action>
     
      <action name="AddToCart" class="it.unirc.pwm.actions.privato.carrello.AddToCart">
-        <result name="success">/actions/privato/carrello/cart.jsp</result>
+        <result name="success">/WEB-INF/privato/carrello/cart.jsp</result>
         <result name="error">/WEB-INF/privato/articolo/product-detail.jsp</result>
          <result name="input">/WEB-INF/privato/articolo/product-detail.jsp</result> 
+    </action>
+    
+    <action name="RichiediCheckOut">
+    <result>/WEB-INF/privato/carrello/checkout.jsp</result>
     </action>
 		
 

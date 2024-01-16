@@ -44,6 +44,8 @@ public class AddToCart extends ActionSupport implements SessionAware {
 		Carrello carrello = cDAO.getCarrelloByCliente(cliente);
 		ArticoloDAO aDAO = ArticoloDAOFactory.getDAO();
 		ComponeDAO componeDAO = ComponeDAOFactory.getDAO();
+		System.out.println(articolo.getIdArticolo());
+		articolo = aDAO.get(articolo);
 		System.out.println(articolo);
 		ComponeId cId = new ComponeId(articolo.getIdArticolo(), carrello.getIdCarrello());
 		System.out.println(cId);
@@ -60,7 +62,8 @@ public class AddToCart extends ActionSupport implements SessionAware {
 			session.put("listaArticoli", listaArticoli);
 			return SUCCESS;
 		}
-		addActionError("Non siamo riusciti ad aggiungere l'articolo nel carrello");
+		System.out.println("Non l'ha salvato");
+		addActionError("L'articolo selezionato è già presente nel carrello");
 		return ERROR;
 	}
 
