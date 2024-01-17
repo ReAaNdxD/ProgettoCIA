@@ -1,7 +1,7 @@
 package it.unirc.db.ecommerce.views;
 
-import it.unirc.db.ecommerce.beans.Articolo;
-import it.unirc.db.ecommerce.beans.Magazzino;
+import it.unirc.pwm.ht.Articolo;
+import it.unirc.pwm.ht.Magazzino;
 
 public class ViewDispone {
 

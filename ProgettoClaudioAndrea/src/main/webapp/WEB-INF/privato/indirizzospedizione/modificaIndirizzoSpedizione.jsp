@@ -42,7 +42,7 @@
 							</div>
 							<s:actionerror />
 							<s:form
-								action="actions/privato/indirizzospedizione/ModificaIndirizzoSpedizione"
+								action="/actions/privato/indirizzospedizione/ModificaIndirizzoSpedizione"
 								theme="simple" method="post" validate="true">
 								<div class="row">
 									<div class="col-lg-6 col-12">

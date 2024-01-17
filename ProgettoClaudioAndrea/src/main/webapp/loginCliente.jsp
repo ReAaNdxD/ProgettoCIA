@@ -68,7 +68,7 @@
 							</div>
 
 							<small><s:actionerror /></small>
-							<s:form action="actions/LoginCliente" id="form " method="post"
+							<s:form action="/actions/LoginCliente" id="form " method="post"
 								class="form form-signin" theme="simple">
 
 								<div class="row">

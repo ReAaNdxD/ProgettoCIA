@@ -3,7 +3,6 @@ package it.unirc.pwm.ht.dao;
 import java.util.HashMap;
 import java.util.List;
 
-
 import it.unirc.db.ecommerce.views.GridProduct;
 import it.unirc.db.ecommerce.views.ViewProduct;
 import it.unirc.pwm.ht.Articolo;

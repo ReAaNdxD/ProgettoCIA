@@ -39,9 +39,6 @@ public class RegistraNuovoCliente extends ActionSupport implements ModelDriven<C
 		}
 	}
 
-	public void validate() {
-
-	}
 
 	
 

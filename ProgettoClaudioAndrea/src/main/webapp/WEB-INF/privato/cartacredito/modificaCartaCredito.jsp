@@ -80,7 +80,7 @@
 												Sicurezza</label>
 											<s:textfield id="codiceSicurezza"
 												placeholder="codice di sicurezza" type="text" value="%{#session.carta.codiceSicurezza}"
-												name="carta.codiceSicurezza" pattern=".{3,3}"
+												name="carta.codiceSicurezza" maxlength="3"
 												onkeypress="return onlyNumbers(event)" />
 											<small></small>
 										</div>

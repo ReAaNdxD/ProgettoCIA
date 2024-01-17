@@ -47,38 +47,42 @@
 								<h3 style="color: #f7941d">Crea un nuovo account</h3>
 							</div>
                         <s:actionerror/>
-                        <s:form action="actions/RegistraNuovoCliente" id="form" method="post" class="form form-registration" theme="simple">
+                        <s:form action="/actions/RegistraNuovoCliente" id="form" method="post" class="form form-registration" theme="simple">
 
                             <div class="row">
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group">
                                         <label for="nome" class="font-weight-bold">Nome</label>
                                         <s:textfield name="nome" placeholder="Nome" />
+                                        <small><s:fielderror fieldName="nome"></s:fielderror></small>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group">
                                         <label for="cognome" class="font-weight-bold">Cognome</label>
                                         <s:textfield name="cognome" placeholder="Cognome" />
+                                        <small><s:fielderror fieldName="cognome"></s:fielderror></small>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group">
                                         <label for="email" class="font-weight-bold">Email</label>
                                         <s:textfield name="email" placeholder="Email" />
+                                        <small><s:fielderror fieldName="email"></s:fielderror></small>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group">
                                         <label for="password" class="font-weight-bold">Password</label>
                                         <s:password name="password" placeholder="Password" />
+                                        <small><s:fielderror fieldName="password"></s:fielderror></small>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group">
                                         <label for="ripetiPassword" class="font-weight-bold">Riscrivi Password</label>
                                         <s:password name="ripetiPassword" placeholder="Riscrivi Password" />
-                                        <s:fielderror fieldName="ripetiPassword"></s:fielderror>
+                                       <small><s:fielderror fieldName="ripetiPassword"></s:fielderror></small>
                                     </div>
                                 </div>
                             <div class="col-12">

@@ -2,18 +2,13 @@ package it.unirc.pwm.actions.privato.articolo;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Vector;
 
 import org.apache.struts2.action.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.ModelDriven;
 
-import it.unirc.pwm.ht.dao.ArticoloDAO;
-import it.unirc.db.ecommerce.views.GridProduct;
-import it.unirc.db.ecommerce.views.ViewProduct;
 import it.unirc.pwm.ht.Articolo;
-import it.unirc.pwm.ht.Cliente;
+import it.unirc.pwm.ht.dao.ArticoloDAO;
 import it.unirc.pwm.ht.dao.ArticoloDAOFactory;
 
 public class Search extends ActionSupport implements SessionAware {

@@ -10,7 +10,6 @@ import org.hibernate.query.Query;
 import it.unirc.pwm.ecommerce.util.HibernateUtil;
 import it.unirc.pwm.ht.CartaCredito;
 import it.unirc.pwm.ht.Cliente;
-import it.unirc.pwm.ht.IndirizzoSpedizione;
 import jakarta.persistence.PersistenceException;
 
 public class CartaCreditoDAOHibernateImpl implements CartaCreditoDAO {

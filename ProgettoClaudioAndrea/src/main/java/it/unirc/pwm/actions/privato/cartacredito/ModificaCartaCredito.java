@@ -9,7 +9,6 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import it.unirc.pwm.ht.CartaCredito;
 import it.unirc.pwm.ht.Cliente;
-import it.unirc.pwm.ht.CartaCredito;
 import it.unirc.pwm.ht.dao.CartaCreditoDAO;
 import it.unirc.pwm.ht.dao.CartaCreditoDAOFactory;
 

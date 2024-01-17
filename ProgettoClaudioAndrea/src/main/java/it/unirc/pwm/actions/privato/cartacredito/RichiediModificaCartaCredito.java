@@ -7,7 +7,6 @@ import org.apache.struts2.action.SessionAware;
 import com.opensymphony.xwork2.ActionSupport;
 
 import it.unirc.pwm.ht.CartaCredito;
-import it.unirc.pwm.ht.CartaCredito;
 import it.unirc.pwm.ht.dao.CartaCreditoDAO;
 import it.unirc.pwm.ht.dao.CartaCreditoDAOFactory;
 

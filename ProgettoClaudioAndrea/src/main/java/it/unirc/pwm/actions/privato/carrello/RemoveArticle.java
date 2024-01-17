@@ -1,5 +1,10 @@
 package it.unirc.pwm.actions.privato.carrello;
 
+import java.util.List;
+import java.util.Map;
+
+import org.apache.struts2.action.SessionAware;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 import it.unirc.pwm.ht.Articolo;
@@ -12,11 +17,6 @@ import it.unirc.pwm.ht.dao.CarrelloDAO;
 import it.unirc.pwm.ht.dao.CarrelloDAOFactory;
 import it.unirc.pwm.ht.join.dao.ComponeDAO;
 import it.unirc.pwm.ht.join.dao.ComponeDAOFactory;
-
-import java.util.List;
-import java.util.Map;
-
-import org.apache.struts2.action.SessionAware;
 
 public class RemoveArticle extends ActionSupport implements SessionAware {
 	private static final long serialVersionUID = 1L;

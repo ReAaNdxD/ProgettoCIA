@@ -106,12 +106,6 @@
 											<small></small>
 										</div>
 									</div>
-									<div class="col-lg-6 col-12">
-										<div class="form-group">
-											<label for="preferito">Preferito</label>
-											<s:checkbox id="preferito" name="indirizzo.preferito" />
-										</div>
-									</div>
 									<div class="col-12">
 										<div class="form-group button">
 											<button class="btn" onclick="history.go(-1); return false;">Annulla</button>

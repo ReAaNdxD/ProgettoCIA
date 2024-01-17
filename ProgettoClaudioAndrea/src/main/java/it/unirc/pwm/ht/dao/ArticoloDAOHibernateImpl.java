@@ -14,7 +14,6 @@ import it.unirc.db.ecommerce.views.ViewProduct;
 import it.unirc.pwm.ecommerce.util.HibernateUtil;
 import it.unirc.pwm.ht.Articolo;
 import it.unirc.pwm.ht.Carrello;
-import it.unirc.pwm.ht.CartaCredito;
 import it.unirc.pwm.ht.Cliente;
 
 public class ArticoloDAOHibernateImpl implements ArticoloDAO {

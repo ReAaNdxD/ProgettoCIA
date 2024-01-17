@@ -8,9 +8,9 @@ import org.hibernate.Transaction;
 
 import it.unirc.db.ecommerce.beans.MetodoSpedizione;
 import it.unirc.db.ecommerce.beans.StatoOrdine;
-import it.unirc.pwm.ecommerce.util.HibernateUtil;
 import it.unirc.db.ecommerce.views.Order;
 import it.unirc.db.ecommerce.views.ViewOrderProducts;
+import it.unirc.pwm.ecommerce.util.HibernateUtil;
 import it.unirc.pwm.ht.Cliente;
 import it.unirc.pwm.ht.Ordine;
 

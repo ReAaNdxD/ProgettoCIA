@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import it.unirc.db.ecommerce.beans.Cliente;
-import it.unirc.db.ecommerce.beans.OrdineDAO;
 import it.unirc.db.ecommerce.views.Order;
+import it.unirc.pwm.ht.Cliente;
+import it.unirc.pwm.ht.dao.OrdineDAO;
 
 /**
  * Servlet implementation class VisualizzaOrdini

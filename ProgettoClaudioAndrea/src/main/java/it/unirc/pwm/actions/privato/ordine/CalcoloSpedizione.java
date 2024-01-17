@@ -15,8 +15,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import it.unirc.db.ecommerce.beans.MetodoSpedizione;
 import it.unirc.db.ecommerce.beans.MetodoSpedizioneDAO;
-import it.unirc.db.ecommerce.beans.Prodotto;
-import it.unirc.db.ecommerce.beans.ProdottoDAO;
 
 /**
  * Servlet implementation class CalcoloSpedizione

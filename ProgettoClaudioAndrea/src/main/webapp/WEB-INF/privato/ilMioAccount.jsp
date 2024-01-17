@@ -52,17 +52,14 @@
 					<div class="shop-sidebar ">
 						<!-- Single Widget -->
 						<div class="single-widget category account">
-							<h3 class="title">My account</h3>
+							<h3 class="title" ><s:text name="account.title"/></h3>
 							<ul class="categor-list">
-								<li><a href="/actions/privato/RichiediModificaCliente">Modifica
-										Account</a></li>
+								<li><a href="/actions/privato/RichiediModificaCliente"><s:text name="account.modifica"/></a></li>
 								<li><a
-									href="/actions/privato/indirizzospedizione/VisualizzaIndirizzoSpedizione">Visualizza
-										i tuoi indirizzi</a></li>
+									href="/actions/privato/indirizzospedizione/VisualizzaIndirizzoSpedizione"><s:text name="account.indirizzi"/></a></li>
 										<li><a
-									href="/actions/privato/cartacredito/VisualizzaCartaCredito">Visualizza
-										le tue carte di credito</a></li>
-								<li><a href="/actions/Logout">Logout</a></li>
+									href="/actions/privato/cartacredito/VisualizzaCartaCredito"><s:text name="account.carte"/></a></li>
+								<li><a href="/actions/Logout"><s:text name="account.logout"/></a></li>
 							</ul>
 						</div>
 						<!--/ End Single Widget -->
@@ -77,7 +74,7 @@
 						<div class="form-main">
 							<div class="title text-center">
 								<h3 style="color: #f7941d;">
-									My Profile
+									<s:text name="account.title"/>
 									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="16"
 										fill="currentColor" class="bi bi-person-check-fill"
 										viewBox="0 0 16 16">
@@ -93,20 +90,20 @@
 								<div class="row">
 									<div class="col-12">
 										<div class="form-group">
-											<label class="font-weight-bold">Nome</label>
+											<label class="font-weight-bold"><s:text name="account.nome"/></label>
 											<s:property value="#session.cliente.nome" />
 										</div>
 									</div>
 									<div class=" col-12">
 										<div class="form-group">
-											<label class="font-weight-bold">Cognome</label>
+											<label class="font-weight-bold"><s:text name="account.cognome"/></label>
 											<s:property value="#session.cliente.cognome" />
 									
 										</div>
 									</div>
 									<div class="col-12">
 										<div class="form-group">
-											<label class="font-weight-bold">Email</label>
+											<label class="font-weight-bold"><s:text name="account.email"/></label>
 											<s:property value="#session.cliente.email" />
 							
 										</div>

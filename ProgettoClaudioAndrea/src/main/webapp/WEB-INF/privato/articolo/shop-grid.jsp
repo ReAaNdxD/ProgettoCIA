@@ -348,15 +348,15 @@
 								<div class="col-lg-3 col-md-4 col-12">
 									<div class="single-product">
 										<div class="product-img">
-										<s:hidden value="#articolo.idArticolo" name="id"
-										label="" />
-											<a
-												href="/actions/privato/articolo/ProductDetails?id=<s:property value="#articolo.idArticolo"  />">
-												<img class="default-img"
-												src="https://via.placeholder.com/550x750" alt="#"> <img
+										<s:form action="/actions/privato/articolo/ProductDetails" method="post">
+											<s:textfield name="articolo.idArticolo" value="%{#articolo.idArticolo}" type="hidden" readonly="true"/>
+											<button type="submit">
+												 <img
 												class="hover-img" src="https://via.placeholder.com/550x750"
 												alt="#">
-											</a>
+												</button>
+											
+											</s:form>
 										</div>
 										<div class="product-content">
 											 <h3>

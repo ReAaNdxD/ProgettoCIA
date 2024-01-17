@@ -11,20 +11,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import it.unirc.db.ecommerce.beans.Carrello;
-import it.unirc.db.ecommerce.beans.CarrelloDAO;
-import it.unirc.db.ecommerce.beans.CartaCredito;
-import it.unirc.db.ecommerce.beans.CartaCreditoDAO;
-import it.unirc.db.ecommerce.beans.Cliente;
-import it.unirc.db.ecommerce.beans.IndirizzoSpedizione;
-import it.unirc.db.ecommerce.beans.IndirizzoSpedizioneDAO;
 import it.unirc.db.ecommerce.beans.MetodoSpedizione;
 import it.unirc.db.ecommerce.beans.MetodoSpedizioneDAO;
-import it.unirc.db.ecommerce.beans.Ordine;
-import it.unirc.db.ecommerce.beans.OrdineDAO;
-import it.unirc.db.ecommerce.beans.Pagamento;
 import it.unirc.db.ecommerce.beans.PagamentoDAO;
-import it.unirc.db.ecommerce.beans.join.ArticoloComponeCarrelloDAO;
+import it.unirc.pwm.ht.Carrello;
+import it.unirc.pwm.ht.CartaCredito;
+import it.unirc.pwm.ht.Cliente;
+import it.unirc.pwm.ht.IndirizzoSpedizione;
+import it.unirc.pwm.ht.Ordine;
+import it.unirc.pwm.ht.Pagamento;
+import it.unirc.pwm.ht.dao.CarrelloDAO;
+import it.unirc.pwm.ht.dao.CartaCreditoDAO;
+import it.unirc.pwm.ht.dao.IndirizzoSpedizioneDAO;
+import it.unirc.pwm.ht.dao.OrdineDAO;
+import it.unirc.pwm.ht.join.dao.ComponeDAO;
 
 /**
  * Servlet implementation class CheckOut
