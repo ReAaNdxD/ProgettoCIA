@@ -79,17 +79,17 @@
 											<!-- <input id="email"
 												placeholder="Email" type="text" name="email"
 												> -->
-											<s:textfield name="cliente.email" placeholder="Email" />
+											 <s:textfield name="cliente.email" placeholder="Email" /> 
 											<!-- small element serve per mostrare un messaggio d'errore nel caso 
 					in cui gli input siano errati -->
-											<small><s:fielderror fieldName="cliente.email"></s:fielderror></small>
+											 <small><s:fielderror fieldName="cliente.email"></s:fielderror></small> 
 										</div>
 									</div>
 									<div class="col-12">
 										<div class="form-group">
 											<label for="password" class="font-weight-bold"
 												style="font-size: 20px;">Password</label>
-											<s:password name="cliente.password" placeholder="Password" />
+											 <s:password name="cliente.password" placeholder="Password" /> 
 											<small><s:fielderror fieldName="cliente.password"></s:fielderror></small>
 										</div>
 									</div>

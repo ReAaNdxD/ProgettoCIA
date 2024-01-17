@@ -1,4 +1,4 @@
-package it.unirc.pwm.actions.privato.utils;
+package it.unirc.pwm.actions;
 
 import it.unirc.pwm.ht.Cliente;
 

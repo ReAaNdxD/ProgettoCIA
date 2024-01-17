@@ -1,9 +1,8 @@
-package it.unirc.pwm.actions.secure;
+package it.unirc.pwm.actions;
 
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
-import it.unirc.pwm.actions.privato.utils.ClienteAware;
 import it.unirc.pwm.ht.Cliente;
 
 public class Autenticato extends ActionSupport implements ClienteAware, Action {
