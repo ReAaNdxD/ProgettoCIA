@@ -35,15 +35,10 @@
 
 
 </head>
-<body class="js"><%-- 
-
-	<%@include file="/WEB-INF/preload.jsp"%> --%>
-
-	<%-- <%@include file="/WEB-INF/header-scriptlet.jsp"%> --%>
+<body class="js">
 
 
-
-	<%-- <%@include file="/WEB-INF/header.jsp"%> --%>
+	<%@include file="/WEB-INF/header.jsp"%>
 
 
 	<section class="product-area shop-sidebar shop section shopping-cart">

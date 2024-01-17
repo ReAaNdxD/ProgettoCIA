@@ -43,7 +43,6 @@
 
 
 	<%@include file="/WEB-INF/preload.jsp"%>
-	<%@ include file="/WEB-INF/header-scriptlet.jsp"%>
 	<%@include file="/WEB-INF/header.jsp"%>
 
 	<section class="product-area shop-sidebar shop section">
@@ -60,12 +59,10 @@
 								<li><a
 									href="/actions/privato/indirizzospedizione/VisualizzaIndirizzoSpedizione">Visualizza
 										i tuoi indirizzi</a></li>
-								<li><a href="/privato/cliente/ordine/VisualizzaOrdini">Visualizza
-										i tuoi ordini</a></li>
 										<li><a
 									href="/actions/privato/cartacredito/VisualizzaCartaCredito">Visualizza
 										le tue carte di credito</a></li>
-								<li><a href="/Logout">Logout</a></li>
+								<li><a href="/actions/Logout">Logout</a></li>
 							</ul>
 						</div>
 						<!--/ End Single Widget -->

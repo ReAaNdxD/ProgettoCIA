@@ -32,14 +32,8 @@
 </head>
 <body>
 
-	<%-- <%@ include file="/WEB-INF/checkCliente.jsp" %> --%>
-
-
 	<%@include file="/WEB-INF/preload.jsp"%>
-	<%-- 
-	<%@include file="/WEB-INF/header-scriptlet.jsp"%> --%>
-
-	<%-- 	<%@include file="/WEB-INF/header.jsp"%> --%>
+	<%@include file="/WEB-INF/header.jsp"%>
 
 
 

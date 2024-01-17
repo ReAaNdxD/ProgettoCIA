@@ -32,45 +32,10 @@
 <body>
 
 
-<%@include file="/WEB-INF/preload.jsp"%>
-
-<%-- 	<%@include file="/WEB-INF/header-scriptlet.jsp"%> --%>
-	
-<%-- 	<%@include file="/WEB-INF/header.jsp"%> --%>
-
-	<%-- 	<%
-		if (session.getAttribute("cartacredito") == null)
-			//E' sconsigliato fare nelle jsp response.....
-			out.write("Errore generico riprova più tardi");
-		else {
-			CartaCredito c = (CartaCredito) session.getAttribute("cartacredito");
-	%>
-
-	<form id="form" class="form" method="post"
-		action="ModificaCartaCredito">
-		<label for="numeroCarta">Numero Carta</label> <input id="numeroCarta"
-			type="text" value="<%=c.getNumeroCarta()%>"
-			onkeypress="return onlyNumbers(event)" name="numeroCarta"
-			maxlength="16">
-		<!-- small element serve per mostrare un messaggio d'errore nel caso 
-					in cui gli input siano errati -->
-		<small></small><br> <label for="intestatario">Intestatario</label>
-		<input onkeypress="return alphaOnly(event)" id="intestatario"
-			placeholder="intestatario" type="text" name="intestatario"
-			value="<%=c.getIntestatario()%>"> <small></small><br> <label
-			for="dataScadenza">Data Di Scadenza</label> <input id="dataScadenza"
-			placeholder="data di scadenza" type="date" name="dataScadenza"
-			value="<%=c.getDataScadenza()%>"> <small></small><br>
-		<button onclick="history.go(-1); return false;">Annulla</button>
-		<button type="submit" onclick="return confermaModifica()">Modifica</button>
-	</form>
-
-	<%
-		}
-	%> --%>
+	<%@include file="/WEB-INF/preload.jsp"%>
+	<%@include file="/WEB-INF/header.jsp"%>
 
 	
-
 	<section id="contact-us" class="contact-us section">
 		<div class="container">
 			<div class="contact-head">

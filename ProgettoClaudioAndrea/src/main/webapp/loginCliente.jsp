@@ -103,7 +103,7 @@
 							</s:form>
 							<div class="container">
 								<div class="text-center" style="margin-top: 20px">
-									<a href="NuovoCliente">Sei nuovo su DAG? Registrati</a>
+									<a href="/NuovoCliente">Sei nuovo su DAG? Registrati</a>
 								</div>
 							</div>
 						</div>

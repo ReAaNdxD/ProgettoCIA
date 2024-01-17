@@ -53,6 +53,10 @@
 			<result name="success">/WEB-INF/privato/ilMioAccount.jsp</result>
 			<result name="error">/loginCliente.jsp</result>
 		</action>
+		
+		<action name="Logout" class="it.unirc.pwm.actions.Logout">
+		<result name="success">/loginCliente.jsp</result>
+		</action>
 
 	</package>
 

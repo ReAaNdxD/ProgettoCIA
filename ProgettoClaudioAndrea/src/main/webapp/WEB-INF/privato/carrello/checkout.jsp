@@ -28,22 +28,9 @@
 </head>
 <body class="js">
 
-	<!-- Product Style -->
-
-	<%-- <%
-		if (session.getAttribute("idCliente") == null) {
-			System.out.println("Sono qui");
-			response.sendRedirect("/SigninCliente");
-			return;
-		}
-		int id = (int) session.getAttribute("idCliente");
-		ClienteDAO cDAO = ClienteDAOFactory.getDAO();;
-		Cliente c = cDAO.get(new Cliente(id));
-	%>  --%>
 
 
 	<%@include file="/WEB-INF/preload.jsp"%>
-	<%@ include file="/WEB-INF/header-scriptlet.jsp"%>
 	<%@include file="/WEB-INF/header.jsp"%>
 
 	<section class="product-area shop-sidebar shop section">

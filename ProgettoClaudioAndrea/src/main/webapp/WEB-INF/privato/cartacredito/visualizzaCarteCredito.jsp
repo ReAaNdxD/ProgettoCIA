@@ -30,76 +30,10 @@
 </head>
 <body>
 
+
 	<%@include file="/WEB-INF/preload.jsp"%>
+	<%@include file="/WEB-INF/header.jsp"%>
 
-	<%-- <%@include file="/WEB-INF/header-scriptlet.jsp"%> --%>
-	<%-- <%
-		/* Vector<CartaCredito> carte = null; /*         if (request.getAttribute("carte") == null) {
-		out.write("Errore generico");
-		return;
-		} else { */
-		/*
-		carte = (Vector<CartaCredito>)	request.getAttribute("carte"); */
-		if (session.getAttribute("idCliente") == null) {
-			response.sendRedirect("/SigninCliente");
-			return;
-		}
-		if (request.getAttribute("carte") == null) {
-			out.write("Errore generico...riprova più tardi");
-			return;
-		}
-		Vector<CartaCredito> carte = (Vector<CartaCredito>) request.getAttribute("carte");
-	%> --%>
-	
-<%-- 	<%@include file="/WEB-INF/header.jsp"%> --%>
-
-
-
-
-
-	<%-- <table style="color: grey">
-		<tr>
-			<td style="text-align: center;"><strong>Numero Carta</strong></td>
-			<td style="text-align: center;"><strong>Data Di
-					Scadenza</strong></td>
-			<td style="text-align: center;"><strong>Intestatario</strong></td>
-		</tr>
-		<%
-			for (CartaCredito c : carte) {
-		%>
-		<tr>
-			<td style="text-align: center;"><%=c.getNumeroCarta()%></td>
-			<td style="text-align: center;"><%=c.getDataScadenza()%></td>
-			<td style="text-align: center;"><%=c.getIntestatario()%></td>
-
-			<td><a
-				href="/privato/studente/RichiediModificaCarta?id=<%=c.getIdCartaCredito()%>"><button
-						type="button">Modifica</button></a></td>
-
-			<!--  
-				<td><form name="rimuovi"
-						action="/privato/studente/RimuoviStudente" method="get">
-						<input type="hidden" name="matricola"
-							value="<%=s.getMatricola()%>"> <input type="submit"
-							value="Rimuovi">
-					</form></td>
- -->
-			<td><a
-				href="/privato/cliente/cartacredito/RimuoviCartaCredito?id=<%=c.getIdCartaCredito()%>"><button
-						type="button" onclick="return confermaRimozione()">Rimuovi</button></a></td>
-			<td><a
-				href="/privato/cliente/cartacredito/RichiediModificaCartaCredito?id=<%=c.getIdCartaCredito()%>"><button
-						type="button">Modifica</button></a></td>
-		</tr>
-		<%
-			}
-		%>
- --%>
-
-
-<!-- 
-	</table>
- -->
 
 
 

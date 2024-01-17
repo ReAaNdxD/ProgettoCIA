@@ -6,6 +6,12 @@
     <%@include file="/WEB-INF/head.jsp" %>
 </head>
 <body class="js">
+
+
+	<%@include file="/WEB-INF/preload.jsp"%>
+	<%@include file="/WEB-INF/header.jsp"%>
+
+
     <div class="shopping-cart section">
         <div class="container">
             <div class="row">

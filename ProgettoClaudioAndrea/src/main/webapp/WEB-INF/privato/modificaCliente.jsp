@@ -9,6 +9,9 @@
 </head>
 <body class="js">
 
+	<%@include file="/WEB-INF/preload.jsp"%>
+	<%@include file="/WEB-INF/header.jsp"%>
+
 	<section id="contact-us" class="contact-us section">
 		<div class="container">
 			<div class="contact-head">
