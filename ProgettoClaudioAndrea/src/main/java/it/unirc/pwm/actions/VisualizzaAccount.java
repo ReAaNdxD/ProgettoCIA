@@ -23,16 +23,16 @@ public class VisualizzaAccount extends ActionSupport implements SessionAware {
 	}
 
 	public String execute() {
-		if((Cliente)session.get("cliente")!=null) {
-			return SUCCESS;
-		}else
-			return ERROR;	
+//		if((Cliente)session.get("cliente")!=null) {
+//			return SUCCESS;
+//		}else
+//			return ERROR;	
+		return SUCCESS;
 	}
 
 
 	@Override
 	public void withSession(Map<String, Object> session) {
-		// TODO Auto-generated method stub
 		this.session=session;
 	}
 

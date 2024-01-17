@@ -2,7 +2,7 @@
         "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
 <validators>
 
-	<field name="cliente.password">
+	<field name="password">
 		<field-validator type="requiredstring">
 			<message>La password è richiesta</message>
 		</field-validator>
@@ -14,27 +14,27 @@
 	</field>
 	
 	<validator type="expression">
-		<param name="expression">cliente.password != ripetiPassword</param>
+		<param name="expression">password != ripetiPassword</param>
 		<message key="validation.error.passequals">Password e Ripeti Password devono coincidere</message>
 	</validator>
 	
-	<field name="cliente.nome">
+	<field name="nome">
 		<field-validator type="requiredstring">
 			<message>Il nome è richiesto.</message>
 		</field-validator>
 	</field>
-	<field name="cliente.cognome">
+	<field name="cognome">
 		<field-validator type="requiredstring">
 			<message>Il cognome è richiesto.</message>
 		</field-validator>
 	</field>
 
-	<field name="cliente.email">
+	<field name="email">
 		<field-validator type="requiredstring">
 			<message>Devi inserire l'email.</message>
 		</field-validator>
 		<field-validator type="email">
-			<message>L'email ${cliente.email} non è valida</message>
+			<message>L'email ${email} non è valida</message>
 		</field-validator>
 	</field>
 

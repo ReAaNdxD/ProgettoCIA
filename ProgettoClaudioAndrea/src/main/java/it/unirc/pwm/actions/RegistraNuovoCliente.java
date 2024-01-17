@@ -20,6 +20,10 @@ public class RegistraNuovoCliente extends ActionSupport implements ModelDriven<C
 		this.cliente = cliente;
 	}
 	
+	public RegistraNuovoCliente() {
+		cliente=new Cliente();
+	}
+	
 	@Override
 	public Cliente getModel() {
 		return cliente;

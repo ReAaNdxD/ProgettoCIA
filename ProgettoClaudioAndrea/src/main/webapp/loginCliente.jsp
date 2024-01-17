@@ -66,60 +66,7 @@
 							<div class="title text-center">
 								<h3 style="color: #f7941d; font-size: 30px;">Accedi</h3>
 							</div>
-							<%
-							if (request.getAttribute("errore") != null) {
-							%>
-							<div class="error-page">
-								<div class="error-inner">
-									<h5 class="h5" style="color: #F7941D;">
-										<%
-										out.append("Alcuni campi sono sbagliati :-(");
-										%>
-									</h5>
-								</div>
-							</div>
-							<%
-							}
-							if (request.getAttribute("email") != null) {
-							//L'email gi  esiste
-							%><div class="error-page">
-								<div class="error-inner">
-									<h5 class="h5" style="color: #F7941D">
-										<%
-										out.append("Email non valida");
-										%>
-									</h5>
-								</div>
-							</div>
-							<%
-							}
-							if (request.getAttribute("password") != null) {
-							//Non   riuscito a salvarlo
-							%><div class="error-page">
-								<div class="error-inner">
-									<h5 class="h5" style="color: #F7941D">
-										<%
-										out.append("Password non valida");
-										%>
-									</h5>
-								</div>
-							</div>
-							<%
-							}
-							if (request.getAttribute("login") != null) {
-							//Non   registrato
-							%><div class="error-page">
-								<div class="error-inner">
-									<h5 class="h5" style="color: #F7941D">
-										<%
-										out.append("Non esiste nessun account con i dati inseriti");
-										%>
-									</h5>
-								</div>
-							</div>
-							<%
-							}
-							%>
+
 							<small><s:actionerror /></small>
 							<s:form action="actions/LoginCliente" id="form " method="post"
 								class="form form-signin" theme="simple">
@@ -156,8 +103,7 @@
 							</s:form>
 							<div class="container">
 								<div class="text-center" style="margin-top: 20px">
-									<a href="NuovoCliente">Sei nuovo su DAG?
-										Registrati</a>
+									<a href="NuovoCliente">Sei nuovo su DAG? Registrati</a>
 								</div>
 							</div>
 						</div>
