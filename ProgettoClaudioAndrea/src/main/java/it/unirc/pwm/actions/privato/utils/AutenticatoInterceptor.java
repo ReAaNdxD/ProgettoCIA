@@ -15,7 +15,6 @@ import it.unirc.pwm.ht.Cliente;
 public class AutenticatoInterceptor implements Interceptor {
 
 	private static final long serialVersionUID = 1L;
-	//prova
 	
 	private static final Logger logger = LogManager.getLogger("Interceptor");
 

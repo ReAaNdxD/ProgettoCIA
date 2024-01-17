@@ -31,7 +31,7 @@
 
 	</package>
 
-	<package name="actionsSecure" namespace="/actions/secure"
+	<package name="actions" namespace="/actions/secure"
 		extends="struts-default">
 		<interceptors>
 			<interceptor name="autenticatoInterceptor"
@@ -40,7 +40,6 @@
 			<interceptor-stack name="secureStack">
 				<interceptor-ref name="autenticatoInterceptor" />
 				<interceptor-ref name="defaultStack" />
-				<interceptor-ref name="execAndWait" />
 			</interceptor-stack>
 		</interceptors>
 
@@ -49,6 +48,10 @@
 		<global-results>
 			<result name="login" type="redirect">/loginCliente.jsp</result>
 		</global-results>
+		
+		<action name="Autenticato" class="it.unirc.pwm.actions.Autenticato">
+			<result name="success">/WEB-INF/privato/ilMioAccount.jsp</result>
+		</action>
 
 
 	</package>

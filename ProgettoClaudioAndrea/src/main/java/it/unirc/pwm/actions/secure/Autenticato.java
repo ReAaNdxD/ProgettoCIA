@@ -1,4 +1,4 @@
-package it.unirc.pwm.actions;
+package it.unirc.pwm.actions.secure;
 
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
