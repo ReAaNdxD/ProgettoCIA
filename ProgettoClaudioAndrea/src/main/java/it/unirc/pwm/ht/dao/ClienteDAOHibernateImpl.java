@@ -1,6 +1,7 @@
 package it.unirc.pwm.ht.dao;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 //import org.apache.logging.log4j.LogManager;
@@ -9,7 +10,9 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+
 import it.unirc.db.ecommerce.views.Customer;
+import it.unirc.pwm.actions.ClienteJSON;
 import it.unirc.pwm.ecommerce.util.HibernateUtil;
 import it.unirc.pwm.ht.Carrello;
 import it.unirc.pwm.ht.Cliente;
@@ -203,6 +206,28 @@ public class ClienteDAOHibernateImpl implements ClienteDAO {
 			session.close();
 		}
 		return result;
+	}
+	
+
+	//JSON
+	public ArrayList<ClienteJSON> loginJSON(Cliente c) {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction transaction = null;
+		ArrayList<ClienteJSON> res = new ArrayList<ClienteJSON>();
+		try {
+			transaction = session.beginTransaction();
+			String queryHQL = "from Cliente where email =?1 and password=?2";
+			res = (ArrayList<ClienteJSON>) session.createQuery(queryHQL, ClienteJSON.class).setParameter(1, c.getEmail())
+					.setParameter(2, c.getPassword()).list();
+			transaction.commit();
+		} catch (HibernateException e) {
+			transaction.rollback();
+		} 
+		finally {
+			if (session!=null) 
+				session.close();
+		}
+		return res;
 	}
 
 }
