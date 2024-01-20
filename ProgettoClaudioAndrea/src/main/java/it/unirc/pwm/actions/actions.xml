@@ -59,6 +59,14 @@
 		</action>
 
 	</package>
+	
+	<package name="clientejson" namespace="/"
+		extends="json-default">
+		<action name="ClienteJSON"
+			class="it.unirc.pwm.actions.ClienteJSON">
+			<result type="json" name="SUCCESS"></result>
+		</action>
+	</package>
 
 
 
