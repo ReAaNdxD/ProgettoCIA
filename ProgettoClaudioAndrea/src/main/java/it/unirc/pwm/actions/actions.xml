@@ -60,7 +60,7 @@
 
 	</package>
 	
-	<package name="clientejson" namespace="/"
+	<package name="clientejson" namespace="/actions"
 		extends="json-default">
 		<action name="ClienteJSON"
 			class="it.unirc.pwm.actions.ClienteJSON">

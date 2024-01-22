@@ -39,5 +39,6 @@
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/mysql-connector-j-8.0.31.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/protobuf-java-3.19.4.jar"/>
 	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/javassist-3.29.0-GA.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/struts2-json-plugin-2.5.26.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

@@ -65,6 +65,7 @@ public class ClienteJSON extends ActionSupport  {
 		Cliente cliente = new Cliente();
 		cliente.setEmail(email);
 		cliente.setPassword(password);
+		System.out.println(cliente);
 		this.cliente=cDAO.loginJSON(cliente);
 		return "SUCCESS";
 	}

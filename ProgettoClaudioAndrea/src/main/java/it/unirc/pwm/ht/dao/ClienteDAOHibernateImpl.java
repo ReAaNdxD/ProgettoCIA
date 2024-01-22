@@ -216,7 +216,8 @@ public class ClienteDAOHibernateImpl implements ClienteDAO {
 		ArrayList<ClienteJSON> res = new ArrayList<ClienteJSON>();
 		try {
 			transaction = session.beginTransaction();
-			String queryHQL = "from Cliente where email =?1 and password=?2";
+			System.out.println("DENTRO LOGINJSON");
+			String queryHQL = "Select c.idCliente, c.email, c.password, c.nome, c.cognome from Cliente c where c.email =?1 and c.password=?2";
 			res = (ArrayList<ClienteJSON>) session.createQuery(queryHQL, ClienteJSON.class).setParameter(1, c.getEmail())
 					.setParameter(2, c.getPassword()).list();
 			transaction.commit();
