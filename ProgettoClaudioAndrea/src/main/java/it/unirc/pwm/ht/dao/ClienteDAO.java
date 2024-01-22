@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.unirc.db.ecommerce.views.Customer;
-import it.unirc.pwm.actions.ClienteJSON;
+
 import it.unirc.pwm.ht.Carrello;
 import it.unirc.pwm.ht.Cliente;
 import it.unirc.pwm.ht.Ordine;
@@ -30,5 +30,5 @@ public interface ClienteDAO {
 	public boolean checkEmailForUpdate(String email, int id);
 	public Date disdiciPrime(Date dataInizio);
 	public Cliente login(String email, String password);
-	public ArrayList<ClienteJSON> loginJSON(Cliente c);
+	public Cliente loginJSON(Cliente c);
 }

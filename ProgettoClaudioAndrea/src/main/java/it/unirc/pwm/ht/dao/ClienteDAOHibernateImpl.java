@@ -210,19 +210,42 @@ public class ClienteDAOHibernateImpl implements ClienteDAO {
 	
 
 	//JSON
-	public ArrayList<ClienteJSON> loginJSON(Cliente c) {
+	public Cliente loginJSON(Cliente c) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = null;
-		ArrayList<ClienteJSON> res = new ArrayList<ClienteJSON>();
+		Cliente res = new Cliente();
 		try {
 			transaction = session.beginTransaction();
 			System.out.println("DENTRO LOGINJSON");
-			String queryHQL = "Select c.idCliente, c.email, c.password, c.nome, c.cognome from Cliente c where c.email =?1 and c.password=?2";
-			res = (ArrayList<ClienteJSON>) session.createQuery(queryHQL, ClienteJSON.class).setParameter(1, c.getEmail())
-					.setParameter(2, c.getPassword()).list();
+			
+			String queryHQL = "Select c.idCliente, c.nome, c.cognome, c.email, c.password from Cliente c where c.email =?1 and c.password=?2";
+//			res = session.createQuery(queryHQL, Cliente.class).setParameter(1, c.getEmail())
+//					.setParameter(2, c.getPassword()).getSingleResult();
+			
+			Object[] result = (Object[]) session.createQuery(queryHQL)
+		            .setParameter(1, c.getEmail())
+		            .setParameter(2, c.getPassword())
+		            .getSingleResult();
+			System.out.println(result);
+			 
+			    res.setIdCliente((Integer) result[0]); // Assicurati che il tipo sia corretto
+			    res.setNome((String) result[1]);
+			    res.setCognome((String) result[2]);
+			    res.setEmail((String) result[3]);
+			    res.setPassword((String) result[4]);
+			    System.out.println(res);
+			
+			
+			
+//			String queryHQL = "Select c.idCliente, c.email, c.password, c.nome, c.cognome from Cliente c where c.email =?1 and c.password=?2";
+//			res = (ArrayList<Cliente>) session.createQuery(queryHQL, Cliente.class).setParameter(1, c.getEmail())
+//					.setParameter(2, c.getPassword()).list();
+			
+			
 			transaction.commit();
 		} catch (HibernateException e) {
 			transaction.rollback();
+			e.printStackTrace();
 		} 
 		finally {
 			if (session!=null) 
