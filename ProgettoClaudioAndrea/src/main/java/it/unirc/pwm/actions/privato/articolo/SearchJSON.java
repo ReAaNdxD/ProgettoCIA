@@ -24,8 +24,8 @@ public class SearchJSON extends ActionSupport {
 	@Override
 	public String execute() {
 		ArticoloDAO articoloDAO = ArticoloDAOFactory.getDAO();
-		List<Articolo> articoli = articoloDAO.visualizzaArticoli();
-		System.out.println(articoli);
+		articoloList = articoloDAO.visualizzaArticoliJSON();
+		System.out.println(articoloList);
 		return SUCCESS;
 	}
 
