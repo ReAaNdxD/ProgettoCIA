@@ -19,6 +19,12 @@
 		</action>
 		
 		
+	
+
+
+	</package>
+	
+	
 		<package name="searchjson" namespace="/actions/privato/articolo"
 		extends="json-default">
 		<action name="SearchJSON"
@@ -26,10 +32,6 @@
 			<result type="json" name="SUCCESS"></result>
 		</action>
 	</package>	
-
-
-	</package>
-	
 	
 	
 
