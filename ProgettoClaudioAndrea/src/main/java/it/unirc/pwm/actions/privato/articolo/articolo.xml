@@ -19,16 +19,14 @@
 		</action>
 		
 		
-	
-
 
 	</package>
 	
 	
-		<package name="searchjson" namespace="/actions/privato/articolo"
+		<package name="articolo" namespace="/actions/privato/articolo"
 		extends="json-default">
 		<action name="SearchJSON"
-			class="it.unirc.pwm.actions.SearchJSON">
+			class="it.unirc.pwm.actions.privato.articolo.SearchJSON">
 			<result type="json" name="SUCCESS"></result>
 		</action>
 	</package>	
