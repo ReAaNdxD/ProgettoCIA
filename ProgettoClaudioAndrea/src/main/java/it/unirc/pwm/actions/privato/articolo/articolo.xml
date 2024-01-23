@@ -23,10 +23,10 @@
 	</package>
 	
 	
-		<package name="articolo" namespace="/actions/privato/articolo"
+		<package name="articolojson" namespace="/actions/privato/articolo"
 		extends="json-default">
-		<action name="SearchJSON"
-			class="it.unirc.pwm.actions.privato.articolo.SearchJSON">
+		<action name="ArticoloJSON"
+			class="it.unirc.pwm.actions.privato.articolo.ArticoloJSON">
 			<result type="json" name="SUCCESS"></result>
 		</action>
 	</package>	
