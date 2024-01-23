@@ -1,5 +1,6 @@
 package it.unirc.pwm.ht.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Vector;
@@ -298,6 +299,31 @@ public class ArticoloDAOHibernateImpl implements ArticoloDAO {
 			transaction = session.beginTransaction();
 			String queryHQL = "  from Articolo a JOIN Prodotto p  ON a.prodotto.idProdotto=p.idProdotto";
 			result = session.createQuery(queryHQL, Articolo.class).list();
+			transaction.commit();
+		} catch (HibernateException e) {
+			transaction.rollback();
+			e.printStackTrace();
+			result = null;
+		} catch (Exception e) {
+			e.printStackTrace();
+			result = null;
+		} finally {
+			session.close();
+		}
+
+		return result;
+		
+	}
+	
+	@Override
+	public ArrayList<Articolo> visualizzaArticoliJSON() {
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Transaction transaction = null;
+		ArrayList<Articolo> result = null;
+		try {
+			transaction = session.beginTransaction();
+			String queryHQL = "  from Articolo a JOIN Prodotto p  ON a.prodotto.idProdotto=p.idProdotto";
+			result = (ArrayList<Articolo>) session.createQuery(queryHQL, Articolo.class).list();
 			transaction.commit();
 		} catch (HibernateException e) {
 			transaction.rollback();

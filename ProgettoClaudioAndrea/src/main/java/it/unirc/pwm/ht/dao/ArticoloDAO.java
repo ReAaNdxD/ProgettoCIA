@@ -1,5 +1,6 @@
 package it.unirc.pwm.ht.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -30,5 +31,6 @@ public interface ArticoloDAO {
 	public int vincoloA1(Articolo articolo);
 	public List<String> getAllBrand(String queryField, HashMap<String, Object> param);
 	public List<Articolo> getArticoli(Carrello carrello);
+	public ArrayList<Articolo> visualizzaArticoliJSON();
 	
 }

@@ -17,10 +17,15 @@
 			<result name="success">/WEB-INF/privato/articolo/product-detail.jsp</result>
 			<result name="error">/WEB-INF/privato/articolo/shop-grid.jsp</result>
 		</action>
-
 		
 		
-		
+		<package name="searchjson" namespace="/actions/privato/articolo"
+		extends="json-default">
+		<action name="SearchJSON"
+			class="it.unirc.pwm.actions.SearchJSON">
+			<result type="json" name="SUCCESS"></result>
+		</action>
+	</package>	
 
 
 	</package>
