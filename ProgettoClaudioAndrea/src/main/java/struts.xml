@@ -29,9 +29,31 @@
 			<result name="error">/loginCliente.jsp</result>
 			<result name="input">/loginCliente.jsp</result>
 		</action>
+		
+		
 
 
 
+	</package>
+	
+	<package name="clientejson" namespace="/"
+		extends="json-default">
+		<action name="ClienteJSON"
+			class="it.unirc.pwm.actions.ClienteJSON">
+			<result type="json" name="SUCCESS">
+			</result>
+		</action>
+	</package>
+	
+	<package name="articolojson"
+		namespace="/" extends="json-default">
+		<action name="ArticoloJSON"
+			class="it.unirc.pwm.actions.privato.articolo.ArticoloJSON">
+			<result type="json" name="success">
+				<param name="statusCode">200</param>
+				<param name="excludeProperties">articoloList.dispones, articoloList.idArticolo, articoloList.venditore</param>
+			</result>
+		</action>
 	</package>
 
 
