@@ -5,6 +5,25 @@
 
 	<package name="privato" namespace="/actions/privato"
 		extends="struts-default">
+		
+				
+	<interceptors>
+			<interceptor name="autenticatoInterceptor"
+				class="it.unirc.pwm.actions.AutenticatoInterceptor">
+			</interceptor>
+			<interceptor-stack name="secureStack">
+				<interceptor-ref name="autenticatoInterceptor" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="secureStack"></default-interceptor-ref>
+		<global-results>
+			<result name="login" type="redirect">/Index.action</result>
+		</global-results>
+		<action name="Autenticato"
+			class="it.unirc.pwm.actions.Autenticato">
+			<result name="success">/VisualizzaAccount</result>
+		</action>
 
 
 		<action name="RichiediModificaCliente">
@@ -19,25 +38,9 @@
 			<result name="input">/WEB-INF/privato/modificaCliente.jsp</result>
 		</action>
 		
-		
-		
-<!-- 		<action name="IndirizzoSpedizione" 
-		class="it.unirc.pwm.actions.privato.indirizzospedizione.VisualizzaIndirizzoSpedizione" >
-		<result name="success">/WEB-INF/privato/indirizzospedizione/visualizzaIndirizziSpedizione.jsp</result>
-		<result name="error">/WEB-INF/privato/ilMioAccount.jsp</result>
-		<result name="input">/WEB-INF/privato/ilMioAccount.jsp</result>
-		</action> -->
 
 	</package>
 	
-	
-	
-<!-- 	<package name="cartacredito"
-		namespace="/actions/privato/cartacredito" extends="struts-default">
-		<action name="VisualizzaCartaCredito" class="it.unirc.pwm.actions.privato.cartacredito.VisualizzaCartaCredito">
-			<return name="success">/WEB-INF/privato/visualizzaCarteCredito.jsp/</return>
-		</action>
-	</package> -->
 
 
 </struts>

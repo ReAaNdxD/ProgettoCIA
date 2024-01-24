@@ -5,6 +5,25 @@
 
 	<package name="carrello"
 		namespace="/actions/privato/carrello" extends="struts-default">
+		
+				
+	<interceptors>
+			<interceptor name="autenticatoInterceptor"
+				class="it.unirc.pwm.actions.AutenticatoInterceptor">
+			</interceptor>
+			<interceptor-stack name="secureStack">
+				<interceptor-ref name="autenticatoInterceptor" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="secureStack"></default-interceptor-ref>
+		<global-results>
+			<result name="login" type="redirect">/Index.action</result>
+		</global-results>
+		<action name="Autenticato"
+			class="it.unirc.pwm.actions.Autenticato">
+			<result name="success">/VisualizzaAccount</result>
+		</action>
 
 	<action name="Cart" class="it.unirc.pwm.actions.privato.carrello.Cart">
         <result name="success">/WEB-INF/privato/carrello/cart.jsp</result>
