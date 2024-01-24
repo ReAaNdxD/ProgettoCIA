@@ -12,10 +12,22 @@
 			<result>/loginCliente.jsp</result>
 		</action>
 
-		
+
+
+
 
 		<action name="NuovoCliente">
 			<result>/registraNuovoCliente.jsp</result>
+		</action>
+		
+		<action name="LoginCliente"
+			class="it.unirc.pwm.actions.LoginCliente">
+			<result type="redirect">
+				/Autenticato.action
+			</result>
+			<result name="success">/WEB-INF/privato/ilMioAccount.jsp</result>
+			<result name="error">/loginCliente.jsp</result>
+			<result name="input">/loginCliente.jsp</result>
 		</action>
 
 
@@ -25,11 +37,15 @@
 
 	<include file="it/unirc/pwm/actions/actions.xml" />
 	<include file="it/unirc/pwm/actions/privato/privato.xml" />
-	<include file="it/unirc/pwm/actions/privato/indirizzospedizione/indirizzospedizione.xml" />
-	<include file="it/unirc/pwm/actions/privato/cartacredito/cartacredito.xml" />
-	<include file="it/unirc/pwm/actions/privato/articolo/articolo.xml" />
-	<include file="it/unirc/pwm/actions/privato/carrello/carrello.xml" />
-	
+	<include
+		file="it/unirc/pwm/actions/privato/indirizzospedizione/indirizzospedizione.xml" />
+	<include
+		file="it/unirc/pwm/actions/privato/cartacredito/cartacredito.xml" />
+	<include
+		file="it/unirc/pwm/actions/privato/articolo/articolo.xml" />
+	<include
+		file="it/unirc/pwm/actions/privato/carrello/carrello.xml" />
 
-	
+
+
 </struts>

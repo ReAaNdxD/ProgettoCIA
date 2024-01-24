@@ -7,6 +7,7 @@ import org.apache.struts2.action.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import it.unirc.pwm.actions.ClienteAware;
 import it.unirc.pwm.ht.Articolo;
 import it.unirc.pwm.ht.Carrello;
 import it.unirc.pwm.ht.Cliente;
@@ -19,7 +20,7 @@ import it.unirc.pwm.ht.dao.CarrelloDAOFactory;
 import it.unirc.pwm.ht.join.dao.ComponeDAO;
 import it.unirc.pwm.ht.join.dao.ComponeDAOFactory;
 
-public class AddToCart extends ActionSupport implements SessionAware {
+public class AddToCart extends ActionSupport implements SessionAware, ClienteAware {
 
 	/**
 	 * 
@@ -27,6 +28,7 @@ public class AddToCart extends ActionSupport implements SessionAware {
 	private static final long serialVersionUID = 1L;
 	private Articolo articolo;
 	private Map<String, Object> session;
+	private Cliente cliente;
 
 	public Articolo getArticolo() {
 		return articolo;
@@ -71,6 +73,12 @@ public class AddToCart extends ActionSupport implements SessionAware {
 	public void withSession(Map<String, Object> arg0) {
 		// TODO Auto-generated method stub
 		this.session = arg0;
+	}
+
+	@Override
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+		
 	}
 
 }

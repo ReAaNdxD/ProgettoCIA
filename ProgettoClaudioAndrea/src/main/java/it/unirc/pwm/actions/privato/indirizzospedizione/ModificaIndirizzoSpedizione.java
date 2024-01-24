@@ -7,15 +7,17 @@ import org.apache.struts2.action.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import it.unirc.pwm.actions.ClienteAware;
 import it.unirc.pwm.ht.Cliente;
 import it.unirc.pwm.ht.IndirizzoSpedizione;
 import it.unirc.pwm.ht.dao.IndirizzoSpedizioneDAO;
 import it.unirc.pwm.ht.dao.IndirizzoSpedizioneDAOFactory;
 
-public class ModificaIndirizzoSpedizione extends ActionSupport implements SessionAware {
+public class ModificaIndirizzoSpedizione extends ActionSupport implements SessionAware, ClienteAware {
 	private static final long serialVersionUID = 1L;
 	private IndirizzoSpedizione indirizzo;
 	private Map<String, Object> session;
+	private Cliente cliente;
 
 	public IndirizzoSpedizione getIndirizzo() {
 		return indirizzo;
@@ -48,6 +50,12 @@ public class ModificaIndirizzoSpedizione extends ActionSupport implements Sessio
 	@Override
 	public void withSession(Map<String, Object> session) {
 		this.session = session;
+	}
+
+	@Override
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+		
 	}
 }
 

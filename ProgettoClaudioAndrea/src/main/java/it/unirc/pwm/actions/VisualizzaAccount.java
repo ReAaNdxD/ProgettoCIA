@@ -8,7 +8,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import it.unirc.pwm.ht.Cliente;
 
-public class VisualizzaAccount extends ActionSupport implements SessionAware {
+public class VisualizzaAccount extends ActionSupport implements SessionAware, ClienteAware {
 	private static final long serialVersionUID = 1L;
 	private Map<String, Object> session; 
 

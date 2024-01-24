@@ -68,7 +68,7 @@
 							</div>
 
 							<small><s:actionerror /></small>
-							<s:form action="/actions/LoginCliente" id="form " method="post"
+							<s:form action="/LoginCliente" id="form " method="post"
 								class="form form-signin" theme="simple">
 
 								<div class="row">
@@ -80,8 +80,6 @@
 												placeholder="Email" type="text" name="email"
 												> -->
 											 <s:textfield name="cliente.email" placeholder="Email" /> 
-											<!-- small element serve per mostrare un messaggio d'errore nel caso 
-					in cui gli input siano errati -->
 											 <small><s:fielderror fieldName="cliente.email"></s:fielderror></small> 
 										</div>
 									</div>

@@ -27,7 +27,7 @@ public class Articolo implements java.io.Serializable {
 
 	@Override
 	public String toString() {
-		return "Articolo [idArticolo=" + idArticolo + ", venditore=" + venditore.getIdVenditore() + ", prodotto=" + prodotto
+		return "Articolo [idArticolo=" + idArticolo  + ", prodotto=" + prodotto
 				+ ", prezzo=" + prezzo + ", quantita=" + quantita + "]";
 	}
 

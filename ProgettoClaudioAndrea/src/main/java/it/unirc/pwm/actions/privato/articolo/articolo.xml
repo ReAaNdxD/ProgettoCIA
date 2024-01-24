@@ -14,24 +14,28 @@
 		</action>
 		<action name="ProductDetails"
 			class="it.unirc.pwm.actions.privato.articolo.ProductDetails">
-			<result name="success">/WEB-INF/privato/articolo/product-detail.jsp</result>
+			<result name="success">/WEB-INF/privato/articolo/product-detail.jsp
+			</result>
 			<result name="error">/WEB-INF/privato/articolo/shop-grid.jsp</result>
 		</action>
-		
-		
+
+
 
 	</package>
-	
-	
-		<package name="articolojson" namespace="/actions/privato/articolo"
-		extends="json-default">
+
+
+	<package name="articolojson"
+		namespace="/actions/privato/articolo" extends="json-default">
 		<action name="ArticoloJSON"
 			class="it.unirc.pwm.actions.privato.articolo.ArticoloJSON">
-			<result type="json" name="SUCCESS"></result>
+			<result type="json" name="success">
+				<param name="statusCode">200</param>
+				<param name="excludeProperties">articoloList.compones, articoloList.dispones, articoloList.idArticolo, articoloList.venditore</param>
+			</result>
 		</action>
-	</package>	
-	
-	
+	</package>
+
+
 
 
 

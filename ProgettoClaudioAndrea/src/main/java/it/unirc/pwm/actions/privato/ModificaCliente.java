@@ -6,11 +6,12 @@ import org.apache.struts2.action.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import it.unirc.pwm.actions.ClienteAware;
 import it.unirc.pwm.ht.Cliente;
 import it.unirc.pwm.ht.dao.ClienteDAO;
 import it.unirc.pwm.ht.dao.ClienteDAOFactory;
  
-public class ModificaCliente extends ActionSupport implements SessionAware {
+public class ModificaCliente extends ActionSupport implements SessionAware, ClienteAware {
  
 	private static final long serialVersionUID = 1L;
 	private Cliente cliente;

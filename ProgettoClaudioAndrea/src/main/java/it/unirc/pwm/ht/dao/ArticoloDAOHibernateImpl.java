@@ -16,6 +16,8 @@ import it.unirc.pwm.ecommerce.util.HibernateUtil;
 import it.unirc.pwm.ht.Articolo;
 import it.unirc.pwm.ht.Carrello;
 import it.unirc.pwm.ht.Cliente;
+import it.unirc.pwm.ht.Prodotto;
+import it.unirc.pwm.ht.Sottocategoria;
 
 public class ArticoloDAOHibernateImpl implements ArticoloDAO {
 
@@ -23,7 +25,7 @@ public class ArticoloDAOHibernateImpl implements ArticoloDAO {
 	public boolean salva(Articolo articolo) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = null;
-		boolean res=false;
+		boolean res = false;
 		try {
 			transaction = session.beginTransaction();
 			session.persist(articolo);
@@ -32,7 +34,7 @@ public class ArticoloDAOHibernateImpl implements ArticoloDAO {
 		} catch (HibernateException e) {
 			transaction.rollback();
 		} finally {
-			if (session!=null) //spesso omesso
+			if (session != null) // spesso omesso
 				session.close();
 		}
 		return res;
@@ -125,7 +127,6 @@ public class ArticoloDAOHibernateImpl implements ArticoloDAO {
 
 		return result;
 	}
-	
 
 	public List<Articolo> getArticoli(Carrello carrello) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
@@ -163,8 +164,7 @@ public class ArticoloDAOHibernateImpl implements ArticoloDAO {
 	@Override
 	public List<GridProduct> getAllAvailableProducts(String queryField, int currentPage, int recordsPerPage,
 			HashMap<String, Object> param) {
-		
-		
+
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = null;
 		List<GridProduct> result = null;
@@ -198,25 +198,17 @@ public class ArticoloDAOHibernateImpl implements ArticoloDAO {
 		try {
 			transaction = session.beginTransaction();
 
-			String queryHQL = "SELECT  *\r\n" + 
-					"FROM   (\r\n" + 
-					"    SELECT  a.idprodotto,\r\n" + 
-					"            a.idarticolo,\r\n" + 
-					"            a.prezzo,\r\n" + 
-					"            a.quantita AS disponibilit�,\r\n" + 
-					"            V.nomeAzienda, \r\n" + 
-					"            p.nome, \r\n" + 
-					"            p.marca,\r\n" + 
-					"            p.idsottocategoria,\r\n" + 
-					"            p.descrizionebreve,\r\n" + 
-					"            p.descrizionedettagliata,\r\n" + 
-					"            v.idvenditore \r\n" + 
-					"FROM articolo A JOIN prodotto P ON A.idprodotto=P.idprodotto\r\n" + 
-					"                JOIN sottocategoria S ON p.idsottocategoria=s.idsottocategoria\r\n" + 
-					"                JOIN categoria C ON s.idcategoria=c.idcategoria\r\n" + 
-					"                JOIN venditore V ON a.idvenditore=v.idvenditore\r\n" + 
-					"    ORDER BY DBMS_RANDOM.RANDOM) a\r\n" + 
-					"WHERE  rownum < 21";
+			String queryHQL = "SELECT  *\r\n" + "FROM   (\r\n" + "    SELECT  a.idprodotto,\r\n"
+					+ "            a.idarticolo,\r\n" + "            a.prezzo,\r\n"
+					+ "            a.quantita AS disponibilit�,\r\n" + "            V.nomeAzienda, \r\n"
+					+ "            p.nome, \r\n" + "            p.marca,\r\n" + "            p.idsottocategoria,\r\n"
+					+ "            p.descrizionebreve,\r\n" + "            p.descrizionedettagliata,\r\n"
+					+ "            v.idvenditore \r\n"
+					+ "FROM articolo A JOIN prodotto P ON A.idprodotto=P.idprodotto\r\n"
+					+ "                JOIN sottocategoria S ON p.idsottocategoria=s.idsottocategoria\r\n"
+					+ "                JOIN categoria C ON s.idcategoria=c.idcategoria\r\n"
+					+ "                JOIN venditore V ON a.idvenditore=v.idvenditore\r\n"
+					+ "    ORDER BY DBMS_RANDOM.RANDOM) a\r\n" + "WHERE  rownum < 21";
 			result = session.createQuery(queryHQL, GridProduct.class).list();
 
 			transaction.commit();
@@ -290,7 +282,7 @@ public class ArticoloDAOHibernateImpl implements ArticoloDAO {
 	@Override
 	public List<Articolo> visualizzaArticoli() {
 		// TODO Auto-generated method stub
-		
+
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = null;
 		List<Articolo> result = null;
@@ -312,18 +304,32 @@ public class ArticoloDAOHibernateImpl implements ArticoloDAO {
 		}
 
 		return result;
-		
+
 	}
-	
+
 	@Override
 	public ArrayList<Articolo> visualizzaArticoliJSON() {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		Transaction transaction = null;
-		ArrayList<Articolo> result = null;
+		ArrayList<Articolo> result = new ArrayList<Articolo>();
 		try {
 			transaction = session.beginTransaction();
-			String queryHQL = "  from Articolo a JOIN Prodotto p  ON a.prodotto.idProdotto=p.idProdotto";
-			result = (ArrayList<Articolo>) session.createQuery(queryHQL, Articolo.class).list();
+			String queryHQL = " Select a.idArticolo, a.prezzo, p.nome from Articolo a JOIN Prodotto p  ON a.prodotto.idProdotto=p.idProdotto";
+			ArrayList<Object[]> rawResult = (ArrayList<Object[]>) session.createQuery(queryHQL).list();
+			System.out.println(rawResult);
+			
+			 for (Object[] row : rawResult) {
+		            Articolo articolo = new Articolo();
+		            articolo.setIdArticolo((Integer) row[0]);  // Assicurati che i tipi siano corretti
+		            articolo.setPrezzo((Float) row[1]);
+		            Prodotto p = new Prodotto();
+		            p.setNome((String) row[2]);
+		            articolo.setProdotto(p);
+		            System.out.println(articolo);
+		            result.add(articolo);
+		        }
+			
+//			result = (ArrayList<Articolo>) session.createQuery(queryHQL, Articolo.class).list();
 			transaction.commit();
 		} catch (HibernateException e) {
 			transaction.rollback();
@@ -335,9 +341,9 @@ public class ArticoloDAOHibernateImpl implements ArticoloDAO {
 		} finally {
 			session.close();
 		}
-
+		System.out.println(result);
 		return result;
-		
+
 	}
 
 }

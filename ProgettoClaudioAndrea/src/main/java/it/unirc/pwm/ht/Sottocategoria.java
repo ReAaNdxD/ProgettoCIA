@@ -18,10 +18,21 @@ public class Sottocategoria implements java.io.Serializable {
 	public Sottocategoria() {
 	}
 
+	@Override
+	public String toString() {
+		return "Sottocategoria [idSottocategoria=" + idSottocategoria + ", nome=" + nome + ", descrizione="
+				+ descrizione + "]";
+	}
+
 	public Sottocategoria(Categoria categoria, String nome, String descrizione) {
 		this.categoria = categoria;
 		this.nome = nome;
 		this.descrizione = descrizione;
+	}
+
+	public Sottocategoria(String nome) {
+		super();
+		this.nome = nome;
 	}
 
 	public Sottocategoria(Categoria categoria, String nome, String descrizione, Set prodottos) {

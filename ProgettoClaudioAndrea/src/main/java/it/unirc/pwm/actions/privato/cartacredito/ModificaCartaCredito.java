@@ -7,15 +7,18 @@ import org.apache.struts2.action.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import it.unirc.pwm.actions.ClienteAware;
 import it.unirc.pwm.ht.CartaCredito;
 import it.unirc.pwm.ht.Cliente;
 import it.unirc.pwm.ht.dao.CartaCreditoDAO;
 import it.unirc.pwm.ht.dao.CartaCreditoDAOFactory;
 
-public class ModificaCartaCredito extends ActionSupport implements SessionAware{
+public class ModificaCartaCredito extends ActionSupport implements SessionAware, ClienteAware{
 	private static final long serialVersionUID = 1L;
 	private CartaCredito carta;
 	private Map<String, Object> session;
+	private Cliente cliente;
+	
 	
 	public CartaCredito getCarta() {
 		return carta;
@@ -49,6 +52,12 @@ public class ModificaCartaCredito extends ActionSupport implements SessionAware{
 	public void withSession(Map<String, Object> session) {
 		this.session = session;
 
+	}
+
+	@Override
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+		
 	}
 	
 }

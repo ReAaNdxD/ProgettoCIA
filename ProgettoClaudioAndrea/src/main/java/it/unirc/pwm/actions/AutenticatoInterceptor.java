@@ -27,8 +27,9 @@ public class AutenticatoInterceptor implements Interceptor {
 		Map<String, Object> session = actionInvocation.getInvocationContext().getSession();
 		logger.info("Autenticazione avviata!");
 		
-		Cliente cliente = (Cliente) session.get("cliente");
 		
+		Cliente cliente = (Cliente) session.get("cliente");
+		System.out.println("ciaobello");
 		if (cliente == null) {
 		    return Action.LOGIN;
 		} 

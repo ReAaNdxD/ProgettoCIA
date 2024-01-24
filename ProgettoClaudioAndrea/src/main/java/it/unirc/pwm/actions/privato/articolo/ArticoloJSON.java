@@ -25,7 +25,6 @@ public class ArticoloJSON extends ActionSupport {
 		System.out.println("SONO ArticoloJSON");
 		ArticoloDAO articoloDAO = ArticoloDAOFactory.getDAO();
 		result = articoloDAO.visualizzaArticoliJSON();
-		System.out.println(result);
 		return SUCCESS;
 	}
 

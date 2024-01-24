@@ -2,13 +2,16 @@ package it.unirc.pwm.actions.privato.articolo;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import it.unirc.pwm.actions.ClienteAware;
 import it.unirc.pwm.ht.Articolo;
+import it.unirc.pwm.ht.Cliente;
 import it.unirc.pwm.ht.dao.ArticoloDAO;
 import it.unirc.pwm.ht.dao.ArticoloDAOFactory;
 
-public class ProductDetails extends ActionSupport  {
+public class ProductDetails extends ActionSupport implements ClienteAware  {
 	private static final long serialVersionUID = 1L;
-//	private Integer id;
+	private Cliente cliente;
+	//	private Integer id;
 	private Articolo articolo;
 
 	public Articolo getArticolo() {
@@ -18,24 +21,24 @@ public class ProductDetails extends ActionSupport  {
 	public void setArticolo(Articolo articolo) {
 		this.articolo = articolo;
 	}
-//
-//	public Integer getId() {
-//		return id;
-//	}
-//
-//	public void setId(Integer id) {
-//		this.id = id;
-//	}
+	//
+	//	public Integer getId() {
+	//		return id;
+	//	}
+	//
+	//	public void setId(Integer id) {
+	//		this.id = id;
+	//	}
 
 
 	@Override
 	public String execute() {
 		ArticoloDAO articoloDAO = ArticoloDAOFactory.getDAO();
 		System.out.println(articolo.getIdArticolo());
-		
-//		System.out.println(id);
+
+		//		System.out.println(id);
 		System.out.println("ciao");
-//		articolo = articoloDAO.get(new Articolo(id));
+		//		articolo = articoloDAO.get(new Articolo(id));
 		articolo = articoloDAO.get(articolo);
 		System.out.println(articolo);
 		if (articolo != null) {
@@ -46,5 +49,11 @@ public class ProductDetails extends ActionSupport  {
 		return ERROR;
 	}
 
-	
+	@Override
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+
+	}
+
+
 }

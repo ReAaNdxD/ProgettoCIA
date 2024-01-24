@@ -5,9 +5,9 @@
 
 	<package name="actions" namespace="/actions"
 		extends="struts-default">
-		
-		
-		<!-- <interceptors>
+
+
+ 	 	<interceptors>
 			<interceptor name="autenticatoInterceptor"
 				class="it.unirc.pwm.actions.AutenticatoInterceptor">
 			</interceptor>
@@ -16,20 +16,18 @@
 				<interceptor-ref name="defaultStack" />
 			</interceptor-stack>
 		</interceptors>
-
 		<default-interceptor-ref name="secureStack"></default-interceptor-ref>
-
 		<global-results>
-			<result name="login" type="redirect">/loginCliente.jsp</result>
+			<result name="login" type="redirect">/Index.action</result>
 		</global-results>
-		
-		<action name="Autenticato" class="it.unirc.pwm.actions.Autenticato">
-			<result name="success">/WEB-INF/privato/ilMioAccount.jsp</result>
-		</action> -->
-		
-		
-		
-		
+		<action name="Autenticato"
+			class="it.unirc.pwm.actions.Autenticato">
+			<result name="success">/VisualizzaAccount</result>
+		</action> 
+ 
+
+
+
 
 		<action name="RegistraNuovoCliente"
 			class="it.unirc.pwm.actions.RegistraNuovoCliente">
@@ -38,7 +36,7 @@
 			<result name="input">/registraNuovoCliente.jsp</result>
 		</action>
 
-		<action name="LoginCliente"
+		<!-- <action name="LoginCliente"
 			class="it.unirc.pwm.actions.LoginCliente">
 			<result type="redirect">
 				/Autenticato.action
@@ -46,25 +44,26 @@
 			<result name="success">/WEB-INF/privato/ilMioAccount.jsp</result>
 			<result name="error">/loginCliente.jsp</result>
 			<result name="input">/loginCliente.jsp</result>
-		</action>
+		</action> -->
 
 		<action name="VisualizzaAccount"
 			class="it.unirc.pwm.actions.VisualizzaAccount">
 			<result name="success">/WEB-INF/privato/ilMioAccount.jsp</result>
 			<result name="error">/loginCliente.jsp</result>
 		</action>
-		
+
 		<action name="Logout" class="it.unirc.pwm.actions.Logout">
-		<result name="success">/loginCliente.jsp</result>
+			<result name="success">/loginCliente.jsp</result>
 		</action>
 
 	</package>
-	
+
 	<package name="clientejson" namespace="/actions"
 		extends="json-default">
 		<action name="ClienteJSON"
 			class="it.unirc.pwm.actions.ClienteJSON">
-			<result type="json" name="SUCCESS"></result>
+			<result type="json" name="SUCCESS">
+			</result>
 		</action>
 	</package>
 

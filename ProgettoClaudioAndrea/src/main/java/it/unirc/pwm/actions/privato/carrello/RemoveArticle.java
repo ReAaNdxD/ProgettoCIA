@@ -7,6 +7,7 @@ import org.apache.struts2.action.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import it.unirc.pwm.actions.ClienteAware;
 import it.unirc.pwm.ht.Articolo;
 import it.unirc.pwm.ht.Carrello;
 import it.unirc.pwm.ht.Cliente;
@@ -18,12 +19,13 @@ import it.unirc.pwm.ht.dao.CarrelloDAOFactory;
 import it.unirc.pwm.ht.join.dao.ComponeDAO;
 import it.unirc.pwm.ht.join.dao.ComponeDAOFactory;
 
-public class RemoveArticle extends ActionSupport implements SessionAware {
+public class RemoveArticle extends ActionSupport implements SessionAware, ClienteAware {
 	private static final long serialVersionUID = 1L;
 	private Map<String, Object> session;
 	private Articolo articolo;
 	private Carrello carrello;
 	private Integer id;
+	private Cliente cliente;
 
 	public Integer getId() {
 		return id;
@@ -72,5 +74,11 @@ public class RemoveArticle extends ActionSupport implements SessionAware {
 			addActionError("Non siamo riusciti ad eliminare l'articolo dal carrello");
 			return ERROR;
 		}
+	}
+
+	@Override
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+		
 	}
 }
