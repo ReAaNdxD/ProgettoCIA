@@ -35,6 +35,9 @@ import it.unirc.pwm.ht.dao.CarrelloDAOFactory;
 	    	ArticoloDAO aDAO = ArticoloDAOFactory.getDAO();
 	    	Carrello carrelloCliente = cDAO.getCarrelloByCliente(cliente);
 	    	List<Articolo> listaArticoli = aDAO.getArticoli(carrelloCliente);
+	    	if (listaArticoli.isEmpty()) {
+				return ERROR;
+			}
 	    	session.put("listaArticoli", listaArticoli);
 	        return SUCCESS;
 	    }

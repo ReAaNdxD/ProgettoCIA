@@ -47,7 +47,7 @@
 								<h3 style="color: #f7941d">Crea un nuovo account</h3>
 							</div>
                         <s:actionerror/>
-                        <s:form action="/actions/RegistraNuovoCliente" id="form" method="post" class="form form-registration" theme="simple">
+                        <s:form action="/RegistraNuovoCliente" id="form" method="post" class="form form-registration" theme="simple">
 
                             <div class="row">
                                 <div class="col-lg-6 col-12">

@@ -27,6 +27,7 @@
 
 	<action name="Cart" class="it.unirc.pwm.actions.privato.carrello.Cart">
         <result name="success">/WEB-INF/privato/carrello/cart.jsp</result>
+        <result name="error" type="redirect">/actions/privato/articolo/Search.action</result>
     </action>
     
     <action name="RemoveArticle" class="it.unirc.pwm.actions.privato.carrello.RemoveArticle">

@@ -20,6 +20,15 @@
 			<result>/registraNuovoCliente.jsp</result>
 		</action>
 		
+		
+		<action name="RegistraNuovoCliente"
+			class="it.unirc.pwm.actions.RegistraNuovoCliente">
+			<result name="success">/loginCliente.jsp</result>
+			<result name="error">/registraNuovoCliente.jsp</result>
+			<result name="input">/registraNuovoCliente.jsp</result>
+		</action>
+		
+		
 		<action name="LoginCliente"
 			class="it.unirc.pwm.actions.LoginCliente">
 			<result type="redirect">

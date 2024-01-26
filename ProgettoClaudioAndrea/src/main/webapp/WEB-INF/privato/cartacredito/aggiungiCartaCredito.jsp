@@ -58,8 +58,8 @@
 											<s:textfield id="numeroCarta" placeholder="numero di carta"
 												type="text" onkeypress="return onlyNumbers(event)"
 												title="Il numero carta deve avere tra 13 e 16 cifre"
-												name="carta.numeroCarta" maxlength="16" pattern=".{13,16}"
-												requiredLabel="true" />
+												name="carta.numeroCarta" maxlength="16" pattern=".{13,16}" required="true"
+												 />
 											<!-- small element serve per mostrare un messaggio d'errore nel caso 
 					in cui gli input siano errati -->
 											<small></small>
@@ -70,7 +70,7 @@
 											<label for="intestatario" class="font-weight-bold">Intestatario</label>
 											<s:textfield id="intestatario" placeholder="intestatario"
 												type="text" name="carta.intestatario"
-												onkeypress="return alphaOnly(event)" requiredLabel="true" />
+												onkeypress="return alphaOnly(event)" required="true" />
 											<small></small>
 										</div>
 									</div>
@@ -81,8 +81,9 @@
 												Sicurezza</label>
 											<s:textfield id="codiceSicurezza"
 												placeholder="codice di sicurezza" type="text"
-												name="carta.codiceSicurezza"  maxlength="3"
-												onkeypress="return onlyNumbers(event)" />
+												name="carta.codiceSicurezza"  maxlength="3" pattern=".{3,}"
+												title="Codice Sicurezza deve avere 3 numeri"
+												onkeypress="return onlyNumbers(event)" required="true"/>
 											<small></small>
 										</div>
 									</div>

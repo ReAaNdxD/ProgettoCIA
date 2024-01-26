@@ -49,9 +49,11 @@
             </div>
         </div>
         <br>
+        <s:if test="#session.listaArticoli != null && #session.listaArticoli.size() > 0">
         <div align="center">
             <a href="/actions/privato/carrello/RichiediCheckOut" class="btn btn-primary">Procedi all'Ordine</a>
         </div>
+        </s:if>
     </div>
 
 	<!--/ End Shopping Cart -->
