@@ -21,8 +21,8 @@
 
 	<%@include file="/WEB-INF/preload.jsp"%>
 	<%@include file="/WEB-INF/header.jsp"%>
-	
-	
+
+
 	<section id="contact-us" class="contact-us section">
 		<div class="container">
 			<div class="contact-head">
@@ -47,41 +47,45 @@
 								<div class="row">
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
-										<s:hidden value="%{#session.indirizzo.idIndirizzoSpedizione}"
+											<s:hidden value="%{#session.indirizzo.idIndirizzoSpedizione}"
 												name="id" label="" />
-										<label for="Regione" class="font-weight-bold">Regione</label>
+											<label for="Regione" class="font-weight-bold">Regione</label>
 											<s:textfield id="regione" placeholder="Regione"
 												name="indirizzo.regione" cssClass="form-control"
-												value="%{#session.indirizzo.regione}" required="true" />
-											
+												value="%{#session.indirizzo.regione}" required="true"
+												type="text" onkeypress="return alphaOnly(event)" />
+
 											<small></small>
 										</div>
 									</div>
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
-										<label for="provincia" class="font-weight-bold">Provincia</label>
+											<label for="provincia" class="font-weight-bold">Provincia</label>
 											<s:textfield id="provincia" placeholder="Provincia"
 												name="indirizzo.provincia" cssClass="form-control"
+												onkeypress="return /[a-z]/i.test(event.key)" type="text"
 												value="%{#session.indirizzo.provincia}" required="true"
 												maxlength="2" pattern=".{2,}"
 												title="Provincia deve avere 2 lettere"
-												 style="text-transform: uppercase" />
+												style="text-transform: uppercase" />
 											<small></small>
 										</div>
 									</div>
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
-										<label for="citta" class="font-weight-bold">Città</label>
+											<label for="citta" class="font-weight-bold">Città</label>
 											<s:textfield id="citta" placeholder="Città"
 												name="indirizzo.citta" cssClass="form-control"
+												onkeypress="return alphaOnly(event)" type="text"
 												value="%{#session.indirizzo.citta}" required="true" />
 											<small></small>
 										</div>
 									</div>
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
-										<label for="cia" class="font-weight-bold">via</label>
+											<label for="cia" class="font-weight-bold">via</label>
 											<s:textfield id="via" placeholder="Via" name="indirizzo.via"
+												type="text" onkeypress="return alphaOnly(event)"
 												cssClass="form-control" value="%{#session.indirizzo.via}"
 												required="true" />
 											<small></small>
@@ -89,31 +93,34 @@
 									</div>
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
-										<label for="civico" class="font-weight-bold">Civico</label>
+											<label for="civico" class="font-weight-bold">Civico</label>
 											<s:textfield id="ncivico" placeholder="Numero Civico"
 												name="indirizzo.ncivico" cssClass="form-control"
 												value="%{#session.indirizzo.ncivico}" required="true"
-												maxlength="3" />
+												maxlength="3" type = "text" />
 											<small></small>
 										</div>
 									</div>
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
-										<label for="cap" class="font-weight-bold">CAP</label>
+											<label for="cap" class="font-weight-bold">CAP</label>
 											<s:textfield id="cap" placeholder="CAP" name="indirizzo.cap"
 												cssClass="form-control" value="%{#session.indirizzo.cap}"
 												required="true" maxlength="5" pattern=".{5,}"
+												type="text" onkeypress="return onlyNumbers(event)"
 												title="CAP deve avere 5 cifre" />
 											<small></small>
 										</div>
 									</div>
 									<div class="col-lg-6 col-12">
 										<div class="form-group">
-										<label for="telefono" class="font-weight-bold">Telefono</label>
+											<label for="telefono" class="font-weight-bold">Telefono</label>
 											<s:textfield id="Telefono" placeholder="Telefono"
 												name="indirizzo.telefono" cssClass="form-control"
 												value="%{#session.indirizzo.telefono}" required="true"
 												maxlength="10" pattern=".{10,}"
+												type="text"
+												onkeypress="return onlyNumbers(event)"
 												title="Inserire un numero di telefono di 10 cifre" />
 											<small></small>
 										</div>
