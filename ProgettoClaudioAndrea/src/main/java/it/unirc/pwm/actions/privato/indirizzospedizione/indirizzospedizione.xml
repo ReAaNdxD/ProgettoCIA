@@ -59,14 +59,7 @@
 		
 		</package>
 	
-	
-	
-<!-- 	<package name="cartacredito"
-		namespace="/actions/privato/cartacredito" extends="struts-default">
-		<action name="VisualizzaCartaCredito" class="it.unirc.pwm.actions.privato.cartacredito.VisualizzaCartaCredito">
-			<return name="success">/WEB-INF/privato/visualizzaCarteCredito.jsp/</return>
-		</action>
-	</package> -->
+
 
 
 </struts>

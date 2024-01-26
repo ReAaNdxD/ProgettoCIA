@@ -23,10 +23,8 @@ public class VisualizzaCartaCredito extends ActionSupport implements SessionAwar
 	    
 	public String execute() {
 		Cliente cliente = (Cliente) session.get("cliente");
-		System.out.println(cliente);
         CartaCreditoDAO cartaCreditoDAO = CartaCreditoDAOFactory.getDAO();
         carteCredito = cartaCreditoDAO.getAllByCliente(cliente);
-        System.out.println(carteCredito);
         session.put("carteCredito", carteCredito);
        
 		return SUCCESS;

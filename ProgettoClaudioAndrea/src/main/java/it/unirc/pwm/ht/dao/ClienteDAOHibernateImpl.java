@@ -1,7 +1,6 @@
 package it.unirc.pwm.ht.dao;
 
 import java.sql.Date;
-import java.util.ArrayList;
 import java.util.List;
 
 //import org.apache.logging.log4j.LogManager;
@@ -10,9 +9,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-
 import it.unirc.db.ecommerce.views.Customer;
-import it.unirc.pwm.actions.ClienteJSON;
 import it.unirc.pwm.ecommerce.util.HibernateUtil;
 import it.unirc.pwm.ht.Carrello;
 import it.unirc.pwm.ht.Cliente;

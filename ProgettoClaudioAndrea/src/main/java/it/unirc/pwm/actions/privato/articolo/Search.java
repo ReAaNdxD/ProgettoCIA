@@ -26,9 +26,7 @@ public class Search extends ActionSupport implements SessionAware, ClienteAware 
 	public String execute() {
 		ArticoloDAO articoloDAO = ArticoloDAOFactory.getDAO();
 		List<Articolo> articoli = articoloDAO.visualizzaArticoli();
-		System.out.println(articoli);
 		if(articoli == null) {
-			System.out.println("ERRORE");
 			return ERROR;
 		}
 		session.put("articoli", articoli);

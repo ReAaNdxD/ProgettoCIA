@@ -37,11 +37,9 @@ public class RichiediModificaIndirizzoSpedizione extends ActionSupport implement
 
 	@Override
 	public String execute() {
-		System.out.println(id + "sono id");
 		IndirizzoSpedizioneDAO iSDAO = IndirizzoSpedizioneDAOFactory.getDAO();
 		IndirizzoSpedizione i = iSDAO.getById(id);
 		session.put("indirizzo", i);
-		System.out.println(i + "sono i");
 		return SUCCESS;
 	}
 

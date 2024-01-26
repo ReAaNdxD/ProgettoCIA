@@ -1,11 +1,9 @@
 package it.unirc.pwm.ht.dao;
 
 import java.sql.Date;
-import java.util.ArrayList;
 import java.util.List;
 
 import it.unirc.db.ecommerce.views.Customer;
-
 import it.unirc.pwm.ht.Carrello;
 import it.unirc.pwm.ht.Cliente;
 import it.unirc.pwm.ht.Ordine;

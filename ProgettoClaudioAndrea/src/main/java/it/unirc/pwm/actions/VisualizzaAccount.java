@@ -23,10 +23,6 @@ public class VisualizzaAccount extends ActionSupport implements SessionAware, Cl
 	}
 
 	public String execute() {
-//		if((Cliente)session.get("cliente")!=null) {
-//			return SUCCESS;
-//		}else
-//			return ERROR;	
 		return SUCCESS;
 	}
 

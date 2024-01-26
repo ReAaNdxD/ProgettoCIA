@@ -37,10 +37,8 @@ public class ModificaCliente extends ActionSupport implements SessionAware, Clie
 
 	public String execute() {
 		ClienteDAO cDAO = ClienteDAOFactory.getDAO();
-		
 		Cliente c =(Cliente)session.get("cliente");
 		cliente.setIdCliente(c.getIdCliente());
-		System.out.println(cliente);
 		if (cDAO.modifica(cliente)) {
 			session.replace("cliente", this.cliente);
 			return SUCCESS;
@@ -51,7 +49,6 @@ public class ModificaCliente extends ActionSupport implements SessionAware, Clie
 	}
 	public void validate() {
 		if (!cliente.getPassword().equals(ripetiPassword)) {
-			System.out.println(cliente);
             addActionError("Le due password non corrispondono.");
         }
 	}

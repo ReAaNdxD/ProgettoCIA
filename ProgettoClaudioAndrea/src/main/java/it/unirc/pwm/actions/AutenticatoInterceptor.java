@@ -29,7 +29,6 @@ public class AutenticatoInterceptor implements Interceptor {
 		
 		
 		Cliente cliente = (Cliente) session.get("cliente");
-		System.out.println("ciaobello");
 		if (cliente == null) {
 		    return Action.LOGIN;
 		} 

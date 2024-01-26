@@ -38,24 +38,6 @@
 
 </head>
 <body>
-	<!-- 	<form class="form-signin" action="/Login" method="post">
-		<h1 class="h3 mb-3 font-weight-normal">Login</h1>
-		<label for="inputUsername" class="sr-only">Username</label> <input
-			name="username" type="text" id="inputUsername" class="form-control"
-			placeholder="username" required> <label for="inputPassword"
-			class="sr-only">Password</label> <input name="password"
-			type="password" id="inputPassword" class="form-control"
-			placeholder="password" required>
-		<div class="checkbox mb-3">
-			<label> <input type="checkbox" value="remember-me">
-				Remember me
-			</label>
-		</div>
-		<button class="btn btn-lg btn-primary btn-block" type="submit">Accedi</button>
-	</form> -->
-
-
-
 
 	<section id="contact-us" class="contact-us section">
 		<div class="container" style="max-width: 600px">

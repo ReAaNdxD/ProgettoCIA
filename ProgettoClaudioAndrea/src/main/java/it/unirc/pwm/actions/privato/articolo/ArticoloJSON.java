@@ -22,7 +22,6 @@ public class ArticoloJSON extends ActionSupport {
 
 	@Override
 	public String execute() {
-		System.out.println("SONO ArticoloJSON");
 		ArticoloDAO articoloDAO = ArticoloDAOFactory.getDAO();
 		result = articoloDAO.visualizzaArticoliJSON();
 		return SUCCESS;

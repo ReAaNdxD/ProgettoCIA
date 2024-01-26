@@ -30,15 +30,11 @@ public class RichiediModificaCartaCredito extends ActionSupport implements Sessi
 
 	@Override
 	public String execute() {
-		System.out.println("id carta: "+id);
 		CartaCreditoDAO cDAO = CartaCreditoDAOFactory.getDAO();
 		CartaCredito cc = new CartaCredito();
-		
 		cc.setIdCartaCredito(id);
 		CartaCredito c = cDAO.get(cc);
-		System.out.println(c);
 		if (c!= null) {
-		System.out.println(c);
 		session.put("carta", c);
 		return SUCCESS;
 		}return ERROR;

@@ -34,7 +34,6 @@ public class ModificaIndirizzoSpedizione extends ActionSupport implements Sessio
 			IndirizzoSpedizione is = ((IndirizzoSpedizione) session.get("indirizzo"));
 			indirizzo.setIdIndirizzoSpedizione(is.getIdIndirizzoSpedizione());
 			indirizzo.setCliente(cliente);
-			System.out.println(indirizzo);
 			IndirizzoSpedizioneDAO iSDAO = IndirizzoSpedizioneDAOFactory.getDAO();
 			iSDAO.modifica(indirizzo);
 			IndirizzoSpedizioneDAO indirizzoSpedizioneDAO = IndirizzoSpedizioneDAOFactory.getDAO();
@@ -60,23 +59,3 @@ public class ModificaIndirizzoSpedizione extends ActionSupport implements Sessio
 }
 
 
-
-//System.out.println(indirizzo);
-//IndirizzoSpedizione indirizzo = (IndirizzoSpedizione) session.get("indirizzo");
-//if (indirizzo != null) {
-//    indirizzo.setCliente((Cliente)session.get("cliente"));
-//
-//
-//	IndirizzoSpedizioneDAO iSDAO = IndirizzoSpedizioneDAOFactory.getDAO();
-//	iSDAO.modifica(indirizzo);
-//
-//	System.out.println(indirizzo);
-//	
-//
-//	session.put("indirizzo", indirizzo);
-//
-//	return SUCCESS;
-//} else {
-//	addActionError("Operazione fallita");
-//	return ERROR;
-//}

@@ -29,16 +29,11 @@ public class AggiungiCartaCredito extends ActionSupport implements SessionAware,
 
 	@Override
 	public String execute() {
-		System.out.println("SONO EXECUTE");
 		CartaCreditoDAO cDAO = CartaCreditoDAOFactory.getDAO();
 		Cliente cliente = (Cliente) session.get("cliente");
-		System.out.println(cliente);
-		System.out.println(carta);
 		if (cDAO.salva(carta, cliente)) {
-			System.out.println("dentro if");
 			CartaCreditoDAO cartaCreditoDAO = CartaCreditoDAOFactory.getDAO();
 			List<CartaCredito> carteCredito = cartaCreditoDAO.getAllByCliente(cliente);
-			System.out.println(carteCredito);
 			session.replace("carteCredito", carteCredito);
 			return SUCCESS;
 		}

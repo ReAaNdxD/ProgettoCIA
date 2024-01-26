@@ -35,7 +35,6 @@ public class ModificaCartaCredito extends ActionSupport implements SessionAware,
 			CartaCredito c = ((CartaCredito) session.get("carta"));
 			carta.setIdCartaCredito(c.getIdCartaCredito());
 			carta.getClientes().add(cliente);
-			System.out.println(carta);
 			CartaCreditoDAO cDAO = CartaCreditoDAOFactory.getDAO();
 			cDAO.modifica(carta);
 	        List<CartaCredito> carte = cDAO.getAllByCliente(cliente);

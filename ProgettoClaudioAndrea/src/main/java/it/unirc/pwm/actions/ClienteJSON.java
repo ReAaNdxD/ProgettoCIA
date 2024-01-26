@@ -8,12 +8,8 @@ import it.unirc.pwm.ht.dao.ClienteDAOFactory;
 
 public class ClienteJSON extends ActionSupport  {
 	private static final long serialVersionUID = 1L;
-
-//	private Integer idCliente;
-//	private String nome;
 	private String email;
 	private String password;
-//	private String cognome;
 	
 	private Cliente cliente;
 	
@@ -74,9 +70,7 @@ public class ClienteJSON extends ActionSupport  {
 		Cliente cliente = new Cliente();
 		cliente.setEmail(email);
 		cliente.setPassword(password);
-		System.out.println(cliente);
 		this.cliente=cDAO.loginJSON(cliente);
-		System.out.println(this.cliente);
 		return "SUCCESS";
 	}
 

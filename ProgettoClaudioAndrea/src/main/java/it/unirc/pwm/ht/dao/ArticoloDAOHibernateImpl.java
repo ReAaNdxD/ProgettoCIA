@@ -17,7 +17,6 @@ import it.unirc.pwm.ht.Articolo;
 import it.unirc.pwm.ht.Carrello;
 import it.unirc.pwm.ht.Cliente;
 import it.unirc.pwm.ht.Prodotto;
-import it.unirc.pwm.ht.Sottocategoria;
 
 public class ArticoloDAOHibernateImpl implements ArticoloDAO {
 
