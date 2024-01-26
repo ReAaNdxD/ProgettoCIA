@@ -56,15 +56,7 @@
                 </svg>
 								</h3>
 							</div>
-							<%-- <%
-												Venditore venditore = new Venditore();
-												VenditoreDAO venditoreDAO = new VenditoreDAO();
-												if (session.getAttribute("Admin") != null) {
-													venditore = venditoreDAO.get(new Venditore(1));
-												} else if (session.getAttribute("Venditore") != null) {
-													venditore = (Venditore) session.getAttribute("Venditore");
-												}
-											%> --%>
+							
 							<s:form class="form" method="post">
 								<div class="row">
 									<div class="col-12">
