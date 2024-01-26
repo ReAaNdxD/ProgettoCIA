@@ -246,6 +246,7 @@ public class ClienteDAOHibernateImpl implements ClienteDAO {
 		} catch (HibernateException e) {
 			transaction.rollback();
 			e.printStackTrace();
+			return null;
 		} 
 		finally {
 			if (session!=null) 
